@@ -1,20 +1,201 @@
-dark-mode{
-        --main-accent-color: #4F2EE8;
-            --secondary-accent-color: #EAC645;
-            --main-color: #B4AFAF;
-            ;
-            --secondary-color: #FFF;
-            ;
-            --main-bg-color: #202024;
-            ;
+.night {
+    --main-accent-color: #4F2EE8;
+    --secondary-accent-color: #EAC645;
+    --main-color: #B4AFAF;
+    --secondary-color: #202024;
+    --main-bg-color: #fff;
+    --header--: #111;
 }
-.slider{
-    transform: color .3s ease-in-out, background-color .3s ease-in-out, border-color .3s ease-in-out,fill .3s ease-in-out, transform .3s ease-in-out;
+
+.night .slider {
+    transform: color .3s ease-in-out, background-color .3s ease-in-out, border-color .3s ease-in-out, fill .3s ease-in-out, transform .3s ease-in-out;
 }
-.circle::before{
-transition: color .3s ease-in-out,
-    background-color .3s ease-in-out,
-    border-color .3s ease-in-out,
-    fill .3s ease-in-out,
-    transform .3s ease-in-out;
+
+.night .category-link {
+    color: var(--main-accent-color);
+}
+
+.night .circle::before {
+    transition: color .3s ease-in-out,
+        background-color .3s ease-in-out,
+        border-color .3s ease-in-out,
+        fill .3s ease-in-out,
+        transform .3s ease-in-out;
+}
+
+.night .shop-cart-description {
+    color: var(--main-bg-color);
+}
+
+body.night {
+    background-color: var(--secondary-color);
+}
+
+.night .icon-close {
+    stroke: var(--main-bg-color);
+}
+
+.night .shopping-list-title {
+    color: var(--main-bg-color);
+}
+
+.night .empty-shopping-list-text {
+    color: rgba(255, 255, 255, 0.60);
+}
+
+li.night,
+a.night {
+    color: var(--main-bg-color);
+}
+
+.night .book-title {
+    color: var(--main-bg-color);
+}
+
+h1.night,
+h3.night {
+    color: var(--main-bg-color);
+}
+
+.night .nav-item {
+    color: var(--main-bg-color);
+}
+
+.night .header .night .container {
+    background-color: var(--header--);
+    border: 1.5px solid var(--main-bg-color);
+}
+
+.night .category-link:hover,
+.night .category-link:focus {
+    color: var(--secondary-accent-color);
+}
+
+.night .shop-cart-btn:hover,
+.night .shop-cart-btn:focus {
+    color: var(--main-color);
+}
+
+.night .category-link {
+    color: var(--main-bg-color);
+}
+
+.night .category-list::-webkit-scrollbar-thumb {
+    background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, var(--main-bg-color) 18.03%, var(--main-bg-color) 100%);
+}
+
+.night .header_logo-icon {
+    stroke: var(--main-bg-color);
+}
+
+.night .nav-link {
+    color: var(--main-bg-color);
+}
+
+.night .header-container {
+    color: var(--header--);
+}
+
+.night .shopping-list-container {
+    color: var(--secondary-color);
+}
+
+.night .header-container {
+    background: var(--header--);
+}
+
+.night .button-hamburger {
+    stroke: var(--main-bg-color);
+}
+
+.night .nav-link-icon {
+    border: var(--main-bg-color);
+    fill: var(--main-bg-color);
+}
+
+.night .nav-item {
+    color: var(--secondary-accent-color);
+}
+
+.night :last-child {
+    color: #cfcbcb;
+}
+
+.night .header_logo-icon,
+.night .modal-close-btn {
+    fill: var(--main-bg-color);
+}
+
+.night .nav-item {
+    color: var(--main-bg-color);
+}
+
+.night .shop-cart-title {
+    color: var(--main-bg-color);
+}
+
+.night .modal-body {
+    color: var(--secondary-color);
+    background-color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.night .modal-body-add-btn {
+    color: var(--main-bg-color);
+}
+
+.night .modal-body-text {
+    color: var(--main-bg-color);
+}
+
+
+.night .amazon-icon {
+    filter: invert(98%) sepia() saturate(0%) hue-rotate(105deg) brightness(103%) contrast(102%);
+    fill: var(--main-bg-color);
+}
+
+.night .shop-cart-media:hover,
+.night .shop-cart-media:focus {
+    filter: invert(98%) sepia() saturate(0%) hue-rotate(105deg) brightness(103%) contrast(102%);
+}
+
+.night .loader {
+    border: 10px solid rgba(234, 198, 69, .6);
+    border-left-color: var(--secondary-accent-color);
+}
+
+.night .shop-cart-btn:hover {
+    color: var(--main-bg-color);
+}
+
+.night .header-logo {
+    color: var(--secondary-accent-color);
+}
+
+.night .container {
+    color: var(--secondary-color);
+}
+
+.night .title-category {
+    color: var(--main-bg-color);
+}
+
+.night.see_more {
+    color: var(--main-bg-color);
+}
+
+.night.modal-backdrop {
+    background-color: rgba(17, 17, 17, 0.40);
+}
+
+.night .title-secondary {
+    color: var(--main-accent-color);
+}
+
+.night .category-link {
+    color: var(--main-bg-color);
+}
+
+.night p:first-child {
+    color: var(--main-bg-color);
 }
