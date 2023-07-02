@@ -1,14 +1,14 @@
 @import './css/common.css';
 @import './css/reset.css';
-@import './css/fonts.css';
 @import './css/base.css';
+@import './css/fonts.css';
 @import './css/header.css';
 @import './css/support.css';
 @import './css/shopping-list.css';
 @import './css/modal-window.css';
 @import './css/category.css';
 @import './css/scroll-up.css';
-@import './css/footer.css';
 @import './css/loader.css';
 @import './css/shave.css';
 @import './css/modal-auth.css';
+@import './css/footer.css';
