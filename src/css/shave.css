@@ -1,0 +1,14 @@
+.sheave {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+@media screen and (min-width: 1440px){
+    .sheave {
+        flex-direction: column;
+        gap: 86px;
+        width: 380px;}
+}

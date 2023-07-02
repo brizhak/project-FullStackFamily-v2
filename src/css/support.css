@@ -1,0 +1,150 @@
+.funds-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.funds-container {
+  padding-inline: 20px;
+  margin: 0 auto;
+}
+
+.funds{
+  width: 314px;
+  border-radius: 16px;
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,#4f2ee8 18.03%,#fff 100%);
+  box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
+  padding-inline: 40px;
+  padding-top: 24px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.funds-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.funds-title {
+  color: #fff;
+  font-size: 28px;
+  line-height: 1.14;
+  letter-spacing: -1.12px;
+}
+
+.swiper-slide::before {
+  counter-increment: section;
+  content: '0' counter(section) ' ';
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.56px;
+}
+
+.swiper {
+  height: 188px;
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 16px;
+  counter-reset: section;
+  list-style-type: none;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.swiper-button-next,
+.swiper-button-up {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  border-radius: 38px;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.swiper-button-next-icon,
+.swiper-button-up-icon {
+  fill: #4f2ee8;
+}
+
+.swiper-button-next-icon {
+  transform: rotate(180deg) translateY(-105%) translateX(-105%);
+}
+
+.swiper-button-up.is-hidden {
+  display: none;
+}
+
+.charity-img {
+  filter: brightness(0) invert(1);
+}
+
+.funds-icon {
+  fill: #fff;
+}
+
+@media screen and (min-width: 375px) {
+  .funds-container {
+    width: 300px;
+  }
+  .funds-title {
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-up {
+    width: 38px;
+    height: 38px;
+  }
+
+  .funds {
+    width: 335px;
+    padding-bottom: 14px;
+  }
+
+  .swiper-wrapper {
+    margin-bottom: 32px;
+  }
+
+  .swiper {
+    height: 292;
+    margin-bottom: 70px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .funds-container {
+    width: 356px;
+  }
+  .swiper-wrapper {
+    margin-bottom: 40px;
+  }
+
+  .funds {
+    padding-bottom: 24px;
+  }
+
+  .swiper {
+    margin-bottom: 78px;
+  }
+}

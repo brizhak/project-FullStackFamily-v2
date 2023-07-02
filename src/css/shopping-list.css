@@ -1,0 +1,234 @@
+@import './common.css';
+@import './reset.css';
+@import './fonts.css';
+@import './base.css';
+@import './header.css';
+@import './support.css';
+@import './shopping-list.css';
+@import './modal-window.css';
+@import './footer.css';
+
+.shopping-list-title {
+  color: var(--secondary-color);
+  font-size: 32px;
+  line-height: 1.18;
+  letter-spacing: -1.28px;
+  padding-top: 40px;
+}
+
+.title-blue {
+  color: var(--main-accent-color);
+}
+
+.empty-shopping-list-text {
+  min-width: 244px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 120px;
+  margin-bottom: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  line-height: 1.28;
+  letter-spacing: -0.28px;
+}
+
+.empty-shopping-list-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shopping-list-list {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.shop-cart-container {
+  padding: 14px;
+  border-radius: 16px;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+}
+
+.shop-cart-container:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.shop-cart-wrap {
+  display: flex;
+}
+
+.shop-cart-info {
+  position: relative;
+  margin-left: 14px;
+}
+
+.shop-cart-title {
+  color: var(--secondary-color);
+  font-size: 16px;
+  margin-bottom: 4px;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+}
+
+.shop-cart-category {
+  color: #b4afaf;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.17;
+  letter-spacing: 0.36px;
+  margin-bottom: 8px;
+}
+
+.shop-cart-description {
+  overflow: hidden;
+  color: #111;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: -0.56px;
+  margin-bottom: 14px;
+  height: 68px;
+}
+
+.shop-cart-bottom-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shop-cart-author {
+  color: #b4afaf;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.48px;
+}
+
+.shop-cart-media {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  height: 16px;
+  gap: 8px;
+}
+
+.media-icon {
+  transition-property: transform, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.media-icon:hover {
+  transform: translateY(-2px) scale(1.1);
+  mix-blend-mode: luminosity;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+}
+
+.shop-cart-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--main-accent-color);
+  transition-duration: 250ms;
+  border: none;
+}
+.shop-cart-btn-trash {
+  stroke: var(--main-bg-color);
+  fill: transparent;
+}
+
+.shop-cart-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+@media only screen and (min-width: 768px) {
+  .shopping-list-container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .empty-shopping-list-img {
+    width: 322px;
+    height: 241px;
+  }
+  .shopping-list-title {
+    font-size: 48px;
+  }
+  .empty-shopping-list-text {
+    margin-top: 140px;
+    margin-bottom: 20px;
+  }
+  .shop-image {
+    width: 116px;
+    height: 165px;
+  }
+  .shop-cart-title {
+    font-size: 16px;
+  }
+  .shop-cart-category {
+    margin-bottom: 14px;
+  }
+  .shop-cart-description {
+    height: 53px;
+  }
+  .shop-cart-wrap {
+    justify-content: space-between;
+  }
+  .shop-cart-description {
+    margin-bottom: 32px;
+  }
+  .amazon-icon {
+    width: 48px;
+    height: 15px;
+  }
+  .media-book-icon {
+    width: 28px;
+    height: 27px;
+  }
+  .shop-cart-media {
+    width: 140px;
+    height: 30px;
+    gap: 16px;
+  }
+  .shop-cart-btn {
+    width: 34px;
+    height: 34px;
+  }
+  .shop-cart-author {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .shopping-list-container {
+    max-width: 996px;
+  }
+
+  .shop-cart-container {
+    max-width: 996px;
+    max-height: 213px;
+    padding: 24px;
+  }
+
+  .shopping-list-list {
+    max-width: 996px;
+  }
+  .empty-shopping-list-text {
+    font-size: 18px;
+  }
+
+  .shop-cart-info {
+    max-width: 808px;
+    margin-left: 24px;
+  }
+}

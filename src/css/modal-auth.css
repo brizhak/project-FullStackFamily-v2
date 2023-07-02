@@ -1,0 +1,304 @@
+/* -- Various -- */
+:root {
+    /* common color */
+
+    /* color-text */
+
+    --color-modal-icon: #111;
+    --color-modal-icon-close: #4f2ee8;
+    /* --color-modal-input: #8E8F99; */
+    /* --color-modal-input-focus: #000; */
+    /* --color-modal-comment: rgba(117, 117, 117, 0.5); */
+    /* --color-modal-check: ##757575; */
+    /* --color-modal-check-ref: #4D5AE5; */
+    /* --color-modal-check-icon: #F4F4FD; */
+    /* --color-btn-modal-submit: #fff; */
+
+    /* background-color */
+
+    --bg-color-backdrop: #4f2ee8;
+    --bg-color-modal: #F6F6F6;
+    --bg-color-btn-modal: #F6F6F6;
+    --bg-color-btn-modal-active: #4f2ee8;
+    /* --bg-color-btn-modal-submit: #4D5AE5; */
+    /* --bg-color-btn-modal-submit-hover: #404BBF; */
+
+
+    /* border-color */
+
+    --brd-color-modal-input: rgba(33, 33, 33, 0.2);
+    --brd-color-modal-input-focus: #4f2ee8;
+
+    /* fonts */
+
+
+    /* transition, animation */
+    --transition-property: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* .visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+} */
+
+/* ------------------------------------- Modal windows -- */
+
+
+.overlay {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: var(--bg-color-backdrop);
+    /* transition: opacity var(--transition-property), visibility var(--transition-property); */
+    transition: opacity 1000ms linear;
+
+
+}
+
+/* 
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+
+    background-color: var(--bg-color-backdrop);
+
+    transition: opacity var(--transition-property), visibility var(--transition-property);
+
+} */
+
+.modal.active {
+    opacity: 1;
+    scale: 1;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    transition: scale 500ms linear, opacity 500ms linear;
+    scale: 0.4;
+    opacity: 0;
+}
+
+/* 
+.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+} */
+
+/* .no-scroll {
+    overflow: hidden;
+} */
+
+.modal-auth {
+    position: absolute;
+    top: 48px;
+    /* top: 25%; */
+    left: 50%;
+    max-width: 579px;
+    /* width: calc(100% - 32px); */
+    width: 100%;
+    min-height: 516px;
+    padding: 80px 40px 40px 40px;
+
+
+    transform: translate(-50%, 0%) scaleY(1) skew(0);
+
+    background-color: var(--bg-color-modal);
+
+    border-radius: 18px;
+    /* box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2); */
+
+
+    transition: transform var(--transition-property);
+}
+
+/* @media screen and (min-width: 768px) and (orientation: portrait) {
+    .modal-auth {
+        top: 50%;
+        transform: translate(-50%, -50%) scaleY(1) skew(0);
+    }
+} */
+
+/* @media screen and (min-width: 1200px) {
+    .modal-auth {
+        top: 50%;
+        transform: translate(-50%, -50%) scaleY(1) skew(0);
+    }
+} */
+
+
+/* .backdrop.is-hidden .modal-auth {
+    transform: translate(-50%, -50%) scaleY(0) skew(-90deg);
+} */
+
+/* @media screen and (min-width: 768px) {
+    .modal-auth {
+        max-width: 408px;
+        width: calc(100% - 32px);
+        padding: 72px 25px 24px 23px;
+    }
+} */
+
+/* @media screen and (min-width: 1200px) {
+    .modal-auth {
+        max-width: 408px;
+        width: calc(100% - 30px);
+        min-height: 584px;
+        padding: 72px 24px 24px;
+    }
+} */
+
+.btn-modal-close {
+    --size: 28px;
+
+    width: var(--size);
+    height: var(--size);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    color: var(--color-modal-icon);
+    background-color: var(--bg-color-btn-modal);
+    /* border-color: var(--transition-property); */
+    /* border: 1px solid rgba(0, 0, 0, 0.1); */
+    /* border-radius: 50%; */
+    border: 0px;
+    cursor: pointer;
+
+    transition: color var(--transition-property);
+    /* transition: color var(--transition-property), background-color var(--transition-property); */
+}
+
+.btn-modal-close:is(:hover, :focus) {
+    color: var(--color-modal-icon-close);
+    /* background-color: var(--bg-color-btn-modal-active); */
+    /* border-color: var(--bg-color-btn-modal-active); */
+}
+
+.modal-close-icon {
+    --size: 28px;
+    width: var(--size);
+    height: var(--size);
+    stroke: currentColor;
+    fill: var(--bg-color-modal);
+}
+
+.input-text {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: calc(16 / 12);
+    letter-spacing: 0.04em;
+    color: var(--color-modal-input);
+}
+
+/* @media screen and (min-width: 768px) {
+    .input-text {
+        line-height: calc(14 / 12);
+        letter-spacing: 0.01em;
+    }
+} */
+
+.modal-field {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.modal-field-input {
+    display: block;
+    position: relative;
+}
+
+.modal-input {
+    width: 100%;
+    height: 40px;
+    padding-left: calc(16px + 18px + 4px);
+}
+
+.modal-input-focus {
+    outline: transparent;
+    background-color: transparent;
+    border: 1px solid var(--brd-color-modal-input);
+    border-radius: 4px;
+
+    transition: color var(--transition-property), border-color var(--transition-property), fill var(--transition-property);
+}
+
+.modal-input-focus:focus {
+    color: var(--color-modal-input-focus);
+    border-color: var(--brd-color-modal-input-focus);
+}
+
+.modal-icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+
+    stroke: var(--color-modal-icon);
+    fill: var(--bg-color-modal);
+}
+
+.modal-input-focus:focus+.modal-icon {
+    stroke: var(--bg-color-btn-modal-active);
+    fill: var(--bg-color-modal);
+}
+
+
+.btn-modal-submit {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 169px;
+    padding: 16px 32px;
+
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-align: center;
+
+    color: var(--color-btn-modal-submit);
+    background-color: var(--bg-color-btn-modal-submit);
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+    cursor: pointer;
+    transition: background-color var(--transition-property);
+}
+
+.btn-modal-submit:is(:hover, :focus) {
+    background-color: var(--bg-color-btn-modal-submit-hover);
+}
+
+.btn-modal-action {
+    border: 0px;
+}
