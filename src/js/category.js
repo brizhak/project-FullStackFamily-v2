@@ -1,16 +1,10 @@
+import { fetchTopBooks, fetchCategoryList, fetchCertainCategory } from './api_request'
+
 const categoryEl = document.querySelector('.category-list');
 const booksCategoryEl = document.querySelector('.books-category');
 const h1El = document.querySelector('.title-category')
 
-function fetchTopBooks() {
-  return fetch("https://books-backend.p.goit.global/books/top-books")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
-}
+
 allCategorys();
 
 function allCategorys() {
@@ -26,20 +20,11 @@ function allCategorys() {
     }); 
 };
 
-function fetchCategorys() {
-  return fetch("https://books-backend.p.goit.global/books/category-list")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
-}
 
 addCategorys();
 
 function addCategorys() {
-  fetchCategorys()
+  fetchCategoryList()
     .then((categorys) => {
       renderCategorys(categorys);
 
@@ -77,7 +62,7 @@ function onSelectCategory(evt) {
   let lastWorld = AllTitle.pop();
   h1El.innerHTML = ` <h1 class="title-category"> ${AllTitle.join(" ")} <span class="title-acent">${lastWorld}</span></h1>`;
 
-  fetchCategory(category)
+  fetchCertainCategory(category)
     .then((books) => {
       renderBooks(books)
   
@@ -89,15 +74,6 @@ function onSelectCategory(evt) {
     });
 }
 
-function fetchCategory(category) {
-  return fetch(`https://books-backend.p.goit.global/books/category?category=${category}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
-}
 
 function renderBooks(arr) {
   const markup = arr
