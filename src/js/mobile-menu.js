@@ -1,8 +1,8 @@
 import { openModalAuth } from './modal-auth.js';
 import { handleThemeToggle } from './dark.js';
 import { onLogout } from './firebase-api.js';
-import { shoppingListMarkup } from './shopping-list';
-import { onLogout } from './firebase-api';
+import { shoppingListMarkup } from './shopping-list.js';
+
 
 const mobileMenu = document.getElementById('modal-mobile');
 const openMenuBtn = document.getElementById('open-modal-mobile');
