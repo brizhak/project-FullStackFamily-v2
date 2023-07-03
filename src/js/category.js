@@ -1,4 +1,5 @@
-import { fetchTopBooks, fetchCategoryList, fetchCertainCategory } from './api_request'
+import { fetchTopBooks, fetchCategoryList, fetchCertainCategory } from './api_request';
+import Notiflix from 'notiflix';
 
 const categoryEl = document.querySelector('.category-list');
 const booksCategoryEl = document.querySelector('.books-category');
@@ -9,12 +10,12 @@ allCategorys();
 
 function allCategorys() {
   fetchTopBooks().then((topBooks) => {
-    topBooks.map((books) => {
-      renderTopBooks(books)
-    })
-  }).catch((error) => {
-    console.log(error);
-  });
+    topBooks.map(( books ) => { 
+    renderTopBooks(books)
+  })
+    }).catch((error) => {
+      Notiflix.Notify.failure('Something went wrong. Please try again');
+    }); 
 };
 
 
@@ -26,7 +27,7 @@ function addCategorys() {
       renderCategorys(categorys);
 
     }).catch((error) => {
-      console.log(error);
+      Notiflix.Notify.failure('Something went wrong. Please try again');
     });
 };
 
@@ -58,13 +59,12 @@ function onSelectCategory(evt) {
   let AllTitle = category.split(" ");
   let lastWorld = AllTitle.pop();
   h1El.innerHTML = ` <h1 class="title-category"> ${AllTitle.join(" ")} <span class="title-acent">${lastWorld}</span></h1>`;
-
   fetchCertainCategory(category)
     .then((books) => {
       renderBooks(books)
 
     }).catch((error) => {
-      console.log(error);
+      Notiflix.Notify.failure('Something went wrong. Please try again');
     });
 }
 
@@ -135,7 +135,6 @@ function renderTopBooks(arr) {
   return booksCategoryEl.insertAdjacentHTML('beforeend', markup);
 
 }
-
 
 // <div class="book-carts">
 //       <p>${list_name}</p>

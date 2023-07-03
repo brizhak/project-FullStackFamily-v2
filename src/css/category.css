@@ -8,9 +8,7 @@ p {
     overflow-y: scroll;
     width: 307px;
     height: 228px;
-    padding-top: 40px;
-
-
+    margin-top: 40px;
 }
 
 .categorys::-webkit-scrollbar {
