@@ -8,7 +8,7 @@ import {
 
 import { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser, authStates, writeUserData,readUserData,onLogout } from './firebase-api.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
+import { closeModalAuth } from './modal-auth.js';
 
 const refsBtn = {
      btnUp : document.querySelector('button[data-action=signup]'),
@@ -100,7 +100,7 @@ function onFormSubmit(event) {
         Notify.warning(errorMessage);
       });
   }
-
+  closeModalAuth();
   }
 
 
