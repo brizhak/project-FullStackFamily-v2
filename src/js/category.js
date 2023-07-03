@@ -33,7 +33,7 @@ function addCategorys() {
 
 function renderCategorys(arr) {
   const markup = arr
-    .map(({list_name}) => {
+    .map(({ list_name }) => {
       return `
       <li>
                 <a href="#" class="category-link">${list_name}</a>
@@ -47,14 +47,14 @@ function renderCategorys(arr) {
 categoryEl.addEventListener('click', onSelectCategory);
 
 function onSelectCategory(evt) {
-  
+
   if (evt.target.tagName !== 'A' && evt.target.parentNode.tagName !== 'A') {
     return;
   }
   let category = evt.target.textContent;
   if (category === 'All categories') {
     allCategorys();
-}
+  }
 
   let AllTitle = category.split(" ");
   let lastWorld = AllTitle.pop();
@@ -62,7 +62,7 @@ function onSelectCategory(evt) {
   fetchCertainCategory(category)
     .then((books) => {
       renderBooks(books)
-  
+
     }).catch((error) => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
     });
@@ -71,18 +71,21 @@ function onSelectCategory(evt) {
 
 function renderBooks(arr) {
   const markup = arr
-    .map(({book_image, author, title}) => {
+    .map(({ book_image, author, title, _id }) => {
+
       return `
-      <div class="book-carts"> 
-      <img src="${book_image}" alt="${title}" class="book-img">
-      <div class="book-title"> 
-      <p>${title}</p>
-        <p class="book-author">${author}</p>
+      <a href="#" class="book-card" id="${_id}">
+        <div class="book-carts">
+          <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
+            <div class="book-title">
+              <p>${title}</p>
+              <p class="book-author">${author}</p>
+            </div>
         </div>
-        </div>
+      </a>
       `;
     })
-    .join("");
+    .join('');
   booksCategoryEl.innerHTML = markup;
 }
 
@@ -96,10 +99,11 @@ function renderTopBooks(arr) {
             <p class="best-sellers-title">${list_name}</p>
             <ul class="best-sellers-own-category-books">
                 <li class="best-sellers-book">
-                    <a href="#"> <img src="${book_image}" alt="${title}" class="book-img">
+                    <a href="#" id="${_id}"> 
+                        <img src="${book_image}" alt="${title}" class="book-img">
                         <div class="book-title"> 
-                        <p>${title}</p>
-                        <p class="book-author">${author}</p>
+                          <p>${title}</p>
+                          <p class="book-author">${author}</p>
                         </div></a>
                 </li>
             </ul>
@@ -116,7 +120,7 @@ function renderTopBooks(arr) {
   const markupMobile = markupBook.slice(0, 1).join("");
   const markupLaptop = markupBook.slice(0, 3).join("");
   const markupDesktop = markupBook.slice(0, 5).join("");
-  
+
   let markup = '';
   if (screenWidth < 767) {
     markup = `<ul class="category-item-list">${markupMobile}  ${markupBtn}</ul>`;
@@ -141,10 +145,10 @@ function renderTopBooks(arr) {
 //         </div>
 //         </div>
 
-// {/* <li class="book-carts"> 
+// {/* <li class="book-carts">
 //       <p>${list_name}</p>
 //       <img src="${book_image}" alt="${title}" class="book-img">
-//       <div class="book-title"> 
+//       <div class="book-title">
 //       <p>${title}</p>
 //         <p>${author}</p>
 //         </div>
