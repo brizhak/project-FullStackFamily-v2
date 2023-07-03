@@ -46,7 +46,10 @@ function renderCategorys(arr) {
 categoryEl.addEventListener('click', onSelectCategory);
 
 function onSelectCategory(evt) {
-  console.log(evt.target.textContent)
+  
+  if (evt.target.tagName !== 'A' && evt.target.parentNode.tagName !== 'A') {
+    return;
+  }
   let category = evt.target.textContent;
   if (category === 'All categories') {
     allCategorys();
