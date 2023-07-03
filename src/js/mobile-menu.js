@@ -1,6 +1,8 @@
 import { openModalAuth } from './modal-auth.js';
 import { handleThemeToggle } from './dark.js';
 import { onLogout } from './firebase-api.js';
+import { shoppingListMarkup } from './js/shopping-list.js';
+import { onLogout } from './js/firebase-api';
 
 const mobileMenu = document.getElementById('modal-mobile');
 const openMenuBtn = document.getElementById('open-modal-mobile');
@@ -8,7 +10,15 @@ const closeMenuBtn = document.getElementById('close-modal-mobile');
 // const mobileMenuLinks = document.querySelectorAll('.mobile-menu_link');
 const signUpButton = document.getElementById('sign-up');
 const themeSwitch = document.getElementById('theme-switch');
-const logoutButton = document.querySelector('.log-btn.hidden');
+const shoppingListButton = document.querySelector('.nav-link-shopping');
+const logoutButton = document.querySelector('.log-out');
+
+// shopping list
+shoppingListButton.addEventListener('click', shoppingListMarkup);
+  
+// log out
+logoutButton.addEventListener('click', onLogout);
+
 
 // opening mobile menu
 openMenuBtn.addEventListener('click', function () {
@@ -36,3 +46,17 @@ loginButton.classList.remove('hidden');
 loginButton.addEventListener('click', toggleMenu);
 onLogout();
 });
+
+// sign-in button update
+export function updateSignInButton({ username }) {
+  const signInButton = document.getElementById('sign-up');
+  signInButton.textContent = `${username}`;
+}
+
+export function resetSignInButton() {
+  const signInButton = document.getElementById('sign-up');
+  signInButton.textContent = 'Sign In';
+}
+
+
+
