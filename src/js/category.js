@@ -1,35 +1,46 @@
-import { fetchTopBooks, fetchCategoryList, fetchCertainCategory } from './api_request';
+import {
+  fetchTopBooks,
+  fetchCategoryList,
+  fetchCertainCategory,
+} from './api_request';
 import Notiflix from 'notiflix';
+import { showLoader, hideLoader } from './loader';
 
 const categoryEl = document.querySelector('.category-list');
 const booksCategoryEl = document.querySelector('.books-category');
-const h1El = document.querySelector('.title-category')
-
+const h1El = document.querySelector('.title-category');
 
 allCategorys();
 
 function allCategorys() {
-  fetchTopBooks().then((topBooks) => {
-    topBooks.map(( books ) => { 
-    renderTopBooks(books)
-  })
-    }).catch((error) => {
+  showLoader();
+  fetchTopBooks()
+    .then(topBooks => {
+      topBooks.map(books => {
+        renderTopBooks(books);
+      });
+      hideLoader();
+    })
+    .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
-    }); 
-};
-
+      hideLoader();
+    });
+}
 
 addCategorys();
 
 function addCategorys() {
+  showLoader();
   fetchCategoryList()
-    .then((categorys) => {
+    .then(categorys => {
       renderCategorys(categorys);
-
-    }).catch((error) => {
+      hideLoader();
+    })
+    .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
+      hideLoader();
     });
-};
+}
 
 function renderCategorys(arr) {
   const markup = arr
@@ -40,14 +51,13 @@ function renderCategorys(arr) {
             </li>
       `;
     })
-    .join("");
-  categoryEl.insertAdjacentHTML("beforeend", markup);
+    .join('');
+  categoryEl.insertAdjacentHTML('beforeend', markup);
 }
 
 categoryEl.addEventListener('click', onSelectCategory);
 
 function onSelectCategory(evt) {
-
   if (evt.target.tagName !== 'A' && evt.target.parentNode.tagName !== 'A') {
     return;
   }
@@ -56,23 +66,26 @@ function onSelectCategory(evt) {
     allCategorys();
   }
 
-  let AllTitle = category.split(" ");
+  let AllTitle = category.split(' ');
   let lastWorld = AllTitle.pop();
-  h1El.innerHTML = ` <h1 class="title-category"> ${AllTitle.join(" ")} <span class="title-acent">${lastWorld}</span></h1>`;
+  h1El.innerHTML = ` <h1 class="title-category"> ${AllTitle.join(
+    ' '
+  )} <span class="title-acent">${lastWorld}</span></h1>`;
+  showLoader();
   fetchCertainCategory(category)
-    .then((books) => {
-      renderBooks(books)
-
-    }).catch((error) => {
+    .then(books => {
+      renderBooks(books);
+      hideLoader();
+    })
+    .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
+      hideLoader();
     });
 }
-
 
 function renderBooks(arr) {
   const markup = arr
     .map(({ book_image, author, title, _id }) => {
-
       return `
       <a href="#" class="book-card" id="${_id}">
         <div class="book-carts">
@@ -90,9 +103,9 @@ function renderBooks(arr) {
 }
 
 function renderTopBooks(arr) {
-
-  const markupBook = arr.map(({ _id, book_image, title, author, list_name }) => {
-    return `
+  const markupBook = arr.map(
+    ({ _id, book_image, title, author, list_name }) => {
+      return `
      <div class="best-sellers-wraper">
     <ul class="best-sellers-all-category-list">
         <li class="best-sellers-own-category-list">
@@ -112,14 +125,14 @@ function renderTopBooks(arr) {
 </div>
        
       `;
-
-  });
+    }
+  );
 
   const markupBtn = `<button class="see-more">see more</button>`;
   const screenWidth = window.screen.width;
-  const markupMobile = markupBook.slice(0, 1).join("");
-  const markupLaptop = markupBook.slice(0, 3).join("");
-  const markupDesktop = markupBook.slice(0, 5).join("");
+  const markupMobile = markupBook.slice(0, 1).join('');
+  const markupLaptop = markupBook.slice(0, 3).join('');
+  const markupDesktop = markupBook.slice(0, 5).join('');
 
   let markup = '';
   if (screenWidth < 767) {
@@ -128,12 +141,10 @@ function renderTopBooks(arr) {
     markup = `<ul class="category-item-list">${markupLaptop}  ${markupBtn}</ul>`;
   } else {
     markup = `<ul class="category-item-list">${markupDesktop}  ${markupBtn}</ul>`;
-
   }
   //  markup = markupBook + markupBtn;
 
   return booksCategoryEl.insertAdjacentHTML('beforeend', markup);
-
 }
 
 // <div class="book-carts">
