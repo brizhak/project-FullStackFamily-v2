@@ -54,11 +54,11 @@ import { onLogout } from './firebase-api.js';
   const logoutButton = document.querySelector('.log-btn.hidden');
   logoutButton.addEventListener('click', updateUIOnLogout);
 
-   function openModalAuth() {
+ /*   function openModalAuth() {
      ModalAuth();
    }
 
  
    function handleThemeToggle() {
      handleThemeToggle();
-   }
+   } */
