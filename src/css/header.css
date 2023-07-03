@@ -76,6 +76,7 @@
 }
 
 .nav-item {
+  font-family: 'DM Sans Medium';
   display: flex;
   align-items: center;
   border-radius: 36px;
@@ -84,16 +85,14 @@
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
-  transition: background 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background 500ms ease-in-;
 }
 
 .nav-item:hover,
 .nav-item:focus {
   font-weight: 700;
-  color: #111111;
-  fill: #111111;
-  background: #eac645;
   padding: 8px 16px;
+  background: #eac645;
 }
 
 .nav-link-icon {
