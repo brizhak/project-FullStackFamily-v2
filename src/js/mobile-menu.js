@@ -1,5 +1,6 @@
 import { openModalAuth } from './modal-auth.js';
 import { handleThemeToggle } from './dark.js';
+import { onLogout } from './firebase-api.js';
 
   const mobileMenu = document.querySelector('.js-menu-container');
   const openMenuBtn = document.querySelector('.js-open-menu');
@@ -12,7 +13,7 @@ import { handleThemeToggle } from './dark.js';
   themeSwitch.addEventListener('change', handleThemeToggle);
 
   const toggleMenu = () => {
-    const isMenuOpen = openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
+    const isMenuOpen = openMenuBtn.getAttribute('aria-expanded') === true || false;
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
     mobileMenu.classList.toggle('is-open');
   };
@@ -46,6 +47,7 @@ import { handleThemeToggle } from './dark.js';
     const loginButton = document.querySelector('.log-btn.singup');
     loginButton.classList.remove('hidden');
     loginButton.addEventListener('click', toggleMenu);
+    onLogout();
   }
 
   // Додати слухача для кнопки "Logout"
@@ -53,11 +55,11 @@ import { handleThemeToggle } from './dark.js';
   logoutButton.addEventListener('click', updateUIOnLogout);
 
   // ModalAuth function
-  function openModalAuth() {
-    ModalAuth();
-  }
+  // function openModalAuth() {
+  //   ModalAuth();
+  // }
 
   // Theme toggle handler
-  function handleThemeToggle() {
-    handleThemeToggle();
-  }
+  // function handleThemeToggle() {
+  //   handleThemeToggle();
+  // }

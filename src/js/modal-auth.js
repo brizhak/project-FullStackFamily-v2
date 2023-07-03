@@ -30,4 +30,4 @@ function closeModalAuth() {
     };
   });
 
-export { openModalAuth };
+export { openModalAuth,closeModalAuth };
