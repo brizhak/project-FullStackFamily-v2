@@ -21,10 +21,10 @@ function addingBook(evt) {
 
 
     console.log("Додавання книги", book);
-    shoppingCart.push(book);
-    console.log(shoppingCart);
-    // dataUser.shoppingList.push(book);
-    // console.log(dataUser.shoppingList);
+    // shoppingCart.push(book);
+    // console.log(shoppingCart);
+    dataUser.shoppingList.push(book);
+    console.log(dataUser.shoppingList);
 
     removeFromCartBtn.classList.remove('visually-hidden');
     textRemove.classList.remove('visually-hidden');
