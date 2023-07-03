@@ -1,11 +1,11 @@
 //Якщо потрібні дії з Локал Сторідж - імпортуйте собі у файл.
 export default {
-    saveBook,
-    getBook,
-    removeBook,
+    saveInLocal,
+    getFromLocal,
+    removeFromLocal,
 };
 
-function saveBook(key, value) {
+function saveInLocal(key, value) {
     try {
         const changingValue = JSON.stringify(value);
         localStorage.setItem(key, changingValue);
@@ -14,7 +14,7 @@ function saveBook(key, value) {
     }
 };
 
-function getBook(key) {
+function getFromLocal(key) {
     try {
         const changingKey = localStorage.getItem(key);
         return changingKey === null ? undefined : JSON.parse(changingKey);
@@ -23,7 +23,7 @@ function getBook(key) {
     }
 };
 
-function removeBook(key) {
+function removeFromLocal(key) {
     try {
         if (key === null) {
             return undefined;
