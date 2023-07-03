@@ -12,14 +12,16 @@ const h1El = document.querySelector('.title-category');
 
 allCategorys();
 
+
 function allCategorys() {
   showLoader();
   fetchTopBooks()
     .then(topBooks => {
       topBooks.map(books => {
         renderTopBooks(books);
+        hideLoader();
       });
-      hideLoader();
+ 
     })
     .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
@@ -30,15 +32,12 @@ function allCategorys() {
 addCategorys();
 
 function addCategorys() {
- 
   fetchCategoryList()
     .then(categorys => {
       renderCategorys(categorys);
-    
     })
     .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
-     
     });
 }
 
@@ -58,6 +57,7 @@ function renderCategorys(arr) {
 categoryEl.addEventListener('click', onSelectCategory);
 
 function onSelectCategory(evt) {
+  
   if (evt.target.tagName !== 'A' && evt.target.parentNode.tagName !== 'A') {
     return;
   }
@@ -65,13 +65,13 @@ function onSelectCategory(evt) {
   if (category === 'All categories') {
     allCategorys();
   }
-
+  showLoader();
   let AllTitle = category.split(' ');
   let lastWorld = AllTitle.pop();
   h1El.innerHTML = ` <h1 class="title-category"> ${AllTitle.join(
     ' '
   )} <span class="title-acent">${lastWorld}</span></h1>`;
-  showLoader();
+  
   fetchCertainCategory(category)
     .then(books => {
       renderBooks(books);
@@ -100,6 +100,7 @@ function renderBooks(arr) {
     })
     .join('');
   booksCategoryEl.innerHTML = markup;
+
 }
 
 function renderTopBooks(arr) {
@@ -143,8 +144,9 @@ function renderTopBooks(arr) {
     markup = `<ul class="category-item-list">${markupDesktop}  ${markupBtn}</ul>`;
   }
   //  markup = markupBook + markupBtn;
-
+  
   return booksCategoryEl.insertAdjacentHTML('beforeend', markup);
+  
 }
 
 // <div class="book-carts">

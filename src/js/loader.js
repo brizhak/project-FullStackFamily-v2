@@ -9,6 +9,6 @@ export function showLoader() {
 }
 
 export function hideLoader() {
-  categoryEl.style.display = 'block';
   loader.classList.add('hide-loader');
+  categoryEl.style.display = 'block';
 }
