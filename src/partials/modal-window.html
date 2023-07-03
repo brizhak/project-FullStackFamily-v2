@@ -1,4 +1,5 @@
 <section class="modal-section" id="modalId">
+  <button id="openBtn">Open modal</button>
   <div class="overlay"></div>
   <div class="modal">
     <div class="modal-body">
@@ -11,7 +12,7 @@
       </div>
       <div class="modal-body-card" value=""></div>
       <div class="modal-body-container-btn">
-        <button class="modal-body-add-btn" type="submit">
+        <button class="modal-body-add-btn" type="submit" id="add-to-cart-btn">
           add to shopping list
         </button>
       </div>
@@ -20,6 +21,7 @@
           class="modal-body-add-btn btn-remove visually-hidden"
           data-action="remove"
           type="button"
+          id="remove-from-cart-btn"
         >
           remove from the shopping list
         </button>
