@@ -1,0 +1,54 @@
+<!-- Modal Window -->
+<div class="overlay active"></div>
+<div class="modal modal-auth active" data-modal>
+  <button class="btn-modal-close" data-modal-close type="button">
+    <svg class="modal-close-icon">
+      <use href="./img/icons.svg#icon-x-close"></use>
+    </svg>
+  </button>
+  <form class="modal-form">
+    <label class="modal-field"
+      ><span class="input-text"></span>
+      <span class="modal-field-input">
+        <input
+          class="modal-input modal-input-focus"
+          type="text"
+          name="name"
+          autofocus
+        />
+        <svg class="modal-icon" width="24" height="24">
+          <use href="./img/icons.svg#icon-user"></use>
+        </svg>
+      </span>
+    </label>
+    <label class="modal-field"
+      ><span class="input-text"></span>
+      <span class="modal-field-input">
+        <input class="modal-input modal-input-focus" type="text" name="email" />
+        <svg class="modal-icon" width="24" height="24">
+          <use href="./img/icons.svg#icon-mail"></use>
+        </svg>
+      </span>
+    </label>
+    <label class="modal-field"
+      ><span class="input-text"></span>
+      <span class="modal-field-input">
+        <input
+          class="modal-input modal-input-focus"
+          type="text"
+          name="password"
+        />
+        <svg class="modal-icon" width="24" height="24">
+          <use href="./img/icons.svg#icon-lock"></use>
+        </svg>
+      </span>
+    </label>
+    <button class="btn-modal-submit" type="submit">SIGN UP</button>
+    <button class="btn-modal-action" type="button" data-action="signup">
+      SIGN UP
+    </button>
+    <button class="btn-modal-action" type="button" data-action="signin">
+      SIGN IN
+    </button>
+  </form>
+</div>
