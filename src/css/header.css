@@ -29,9 +29,13 @@
 }
 
 .header-container {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 1.5px solid #111111;
+  border-radius: 0 0 8px 8px;
+
 }
 
 .header-logo {
