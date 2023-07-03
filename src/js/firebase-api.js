@@ -1,6 +1,8 @@
 import { refsBtn } from './firebase-main';
 import { getDatabase, ref, set, child, get, update } from 'firebase/database';
 import { getAuth, signOut } from 'firebase/auth';
+import {resetSignInButton} from './mobile-menu.js'
+
 
 const dataUser = {
   userId: '',
@@ -102,6 +104,7 @@ async function onLogout() {
       // disabledEnabledFormBtn(authStates);
     })
     .catch(error => {});
+
 }
 
 export {

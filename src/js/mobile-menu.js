@@ -1,64 +1,62 @@
 import { openModalAuth } from './modal-auth.js';
 import { handleThemeToggle } from './dark.js';
 import { onLogout } from './firebase-api.js';
+import { shoppingListMarkup } from './shopping-list.js';
+import { onLogout } from './firebase-api';
 
-  const mobileMenu = document.querySelector('.js-menu-container');
-  const openMenuBtn = document.querySelector('.js-open-menu');
-  const closeMenuBtn = document.querySelector('.js-close-menu');
-  const mobileMenuLinks = document.querySelectorAll('.mobile-menu_link');
-  const signUpButton = document.getElementById('sign-up');
-  const themeSwitch = document.getElementById('theme-switch');
+const mobileMenu = document.getElementById('modal-mobile');
+const openMenuBtn = document.getElementById('open-modal-mobile');
+const closeMenuBtn = document.getElementById('close-modal-mobile');
+// const mobileMenuLinks = document.querySelectorAll('.mobile-menu_link');
+const signUpButton = document.getElementById('sign-up');
+const themeSwitch = document.getElementById('theme-switch');
+const shoppingListButton = document.querySelector('.nav-link-shopping');
+const logoutButton = document.querySelector('.log-out');
 
-  signUpButton.addEventListener('click', openModalAuth);
-  themeSwitch.addEventListener('change', handleThemeToggle);
+// shopping list
+shoppingListButton.addEventListener('click', shoppingListMarkup);
+  
+// log out
+logoutButton.addEventListener('click', onLogout);
 
-  const toggleMenu = () => {
-    const isMenuOpen = openMenuBtn.getAttribute('aria-expanded') === true || false;
-    openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
-    mobileMenu.classList.toggle('is-open');
-  };
 
-  const closeMenuOnOrientationChange = () => {
-    if (window.matchMedia('(min-width: 768px)').matches) {
-      mobileMenu.classList.remove('is-open');
-      openMenuBtn.setAttribute('aria-expanded', false);
-    }
-  };
+// opening mobile menu
+openMenuBtn.addEventListener('click', function () {
+mobileMenu.style.display = 'block';
+});
 
-  const addMenuEventListeners = () => {
-    openMenuBtn.addEventListener('click', toggleMenu);
-    if (closeMenuBtn) {
-      closeMenuBtn.addEventListener('click', toggleMenu);
-    }
-    mobileMenuLinks.forEach(link => {
-      link.addEventListener('click', toggleMenu);
-    });
-  };
+// closing mobile menu
+closeMenuBtn.addEventListener('click', function () {
+mobileMenu.style.display = 'none';
+});
 
-  addMenuEventListeners();
+// opening modal authentication
+signUpButton.addEventListener('click', openModalAuth);
 
-  window.matchMedia('(min-width: 768px)').addEventListener('change', closeMenuOnOrientationChange);
+// theme switch
+themeSwitch.addEventListener('change', handleThemeToggle);
 
-  // Оновити розмітку після виходу з системи
-  function updateUIOnLogout() {
-    const logoutButton = document.querySelector('.log-btn');
-    logoutButton.classList.add('hidden');
+// logging out
+logoutButton.addEventListener('click', function () {
+const logoutButton = document.querySelector('.log-btn');
+logoutButton.classList.add('hidden');
 
-    const loginButton = document.querySelector('.log-btn.singup');
-    loginButton.classList.remove('hidden');
-    loginButton.addEventListener('click', toggleMenu);
-    onLogout();
-  }
+const loginButton = document.querySelector('.log-btn.singup');
+loginButton.classList.remove('hidden');
+loginButton.addEventListener('click', toggleMenu);
+onLogout();
+});
 
-  // Додати слухача для кнопки "Logout"
-  const logoutButton = document.querySelector('.log-btn.hidden');
-  logoutButton.addEventListener('click', updateUIOnLogout);
+// sign-in button update
+export function updateSignInButton({ username }) {
+  const signInButton = document.getElementById('sign-up');
+  signInButton.textContent = `${username}`;
+}
 
- /*   function openModalAuth() {
-     ModalAuth();
-   }
+export function resetSignInButton() {
+  const signInButton = document.getElementById('sign-up');
+  signInButton.textContent = 'Sign In';
+}
 
- 
-   function handleThemeToggle() {
-     handleThemeToggle();
-   } */
+
+

@@ -22,19 +22,25 @@
     />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
-    <title>Book Shelf</title>
+    <title>ShoppingList</title>
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
     <include src="./partials/header.html"></include>
     <main>
-      <include src="./partials/sheave.html"></include>
-      <include src="./partials/modal-window.html"></include>
+      <section class="shopping-list-section">
+        <div class="container shopping-list-container">
+          <h1 class="shopping-list-title">
+            Shopping <span class="title-blue">List</span>
+          </h1>
+
+          <ul class="shopping-list-list"></ul>
+          
+      </section>
     </main>
-    <footer>
-      <include src="./partials/footer.html"></include>
-    </footer>
-    <include src="./partials/modal-auth.html"></include>
+    <!-- <include src="./partials/modal-auth.html"></include> -->
     <script type="module" src="./index.js"></script>
   </body>
 </html>
+
+
