@@ -1,77 +1,92 @@
-    <header class="header">
-            <div class="header-container">
-                    <a class="header-logo" href="/src/index.html">
-                        <svg class="header_logo-icon" width="109" height="28">
-                            <use href="/src/img/icons.svg#icon-logo"></use>
-                        </svg>
-                    </a>
-                    <nav class="nav">
-                        <ul class="nav-list">
-                            <li class="nav-item">
-                                <div class="nav-items"><a class="nav-link" href="/src/index.html">HOME</a></div>
-                            </li>
-                            <li class="nav-item">
-                                <div class="nav-items">
-                                    <a class="nav-link" href="#">SHOPPING LIST</a>
-                                    <svg class="nav-link-icon" width="20" height="20">
-                                        <use href="/src/img/icons.svg#icon-lock"></use>
-                                    </svg>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="toggle-switch">
-                            <div class="mobileWrap">
-                                <label class="switch dark-mode-btn-active" for="theme-switch">
-                                    <input id="theme-switch" type="checkbox">
-                                    <span class="slider circle"></span>
-                                </label>
-                            </div>
-
-                            <a class="sign-up" id="sign-up" href="#">
-                                Sign up
-                                <svg class="arrow-right" width="20" height="20">
-                                    <use href="/src/img/icons.svg#icon-arrow-right"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <button class="js-open-menu" id="btn-hamburger" aria-label="burger-menu">
-                            <svg class="button-hamburger is-open" width="28" height="28">
-                                <use href="/src/img/icons.svg#icon-align-left"></use>
-                            </svg>
-                        </button>
-                    </nav>
-                
-            </div>
-        
-<!-- Mobile Menu -->
-    <div class="mobile-menu js-menu-container visually-hidden">
-        <div class="container mobile-menu_container mobile-menu_thumb">
-            <ul class="mobile-menu_list">
-                <li class="mobile-menu_item">
-                    <a class="mobile-menu_link" href="/src/index.html">HOME</a>
-                </li>
-                <li class="mobile-menu_item">
-                    <a class="mobile-menu_link" href="#">SHOPPING LIST
-                        <svg class="mobile-menu_icon" width="20" height="20">
-                            <use href="/src/img/icons.svg#icon-basket"></use>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-            <button type="button" class="log-btn hidden">
-                    <span>Log out</span>
-                    <svg class="login-logout">
-                        <use href="/src/img/icons.svg#icon-align-left"></use>
-                    </svg>
-                </button>
-                <button type="button" class="log-btn sign-up" data-action="open-modal-autorization">
-                    <span>Log in</span>
-                    <svg class="login-logut">
-                        <use href="/src/img/icons.svg#icon-align-left"></use>
-                    </svg>
-                </button>
+<header class="header">
+  <div class="header-container">
+    <a class="header-logo" href="/src/index.html">
+      <svg class="header_logo-icon" width="109" height="28">
+        <use href="/src/img/icons.svg#icon-logo"></use>
+      </svg>
+    </a>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <div class="nav-items">
+            <a class="nav-link" href="/src/index.html">HOME</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-items">
+            <a class="nav-link" href="#">SHOPPING LIST</a>
+            <svg class="nav-link-icon" width="20" height="20">
+              <use href="/src/img/icons.svg#icon-lock"></use>
+            </svg>
+          </div>
+        </li>
+      </ul>
+      <div class="toggle-switch">
+        <div class="mobileWrap">
+          <label class="switch dark-mode-btn-active" for="theme-switch">
+            <input id="theme-switch" type="checkbox" />
+            <span class="slider circle"></span>
+          </label>
         </div>
-        <img class="mobile-menu_img" src="/src/img/books-min.png" alt="books">
+
+        <a class="sign-up" id="sign-up" href="#">
+          Sign up
+          <svg class="arrow-right" width="20" height="20">
+            <use href="/src/img/icons.svg#icon-arrow-right"></use>
+          </svg>
+        </a>
+      </div>
+      <button
+        class="js-open-menu"
+        id="open-modal-mobile"
+        aria-label="burger-menu"
+      >
+        <svg class="button-hamburger is-open" width="28" height="28">
+          <use href="/src/img/icons.svg#icon-align-left"></use>
+        </svg>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu js-menu-container" id="modal-mobile">
+    <div class="container mobile-menu_container mobile-menu_thumb">
+      <button class="menu-close close" type="button" id="close-modal-mobile">
+        <svg class="menu-close-icon" width="28" height="28">
+          <use href="/src/img/icons.svg#icon-x-close"></use>
+        </svg>
+      </button>
+      <ul class="mobile-menu_list">
+        <li class="mobile-menu_item">
+          <a class="mobile-menu_link" href="/src/index.html">HOME</a>
+        </li>
+        <li class="mobile-menu_item">
+          <a class="mobile-menu_link" href="#"
+            >SHOPPING LIST
+            <svg class="mobile-menu_icon" width="20" height="20">
+              <use href="/src/img/icons.svg#icon-basket"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <button type="button" class="log-btn hidden">
+        <span>Log out</span>
+        <svg class="login-logout">
+          <use href="/src/img/icons.svg#icon-align-left"></use>
+        </svg>
+      </button>
+      <button
+        type="button"
+        class="log-btn sign-up"
+        data-action="open-modal-autorization"
+      >
+        <span>Log in</span>
+        <svg class="login-logut">
+          <use href="/src/img/icons.svg#icon-align-left"></use>
+        </svg>
+      </button>
     </div>
-    </header>
-    
+    <img class="mobile-menu_img" src="/src/img/books-min.png" alt="books" />
+  </div>
+</header>
+
