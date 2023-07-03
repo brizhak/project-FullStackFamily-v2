@@ -30,15 +30,15 @@ function allCategorys() {
 addCategorys();
 
 function addCategorys() {
-  showLoader();
+ 
   fetchCategoryList()
     .then(categorys => {
       renderCategorys(categorys);
-      hideLoader();
+    
     })
     .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
-      hideLoader();
+     
     });
 }
 
