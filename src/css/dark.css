@@ -247,3 +247,9 @@ h3.night {
 ::placeholder{
     color: var(--main-bg-color);
 }
+.night .modal-body-title{
+    color: var(--main-bg-color);
+}
+.night .modal-body-media-icon-amazon{
+    filter: invert(98%)sepia()saturate(0%)hue-rotate(105deg)brightness(103%)contrast(102)
+}
