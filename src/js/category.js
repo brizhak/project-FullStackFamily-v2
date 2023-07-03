@@ -9,14 +9,11 @@ allCategorys();
 
 function allCategorys() {
   fetchTopBooks().then((topBooks) => {
-    topBooks.map(({ books }) => { 
+    topBooks.map(( books ) => { 
     renderTopBooks(books)
   })
     }).catch((error) => {
       console.log(error);
-      errorShow();
-    })
-    .finally(() => {
     }); 
 };
 
@@ -30,10 +27,6 @@ function addCategorys() {
 
     }).catch((error) => {
       console.log(error);
-      errorShow();
-    })
-    .finally(() => {
-
     });
 };
 
@@ -53,6 +46,7 @@ function renderCategorys(arr) {
 categoryEl.addEventListener('click', onSelectCategory);
 
 function onSelectCategory(evt) {
+  console.log(evt.target.textContent)
   let category = evt.target.textContent;
   if (category === 'All categories') {
     allCategorys();
@@ -68,9 +62,6 @@ function onSelectCategory(evt) {
   
     }).catch((error) => {
       console.log(error);
-      errorShow();
-    })
-    .finally(() => {
     });
 }
 
