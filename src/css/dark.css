@@ -202,13 +202,13 @@ h3.night {
 }
 .night .see-more{
     color: var(--main-bg-color);
+    background-color: var(--secondary-color);
 }
 .night .modal-close-icon{
     fill: var(--main-bg-color);
 }
 .night .modal-icon{
     stroke: var(--main-bg-color);
-    fill: var(--secondary-color);
 }
 .night .modal-input{
     color: var(--main-bg-color);
@@ -219,4 +219,31 @@ h3.night {
 }
 .night .modal-auth{
     background-color:var(--secondary-color);
+}
+.night .modal-input{
+    border: var(--main-bg-color);
+}
+.night .btn-modal-action{
+    background-color: transparent;
+}
+.night .btn-modal-action{
+    color: var(--main-color);
+}
+.night .modal-icon:last-child{
+    fill: var(--main-bg-color);
+}
+.night .nav-items:focus,
+.night .nav-item:hover{
+    background-color: var(--secondary-accent-color);
+    border-radius: 36px;
+}
+
+.night .nav-items:focus,
+.night .nav-item:focus{
+    background-color: var(--secondary-accent-color);
+    border-radius: 36px;
+}
+
+::placeholder{
+    color: var(--main-bg-color);
 }
