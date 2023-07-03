@@ -5,3 +5,4 @@ import './js/dark.js';
 import './js/support.js';
 import './js/footer.js';
 import './js/category.js';
+import './js/modal-window.js';
