@@ -2,7 +2,7 @@
 <div class="overlay"></div>
 <div class="modal modal-auth" data-modal>
   <button class="btn-modal-close" data-modal-close type="button">
-    <svg class="modal-close-icon" width="28" height="28">
+    <svg class="modal-close-icon">
       <use href="./img/icons.svg#icon-x-close"></use>
     </svg>
   </button>
@@ -13,7 +13,7 @@
           class="modal-input"
           type="text"
           name="name"
-          maxlength="27"
+          maxlength="20"
           placeholder="name"
         />
         <svg
@@ -34,13 +34,13 @@
           name="email"
           required
           minlength="6"
-          maxlength="27"
+          maxlength="20"
           placeholder="email*"
           pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
           title="Invalid email address"
           autofocus
         />
-        <svg class="modal-icon" width="28" height="28">
+        <svg class="modal-icon">
           <use href="./img/icons.svg#icon-mail"></use>
         </svg>
       </span>
@@ -53,12 +53,12 @@
           name="password"
           required
           minlength="6"
-          maxlength="12"
+          maxlength="20"
           placeholder="password*"
           pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
           title="Require min 6 sign, which include at least 1 uppercase character, 1 lowercase character, and 1 number."
         />
-        <svg class="modal-icon" width="24" height="24">
+        <svg class="modal-icon">
           <use href="./img/icons.svg#icon-lock"></use>
         </svg>
       </span>
