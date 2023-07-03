@@ -6,6 +6,10 @@ import { openModal } from './modal-window';
 import amazon from '../img/shopping/amazon.png';
 import apple from '../img/shopping/apple.png';
 import bookshop from '../img/shopping/bookshop.png';
+const addToCartBtn = document.querySelector('#add-to-cart-btn');
+const removeFromCartBtn = document.querySelector('#remove-from-cart-btn');
+import { authStates } from './firebase-api';
+
 
 let modalBodyCard = document.querySelector('.modal-body-card');
 const booksCategoryEl = document.querySelector('.books-category');
@@ -20,17 +24,28 @@ function onSelectBook(evt) {
 
     if (!booksCategoryEl.contains(touchTagA)) return;
 
-    // console.log(touchTagA.id);
+    console.log(touchTagA.id);
     openModal();
     modalBodyCard.innerHTML = "";
-    getBook(touchTagA.id);
+    let id = touchTagA.id;
+    getBook(id);
 
+    if (authStates.status === true) {
+        addToCartBtn.disabled = false;
+        removeFromCartBtn.disabled = false;
+    } else {
+        addToCartBtn.disabled = true;
+        removeFromCartBtn.disabled = true;
+    }
 }
 
 
+
+let book = null;
+
 async function getBook(id) {
     try {
-        let book = await fetchSelectedBook(id);
+        book = await fetchSelectedBook(id);
         renderSelectedBook(book);
     } catch (error) {
         Notiflix.Notify.failure('Something went wrong. Please try again');
@@ -110,3 +125,5 @@ function renderSelectedBook(book) {
 
     modalBodyCard.insertAdjacentHTML("afterbegin", markup);
 }
+
+export { book };
