@@ -41,10 +41,15 @@ p {
     line-height: 18px;
     letter-spacing: -0.32px;
 }
+
+.category-link:hover, .category-link:focus {
+color: #4F2EE8;
+text-transform: uppercase;
+}
 .title-category {
     margin-bottom: 40px;
 }
-.title-secondary {
+.title-acent {
     color: #4F2EE8;
 }
 .books-category {
@@ -208,6 +213,7 @@ p {
     }
 
     .title-category {
+        font-size: 48px;
         margin-top: 0;
         margin-bottom: 0;
     }
