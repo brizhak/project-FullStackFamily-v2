@@ -9,6 +9,7 @@ import {
 import { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser, authStates, writeUserData,readUserData,onLogout } from './firebase-api.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { closeModalAuth } from './modal-auth.js';
+import { updateSignInButton } from './mobile-menu.js'
 
 const refsBtn = {
      btnUp : document.querySelector('button[data-action=signup]'),
@@ -74,6 +75,7 @@ function onFormSubmit(event) {
         dataUser.userId = user.uid;
         writeUserData(dataUser);
         authStates.status = true;
+         updateSignInButton(dataUser);
         // disabledEnabledFormBtn(authStates);
       })
       .catch(error => {
@@ -90,7 +92,7 @@ function onFormSubmit(event) {
         dataUser.userId = user.uid;
         readUserData();    
         authStates.status = true;
-        
+        updateSignInButton(dataUser);
          
         
       })

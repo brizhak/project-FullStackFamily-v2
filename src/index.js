@@ -9,3 +9,4 @@ import './js/category.js';
 import './js/modal-window.js';
 import './js/book.js';
 import './js/add-and-remove-book.js'
+import './js/shopping-list.js'
