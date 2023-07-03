@@ -137,11 +137,11 @@ function renderTopBooks(arr) {
 
   let markup = '';
   if (screenWidth < 767) {
-    markup = `<ul class="category-item-list">${markupMobile}  ${markupBtn}</ul>`;
+    markup = `<ul class="category-item-list">${markupMobile}</ul> ${markupBtn}`;
   } else if (screenWidth < 1440 && screenWidth >= 768) {
-    markup = `<ul class="category-item-list">${markupLaptop}  ${markupBtn}</ul>`;
+    markup = `<ul class="category-item-list">${markupLaptop}</ul> ${markupBtn}`;
   } else {
-    markup = `<ul class="category-item-list">${markupDesktop}  ${markupBtn}</ul>`;
+    markup = `<ul class="category-item-list">${markupDesktop}</ul> ${markupBtn}`;
   }
   //  markup = markupBook + markupBtn;
   
