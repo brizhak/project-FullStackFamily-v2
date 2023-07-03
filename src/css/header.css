@@ -214,8 +214,8 @@ input:checked + .circle::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'DM Sans Bold';
-  font-size: 22px;
+  font-family: 'DM Sans Medium';
+  font-size: 14px;
   width: 184px;
   height: 48px;
   padding: 12px 14px;
