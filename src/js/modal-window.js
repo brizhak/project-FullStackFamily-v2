@@ -1,4 +1,3 @@
-let openModalBtn = document.getElementById('openBtn');
 let modalWrapper = document.querySelector('.modal');
 let modalOverlay = document.querySelector('.overlay');
 let closeModalBtn = document.querySelector('.modal-close-btn');
@@ -13,7 +12,6 @@ function closeModal() {
   modalOverlay.classList.remove('active');
 }
 
-openModalBtn.addEventListener('click', openModal);
 closeModalBtn.addEventListener('click', closeModal);
 modalOverlay.addEventListener('click', closeModal);
 document.body.addEventListener('keyup', function (e) {
