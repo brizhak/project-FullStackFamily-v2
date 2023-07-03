@@ -1,7 +1,7 @@
 import {  refsBtn} from "./firebase-main";
 import { getDatabase, ref, set, child, get, update } from 'firebase/database'; 
 import { getAuth, signOut } from 'firebase/auth';
-
+import {resetSignInButton} from './js/mobile-menu.js'
 
 
 const dataUser = {
@@ -111,6 +111,7 @@ async function onLogout() {
       const auth = getAuth();
 signOut(auth).then(() => {
   authStates.status = false;
+  resetSignInButton();
   // disabledEnabledFormBtn(authStates);
 }).catch((error) => {
   
