@@ -9,36 +9,31 @@ import bookshop from '../img/shopping/bookshop.png';
 const addToCartBtn = document.querySelector('#add-to-cart-btn');
 const removeFromCartBtn = document.querySelector('#remove-from-cart-btn');
 import { authStates } from './firebase-api';
-
 let modalBodyCard = document.querySelector('.modal-body-card');
 const booksCategoryEl = document.querySelector('.books-category');
-
 booksCategoryEl.addEventListener('click', onSelectBook);
-
 function onSelectBook(evt) {
   let touchTagA = evt.target.closest('a');
-
   if (!touchTagA) return;
-
   if (!booksCategoryEl.contains(touchTagA)) return;
-
   console.log(touchTagA.id);
   openModal();
   modalBodyCard.innerHTML = '';
   let id = touchTagA.id;
   getBook(id);
-
   // if (authStates.status === true) {
   //     addToCartBtn.disabled = false;
   //     removeFromCartBtn.disabled = false;
+  //     addToCartBtn.classList.remove('non-active-btn');
+  //     removeFromCartBtn.classList.remove('non-active-btn');
   // } else {
   //     addToCartBtn.disabled = true;
   //     removeFromCartBtn.disabled = true;
+  //     addToCartBtn.classList.add('non-active-btn');
+  //     removeFromCartBtn.classList.add('non-active-btn');
   // }
 }
-
 let book = null;
-
 async function getBook(id) {
   try {
     book = await fetchSelectedBook(id);
@@ -47,7 +42,6 @@ async function getBook(id) {
     Notiflix.Notify.failure('Something went wrong. Please try again');
   }
 }
-
 function renderSelectedBook(book) {
   const markup = `
         <div class="modal-body-image">
@@ -112,15 +106,13 @@ function renderSelectedBook(book) {
                         srcset="${bookshop}";
                         src="${bookshop}";
                         alt="Bookshop logo"
-                        /> 
+                        />
                 </a>
                 </li>
             </ul>
         </div>
         </div>
         `;
-
   modalBodyCard.insertAdjacentHTML('afterbegin', markup);
 }
-
 export { book };
