@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 40px;
     margin-top: 40px;
 }
 
@@ -11,5 +11,6 @@
     .sheave {
         flex-direction: column;
         gap: 86px;
+        margin-top: 0;
         }
 }

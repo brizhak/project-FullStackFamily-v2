@@ -13,6 +13,7 @@ const themeSwitch = document.getElementById('theme-switch');
 const shoppingListButton = document.querySelector('.nav-link-shopping');
 const logoutButton = document.querySelector('.log-out');
 
+
 // shopping list
  shoppingListButton.addEventListener('click', shoppingListMarkup);
   
@@ -38,10 +39,10 @@ themeSwitch.addEventListener('change', handleThemeToggle);
 
 // logging out
 logoutButton.addEventListener('click', function () {
-const logoutButton = document.querySelector('.log-btn');
+const logoutButton = document.querySelector('.log-out');
 logoutButton.classList.add('hidden');
 
-const loginButton = document.querySelector('.log-btn.singup');
+const loginButton = document.querySelector('.log-in');
 loginButton.classList.remove('hidden');
 loginButton.addEventListener('click', toggleMenu);
 onLogout();
@@ -57,6 +58,7 @@ export function resetSignInButton() {
   const signInButton = document.getElementById('sign-up');
   signInButton.textContent = 'Sign In';
 }
+
 
 
 

@@ -9,20 +9,39 @@ import bookshop from '../img/shopping/bookshop.png';
 const addToCartBtn = document.querySelector('#add-to-cart-btn');
 const removeFromCartBtn = document.querySelector('#remove-from-cart-btn');
 import { authStates } from './firebase-api';
+
 import { showLoader, hideLoader } from './loader';
 
 
 let modalBodyCard = document.querySelector('.modal-body-card');
 const booksCategoryEl = document.querySelector('.books-category');
-
 booksCategoryEl.addEventListener('click', onSelectBook);
-
-
 function onSelectBook(evt) {
+
     // showLoader();
     let touchTagA = evt.target.closest('a');
 
-    if (!touchTagA) return;
+
+  let touchTagA = evt.target.closest('a');
+  if (!touchTagA) return;
+  if (!booksCategoryEl.contains(touchTagA)) return;
+  console.log(touchTagA.id);
+  openModal();
+  modalBodyCard.innerHTML = '';
+  let id = touchTagA.id;
+  getBook(id);
+  // if (authStates.status === true) {
+  //     addToCartBtn.disabled = false;
+  //     removeFromCartBtn.disabled = false;
+  //     addToCartBtn.classList.remove('non-active-btn');
+  //     removeFromCartBtn.classList.remove('non-active-btn');
+  // } else {
+  //     addToCartBtn.disabled = true;
+  //     removeFromCartBtn.disabled = true;
+  //     addToCartBtn.classList.add('non-active-btn');
+  //     removeFromCartBtn.classList.add('non-active-btn');
+  // }
+
 
     if (!booksCategoryEl.contains(touchTagA)) return;
 
@@ -45,24 +64,19 @@ function onSelectBook(evt) {
         removeFromCartBtn.classList.add('non-active-btn');
     }
     // hideLoader();
+
 }
-
-
-
 let book = null;
-
 async function getBook(id) {
-    try {
-        book = await fetchSelectedBook(id);
-        renderSelectedBook(book);
-    } catch (error) {
-        Notiflix.Notify.failure('Something went wrong. Please try again');
-    }
+  try {
+    book = await fetchSelectedBook(id);
+    renderSelectedBook(book);
+  } catch (error) {
+    Notiflix.Notify.failure('Something went wrong. Please try again');
+  }
 }
-
-
 function renderSelectedBook(book) {
-    const markup = `
+  const markup = `
         <div class="modal-body-image">
             <img
                 src="${book.book_image}"
@@ -70,7 +84,8 @@ function renderSelectedBook(book) {
                 class="modal-body-image-poster"
             />
         </div>
-        <div class="modal-body-about-book">
+        <div class="modal-body-tablet">
+            <div class="modal-body-about-book">
             <h2 class="modal-body-title">${book.title}</h2>
             <h3 class="modal-body-autor">${book.author}</h3>
             <p class="modal-body-text">
@@ -124,14 +139,13 @@ function renderSelectedBook(book) {
                         srcset="${bookshop}";
                         src="${bookshop}";
                         alt="Bookshop logo"
-                        /> 
+                        />
                 </a>
                 </li>
             </ul>
-        </div>`;
-
-
-    modalBodyCard.insertAdjacentHTML("afterbegin", markup);
+        </div>
+        </div>
+        `;
+  modalBodyCard.insertAdjacentHTML('afterbegin', markup);
 }
-
 export { book };

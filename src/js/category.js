@@ -22,7 +22,6 @@ function allCategorys() {
     .then(topBooks => {
       topBooks.map(books => {
         renderTopBooks(books);
-
       });
       categoryLink.style.display = 'block';
     })
@@ -100,6 +99,7 @@ function renderBooks(arr) {
         <div class='img-container-top'>
           <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
         </div>
+
             <div class="book-title">
               <p>${title}</p>
               <p class="book-author">${author}</p>
@@ -109,8 +109,10 @@ function renderBooks(arr) {
       `;
     })
     .join('');
+
   booksTop.innerHTML = markup;
   booksCategoryEl.innerHTML = '';
+
   booksCategoryEl.appendChild(booksTop);
 
 }
@@ -124,6 +126,7 @@ function renderTopBooks(arr) {
       const bookTitleClass = index === 0 ? 'best-sellers-title' : 'visible-hidden-title';
       markupBtn = `<button button class="see-more" id = "${list_name}" > see more</button >`;
       ulListName = `${list_name}`
+
       return `
       
      <div class="best-sellers-wraper">
@@ -133,9 +136,11 @@ function renderTopBooks(arr) {
             <ul class="best-sellers-own-category-books">
                 <li class="best-sellers-book">
                     <a href="#" id="${_id}"> 
+
                       <div class='img-container'>
                         <img src="${book_image}" alt="${title}" class="book-img">
                       </div>
+
                         <div class="book-title"> 
                           <p>${title}</p>
                           <p class="book-author">${author}</p>
@@ -147,6 +152,7 @@ function renderTopBooks(arr) {
 </div> 
       `;
     }
+    
   );
 
   // const markupBtn = `<button class="see-more" id="">see more</button>`;

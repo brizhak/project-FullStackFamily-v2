@@ -119,6 +119,8 @@
   .funds {
     width: 335px;
     padding-bottom: 14px;
+    height: 472px;
+    margin: 0;
   }
 
   .swiper-wrapper {

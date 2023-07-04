@@ -155,7 +155,15 @@ async function pushShoppingList(userId,data) {
       }
        
     
-
+// function shopListStatus({ status }) {
+//   const shopList = document.querySelector(".nav-list");
+//   console.log(shopList.lastElementChild);
+//   if (status === false) {
+//     shopList.lastElementChild.classList.add('visually-hidden');
+//   } else {
+//    shopList.lastElementChild.classList.remove('visually-hidden');
+//   }
+// }
 
 
 
