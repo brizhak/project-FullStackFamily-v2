@@ -22,13 +22,12 @@ function allCategorys() {
     .then(topBooks => {
       topBooks.map(books => {
         renderTopBooks(books);
-        
       });
       categoryLink.style.display = 'block';
     })
     .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
-      
+
     })
     .finally(() => {
       hideLoader();
@@ -63,7 +62,7 @@ function renderCategorys(arr) {
 categoryEl.addEventListener('click', onSelectCategory);
 
 function onSelectCategory(evt) {
-  
+
   if (evt.target.tagName !== 'A' && evt.target.parentNode.tagName !== 'A') {
     return;
   }
@@ -77,7 +76,7 @@ function onSelectCategory(evt) {
   h1El.innerHTML = ` <h1 class="title-category"> ${AllTitle.join(
     ' '
   )} <span class="title-acent">${lastWorld}</span></h1>`;
-  
+
   fetchCertainCategory(category)
     .then(books => {
       renderBooks(books);
@@ -97,7 +96,10 @@ function renderBooks(arr) {
       return `
       <a href="#" class="book-card" id="${_id}">
         <div class="book-carts">
-          <div class='img-container-top'><img src="${book_image}" alt="${title}" class="book-img-top" loading="lazy" width=335></div>
+        <div class='img-container-top'>
+          <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
+        </div>
+
             <div class="book-title">
               <p>${title}</p>
               <p class="book-author">${author}</p>
@@ -107,16 +109,24 @@ function renderBooks(arr) {
       `;
     })
     .join('');
-    booksTop.innerHTML = markup;
-    booksCategoryEl.innerHTML = '';
+
+  booksTop.innerHTML = markup;
+  booksCategoryEl.innerHTML = '';
+
   booksCategoryEl.appendChild(booksTop);
 
 }
 
+let markupBtn = `<button class="see-more" id="">see more</button>`;
+let ulListName = ``;
+
 function renderTopBooks(arr) {
-  const markupBook = arr.map(({ _id, book_image, title, author, list_name }, index) => {
+  const markupBook = arr.map(
+    ({ _id, book_image, title, author, list_name }, index) => {
       const bookTitleClass = index === 0 ? 'best-sellers-title' : 'visible-hidden-title';
-  
+      markupBtn = `<button button class="see-more" id = "${list_name}" > see more</button >`;
+      ulListName = `${list_name}`
+
       return `
       
      <div class="best-sellers-wraper">
@@ -126,9 +136,11 @@ function renderTopBooks(arr) {
             <ul class="best-sellers-own-category-books">
                 <li class="best-sellers-book">
                     <a href="#" id="${_id}"> 
-                        <div class='img-container'>
+
+                      <div class='img-container'>
                         <img src="${book_image}" alt="${title}" class="book-img">
-                        </div>
+                      </div>
+
                         <div class="book-title"> 
                           <p>${title}</p>
                           <p class="book-author">${author}</p>
@@ -143,7 +155,7 @@ function renderTopBooks(arr) {
     
   );
 
-  const markupBtn = `<button class="see-more">see more</button>`;
+  // const markupBtn = `<button class="see-more" id="">see more</button>`;
   const screenWidth = window.screen.width;
   const markupMobile = markupBook.slice(0, 1).join('');
   const markupLaptop = markupBook.slice(0, 3).join('');
@@ -151,17 +163,22 @@ function renderTopBooks(arr) {
 
   let markup = '';
   if (screenWidth < 767) {
-    markup = `<ul class="category-item-list">${markupMobile}</ul> ${markupBtn}`;
+    markup = `<ul class="category-item-list" id="${ulListName}">${markupMobile}</ul> ${markupBtn}`;
   } else if (screenWidth < 1440 && screenWidth >= 768) {
-    markup = `<ul class="category-item-list">${markupLaptop}</ul> ${markupBtn}`;
+    markup = `<ul class="category-item-list" id="${ulListName}">${markupLaptop}</ul> ${markupBtn}`;
   } else {
-    markup = `<ul class="category-item-list">${markupDesktop}</ul> ${markupBtn}`;
+    markup = `<ul class="category-item-list" id="${ulListName}">${markupDesktop}</ul> ${markupBtn}`;
   }
   //  markup = markupBook + markupBtn;
-  
+
   return booksCategoryEl.insertAdjacentHTML('beforeend', markup);
-  
+
 }
+
+
+
+
+
 
 // <div class="book-carts">
 //       <p>${list_name}</p>
