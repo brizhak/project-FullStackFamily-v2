@@ -15,9 +15,7 @@
 .modal-body {
   position: relative;
   margin: auto;
-
-  max-width: 335px;
-
+  width: 335px;
   padding: 40px 24px 40px 24px;
   border-radius: 18px;
   border: 2px solid black;
@@ -37,6 +35,27 @@
 
 .icon-close {
   stroke: black;
+}
+
+.icon-close:hover,
+.icon-close:focus {
+  stroke: var(--main-accent-color);
+}
+
+.modal-body-media-icon-amazon:is(:hover, :focus) {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.2)) saturate(0);
+}
+
+.modal-body-media-icon-apple:is(:hover, :focus) {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.2)) saturate(0);
+}
+.modal-body-media-icon-shop:is(:hover, :focus) {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.2)) saturate(0);
+}
+
+.modal-body-add-btn:is(:hover, :focus) {
+  background-color: var(--main-accent-color);
+  color: #fff;
 }
 
 .modal-body-image {
@@ -64,6 +83,14 @@
   line-height: 14px;
   letter-spacing: -0.48px;
   margin-bottom: 18px;
+}
+
+.modal-body-card {
+  margin-bottom: 40px;
+}
+
+.modal-body-image-poster {
+  border-radius: 8px;
 }
 
 .modal-body-text {
@@ -101,7 +128,7 @@
 }
 
 .modal-body-logo {
-  margin-bottom: 40px;
+  margin-bottom: px;
 }
 
 .modal-body-container-btn {
@@ -128,6 +155,16 @@
   letter-spacing: -0.14px;
   text-transform: uppercase;
   background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-remove {
+  width: 279px;
+  padding: 14px 23px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .modal-congrats-text {
@@ -144,3 +181,82 @@
 .btn-remove {
   margin-bottom: 8px;
 }
+<<<<<<< Updated upstream
+=======
+
+.non-active-btn {
+  background-color: #ddd8d8;
+  border: 2px solid #2d2d2e;
+  pointer-events: none;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-body {
+    width: 579px;
+    padding: 40px;
+  }
+
+  .modal-close-btn {
+    top: 24;
+    right: 24;
+  }
+
+  .modal-body-card {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .modal-body-image {
+    width: 192px;
+    height: 281px;
+    margin-bottom: 40px;
+    display: flex;
+  }
+
+  .modal-body-title {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.96px;
+    margin-bottom: 8px;
+  }
+
+  .modal-body-logo {
+    display: flex;
+  }
+
+  .modal-body-autor {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.56px;
+    margin-bottom: 20px;
+  }
+
+  .modal-body-about-book {
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+
+  .modal-body-tablet {
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+    width: 279px;
+  }
+
+  .modal-body-add-btn {
+    width: 499px;
+    height: 64px;
+    color: #111;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.18px;
+    text-align: center;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+}
+>>>>>>> Stashed changes
