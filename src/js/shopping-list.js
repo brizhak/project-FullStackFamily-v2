@@ -4,14 +4,14 @@ import apple from '../img/shopping/apple.png';
 import bookshop from '../img/shopping/bookshop.png';
 import { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser, authStates, writeUserData,readUserData,onLogout,readShoppingList } from './firebase-api.js';
 
-const shopListEl = document.querySelector('.shopping-list-list');
+// const shopListEl = document.querySelector('.shopping-list-list');
 // dataUser.shoppingList.length === 4;
-const mainSection = document.querySelector("main");
-
+const mainSection = document.querySelector(".category-desktop");
+const categoryList = document.querySelector(".categorys");
 // dataUser.shoppingList = [1];
 
 function shoppingListMarkup() {
-   
+  categoryList.classList.add("visually-hidden");
   mainSection.innerHTML = '';
   readShoppingList(dataUser.userId).then(snapshot => {
     if (snapshot.exists()) {
