@@ -1,5 +1,5 @@
 import { fetchSelectedBook } from './api_request';
-import { dataUser,pushShoppingList,readShoppingList, readUserData, updateUserData } from './firebase-api';
+import { dataUser, pushShoppingList, readShoppingList, readUserData, updateUserData } from './firebase-api';
 import Notiflix from 'notiflix';
 import { book } from './book';
 
@@ -25,7 +25,7 @@ function addingBook(evt) {
     // console.log(shoppingCart);
     // dataUser.shoppingList.push(book);
     // pushShoppingList(dataUser.userId,book);
-    
+
     updateUserData(book, dataUser.userId);
 
     removeFromCartBtn.classList.remove('visually-hidden');
@@ -40,24 +40,12 @@ function removeBook(evt) {
     removeFromCartBtn.classList.add('visually-hidden');
     textRemove.classList.add('visually-hidden');
 
-    addToCartBtn.classList.remove('visually-hidden');
+    // const bookIndex = shoppingCart.indexOf(book);
+    // shoppingCart.splice(bookIndex, 1);
 
+    addToCartBtn.classList.remove('visually-hidden');
+    // console.log(shoppingCart);
 }
 
 
 
-// export async function getIdForBook(id) {
-//     console.log(shoppingCart);
-
-
-//     try {
-//         let book = await fetchSelectedBook(id);
-//         console.log(book);
-//         return book;
-//     } catch (error) {
-//         Notiflix.Notify.failure('Something went wrong. Please try again');
-//     }
-
-//     checkBook(book);
-
-// }
