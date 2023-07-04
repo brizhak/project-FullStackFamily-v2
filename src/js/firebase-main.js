@@ -68,19 +68,29 @@ function onFormSubmit(event) {
   const auth = getAuth(app);
   
   if (authStates.type === 'signup') {
-    createUserWithEmailAndPassword(auth, dataUser.email,password)
+    createUserWithEmailAndPassword(auth, dataUser.email, password)
       .then(userCredential => {
         
         const user = userCredential.user;
         dataUser.userId = user.uid;
         writeUserData(dataUser)
-          .then(()=> {
+          .then(() => {
             authStates.status = true;
-         readUserData(dataUser.userId);
+            readUserData(dataUser.userId).then(snapshot => {
+      if (snapshot.exists()) {
+        console.log('snap', snapshot.val());
+        const { username } = snapshot.val();  
+        updateSignInButton(username);
+              }
+          })     
+
+            
           });
-        
-        // disabledEnabledFormBtn(authStates);
+      
       })
+  
+    // disabledEnabledFormBtn(authStates);
+  
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -94,10 +104,14 @@ function onFormSubmit(event) {
         const user = userCredential.user;
         dataUser.userId = user.uid;
         authStates.status = true;
-        readUserData(dataUser.userId);
-                  
-         
-        
+        readUserData(dataUser.userId).then(snapshot => {
+      if (snapshot.exists()) {
+        console.log('snap', snapshot.val());
+        const { username } = snapshot.val();  
+        updateSignInButton(username);
+              }
+          })       
+          
       })
       .catch(error => {
         const errorCode = error.code;
@@ -115,8 +129,27 @@ const auth = getAuth(app);
 
 setPersistence(auth, browserSessionPersistence)
     .then(() => {
-               
-        signInWithEmailAndPassword(auth, email, password);
+           
+      signInWithEmailAndPassword(auth, email, password).then(userCredential => {
+        console.log("start");
+        const user = userCredential.user;
+        dataUser.userId = user.uid;
+        authStates.status = true;
+        readUserData(dataUser.userId).then(snapshot => {
+      if (snapshot.exists()) {
+        console.log('snap', snapshot.val());
+        const { username } = snapshot.val();  
+        updateSignInButton(username);
+              }
+          })       
+          
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        Notify.warning(errorMessage);
+      });
+      
       })
   .catch((error) => {
     const errorCode = error.code;
@@ -124,48 +157,64 @@ setPersistence(auth, browserSessionPersistence)
   });
 
 
-async function startLoadingSets() {
-  try {
+function startLoadingSets() {
+  
     
-    const storageData = sessionStorage.getItem('firebase:authUser:AIzaSyAWL009d3fIg7FDNeFa1MpQ8vcCju1UWEQ:[DEFAULT]');
+  const storageData = sessionStorage.getItem('firebase:authUser:AIzaSyAWL009d3fIg7FDNeFa1MpQ8vcCju1UWEQ:[DEFAULT]');
 
-    if (storageData === null) {
-      authStates.status = false;
-      // disabledEnabledFormBtn(authStates);
-      return;
-    }
-    else {
-      const parsedDataSS = JSON.parse(storageData);
-      dataUser.userId = parsedDataSS.uid;
-      authStates.status = true;
-      // disabledEnabledFormBtn(authStates);
-      readUserData(dataUser.userId);
-    }
-  }
-  catch (e) {
-    console.log('тут ошибка');
-    return;
-  }
-
-  try {
-    const localStorageData = localStorage.getItem('firebase:authUser:AIzaSyAWL009d3fIg7FDNeFa1MpQ8vcCju1UWEQ:[DEFAULT]');
+  if (storageData === null) {
+    authStates.status = false;
     
-    if (localStorageData === null) {
-      authStates.status = false;
-      // disabledEnabledFormBtn(authStates);
-      return;
-    }
-    else {
-      const parsedDataLS = JSON.parse(storageData);
-      dataUser.userId = parsedDataLS.uid;
-      authStates.status = true; 
-      readUserData(dataUser.userId);
-      // disabledEnabledFormBtn(authStates);
-    }
+    // disabledEnabledFormBtn(authStates);
+    
   }
-  catch(e) {
-       return;
-  }
+  else {
+    const parsedDataSS = JSON.parse(storageData);
+    dataUser.userId = parsedDataSS.uid;
+    authStates.status = true;
+    readUserData(dataUser.userId).then(snapshot => {
+      if (snapshot.exists()) {
+        console.log('snap', snapshot.val());
+        const { username } = snapshot.val();
+        updateSignInButton(username);
+      }
+    })          
+      .catch (error => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    Notify.warning(errorMessage);
+  });
+
+        
+       
+     
+      
+    }
+    
+  // catch (e) {
+  //   console.log(e.message);
+  //   console.log('тут ошибка');
+  //   return;
+  // }
+    // try {                                             
+  //   const localStorageData = localStorage.getItem('firebase:authUser:AIzaSyAWL009d3fIg7FDNeFa1MpQ8vcCju1UWEQ:[DEFAULT]');
+    
+  //   if (localStorageData === null) {
+  //     authStates.status = false;
+  //     // disabledEnabledFormBtn(authStates);
+  //     return;
+  //   }
+  //   else {
+  //     const parsedDataLS = JSON.parse(storageData);
+  //     dataUser.userId = parsedDataLS.uid;
+  //     authStates.status = true;
+  //     readUserData(dataUser.userId);
+  //     // disabledEnabledFormBtn(authStates);
+  //   }
+  // }
+  // catch (e) {
+  //   return;
+  // }
 }
 
 startLoadingSets();

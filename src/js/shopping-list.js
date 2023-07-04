@@ -12,25 +12,26 @@ const mainSection = document.querySelector("main");
 
 function shoppingListMarkup() {
    
-    mainSection.innerHTML = '';
-    readShoppingList(dataUser.userId).then(snapshot => {
-        if (snapshot.exists()) {
-            console.log('snap', snapshot.val());
+  mainSection.innerHTML = '';
+  readShoppingList(dataUser.userId).then(snapshot => {
+    if (snapshot.exists()) {
+      // console.log('snap', snapshot.val());
         
-            const  shoppingList  = snapshot.val();
-            // console.log(shoppingList["-NZUy2Otr3H3ov2xTry5"]);
-        
-             console.log(Object.keys(shoppingList));
-             const keys = Object.keys(shoppingList);
-            const books = [];
+      const shoppingList = snapshot.val();
+      console.log("SSS", shoppingList);
+          
+      // console.log(shoppingList["-NZUy2Otr3H3ov2xTry5"]);
             
-            if (keys.length !== 0) {
-                for (let key of keys) {
-                    
-                    const book = shoppingList[`${key}`];
-                    console.log(book);
-                    
-                    const bookMarkup = `<li class="shop-cart-container">
+      console.log(Object.keys(shoppingList));
+      const keys = Object.keys(shoppingList);
+      console.log(keys);
+      const books = [];
+            
+      if (keys.length !== 0) {
+        for (let key of keys) {
+          const book = shoppingList[`${key}`];
+          console.log('book', book);
+          const bookMarkup = `<li class="shop-cart-container">
         <div class="shop-cart-wrap">
           <div class="shop-image-wrapper">
             <img class="shop-image" src="${book.book_image}" alt="${book.title}" width="100" height="142" />
@@ -124,12 +125,12 @@ function shoppingListMarkup() {
           </div>
         </div>
       </li>`
-                    books.push(bookMarkup);
+          books.push(bookMarkup);
                              
-                }
-
-                markupList = books.join('');
-                 const titleMarkup = `<section class="shopping-list-section">
+        }
+        
+        markupList = books.join('');
+        const titleMarkup = `<section class="shopping-list-section">
         <div class="container shopping-list-container">
           <h1 class="shopping-list-title">
             Shopping <span class="title-blue">List</span>
@@ -138,19 +139,12 @@ function shoppingListMarkup() {
           <ul class="shopping-list-list">${markupList}</ul>
           
       </section>`;
-                mainSection.innerHTML = titleMarkup;
-
-                 
-            }
-
-            if (authStates.status === true) {
-                updateSignInButton(username);
-            }
-        }
-        
-    })
-}
-            const markupDefaut = `<li><p class="empty-shopping-list-text">
+        mainSection.innerHTML = titleMarkup;
+      }
+    }
+    else {
+            
+      const titleNoneMarkup = `<li><p class="empty-shopping-list-text">
       This page is empty, add some books and proceed to order.
     </p>
     <div>
@@ -175,113 +169,12 @@ function shoppingListMarkup() {
         />
       </picture>
     </div></li>`;
-            // shopListEl.insertAdjacentHTML('afterbegin', markup);
-          
-      
-    //         const markupList = data.shoppingList.map(book => {
-    //             `<li class="shop-cart-container">
-    //     <div class="shop-cart-wrap">
-    //       <div class="shop-image-wrapper">
-    //         <img class="shop-image" src="${book.book_image}" alt="${book.title}" width="100" height="142" />
-    //       </div>
-    //       <div class="shop-cart-info">
-    //         <h2 class="shop-cart-title">${book.title}</h2>
-    //         <h3 class="shop-cart-category">${book.list_name}</h3>
-    //         <p class="shop-cart-description">${book.description}
-    //         </p>
-    //         <div class="shop-cart-bottom-wrap">
-    //           <h4 class="shop-cart-author">${book.author}</h4>
-    //           <ul class="shop-cart-media">
-    //             <li class="shop-cart-media-item">
-    //               <a
-    //                 href="${book.buy_links[0].url}"
-    //                 target="_blank"
-    //                 rel="noopener noreferrer"
-    //                 aria-label="Amazon"
-    //               >
-    //                 <picture class="amazon-picture">
-    //                   <source
-    //                     srcset="${amazon}"
-    //                     type="image/png"
-    //                   />
-    //                   <img
-    //                     class="media-icon amazon-icon"
-    //                     src="${amazon}"
-    //                     alt="Amazon logo"
-    //                     width="32"
-    //                     height="11"
-    //                   />
-    //                 </picture>
-    //               </a>
-    //             </li>
-    //             <li class="shop-cart-media-item">
-    //               <a
-    //                 href="${book.buy_links[1].url}"
-    //                 target="_blank"
-    //                 rel="noopener noreferrer"
-    //                 aria-label="Apple Books"
-    //               >
-    //                 <picture>
-    //                   <source
-    //                     srcset="${apple}"
-    //                     type="image/png"
-    //                   />
-    //                   <img
-    //                     class="media-icon media-book-icon"
-    //                     src="${apple}"
-    //                     alt="Apple book logo"
-    //                     width="16"
-    //                     height="16"
-    //                   />
-    //                 </picture>
-    //               </a>
-    //             </li>
-    //             <li class="shop-cart-media-item">
-    //               <a
-    //                 href="${book.buy_links[4].url}"
-    //                 target="_blank"
-    //                 rel="noopener noreferrer"
-    //                 aria-label="Bookshop"
-    //               >
-    //                 <picture>
-    //                   <source
-    //                     srcset="${bookshop}"
-    //                     type="image/png"
-    //                   />
-    //                   <img
-    //                     class="media-icon media-book-icon"
-    //                     src="${bookshop}"
-    //                     alt="Book shop logo"
-    //                     width="16"
-    //                     height="16"
-    //                   />
-    //                 </picture>
-    //               </a>
-    //             </li>
-    //           </ul>
-    //         </div>
-    //         <button
-    //           class="shop-cart-btn"
-    //           type="button"
-    //           data-title="title"
-    //           aria-label="Remove button"
-    //         >
-    //           <svg class="shop-cart-btn-trash">
-    //             <use href="../img/icons.svg#icon-trash"></use>
-    //           </svg>
-    //         </button>
-    //       </div>
-    //     </div>
-    //   </li>`
-                      
-    //         }).join("");
+      mainSection.innerHTML = titleNoneMarkup;
             
-       
-    
-    
-    
-    
-
-
-export {shoppingListMarkup};
+    }
+  })    
+  }
+        
+  
+  export {shoppingListMarkup};
 
