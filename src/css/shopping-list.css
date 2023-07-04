@@ -15,8 +15,25 @@
   line-height: 1.18;
   letter-spacing: -1.28px;
   padding-top: 40px;
+  padding-bottom: 140px;
+  -webkit-text-stroke: 1px #000000;
+  /* padding-left: 32px; */
 }
-
+.shopping-img-title {
+  align-items: center;
+  text-align: center;
+}
+.title-shopping {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 349px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.img-shopping {
+  width: 322px;
+  margin: 0 auto;
+}
 .title-blue {
   color: var(--main-accent-color);
 }
