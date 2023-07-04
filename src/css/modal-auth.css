@@ -1,4 +1,5 @@
 @import './dark.css';
+
 /* -- Various -- */
 :root {
     /* common color */
@@ -62,7 +63,7 @@ body.night {
     position: fixed;
     opacity: 0;
     visibility: hidden;
-    z-index: 10;
+    z-index: 100;
     top: 0px;
     left: 0px;
     width: 100%;
