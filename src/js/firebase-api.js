@@ -64,7 +64,7 @@ async function writeUserData({ userId, username, email, shoppingList }) {
 async function readUserData(userId) {
   const dbRef = ref(getDatabase());
 
-  return get(child(dbRef, `users/${userId}`))
+  return get(child(dbRef, `users/${userId}`));
     // .then(snapshot => {
     //   if (snapshot.exists()) {
     //     console.log('snap', snapshot.val());
@@ -130,21 +130,21 @@ signOut(auth).then(() => {
 
 async function readShoppingList(userId) {
   const dbRef = ref(getDatabase());
-  get(child(dbRef, `users/${userId}`+'/shoppingList/'))
-    .then(snapshot => {
-      if (snapshot.exists()) {
-        // console.log(snapshot.val());
+ return  get(child(dbRef, `users/${userId}/shoppingList`));
+    // .then(snapshot => {
+    //   if (snapshot.exists()) {
+    //     // console.log(snapshot.val());
         
-        const { email, shoppingList, username } = snapshot.val();
-        console.log('Shop',shoppingList);
-      }
+    //     const { email, shoppingList, username } = snapshot.val();
+    //     console.log('Shop',shoppingList);
+    //   }
       
-    })
-    .catch(error => {
+    // })
+    // .catch(error => {
       
-      console.error(error);
+    //   console.error(error);
       
-    });
+    // });
 }
 
 async function pushShoppingList(userId,data) {
