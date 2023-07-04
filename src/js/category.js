@@ -115,7 +115,9 @@ function renderTopBooks(arr) {
             <ul class="best-sellers-own-category-books">
                 <li class="best-sellers-book">
                     <a href="#" id="${_id}"> 
+                        <div class='img-container'>
                         <img src="${book_image}" alt="${title}" class="book-img">
+                        </div>
                         <div class="book-title"> 
                           <p>${title}</p>
                           <p class="book-author">${author}</p>
