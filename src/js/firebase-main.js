@@ -73,9 +73,12 @@ function onFormSubmit(event) {
         
         const user = userCredential.user;
         dataUser.userId = user.uid;
-        writeUserData(dataUser);
-        authStates.status = true;
-         updateSignInButton(dataUser);
+        writeUserData(dataUser)
+          .then(()=> {
+            authStates.status = true;
+         readUserData(dataUser.userId);
+          });
+        
         // disabledEnabledFormBtn(authStates);
       })
       .catch(error => {
@@ -90,9 +93,9 @@ function onFormSubmit(event) {
        
         const user = userCredential.user;
         dataUser.userId = user.uid;
-        readUserData();    
         authStates.status = true;
-        updateSignInButton(dataUser);
+        readUserData(dataUser.userId);
+                  
          
         
       })

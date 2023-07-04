@@ -1,8 +1,9 @@
-import { refsBtn } from './firebase-main';
-import { getDatabase, ref, set, child, get, update } from 'firebase/database';
+
+import {  refsBtn} from "./firebase-main";
+import { getDatabase, ref, set, child, get, update,push } from 'firebase/database'; 
 import { getAuth, signOut } from 'firebase/auth';
 import {resetSignInButton} from './mobile-menu.js'
-
+import { updateSignInButton } from './mobile-menu.js'
 
 const dataUser = {
   userId: '',
@@ -62,59 +63,107 @@ async function writeUserData({ userId, username, email, shoppingList }) {
 
 async function readUserData(userId) {
   const dbRef = ref(getDatabase());
-  get(child(dbRef, `users/${userId}`))
+
+  return get(child(dbRef, `users/${userId}`))
+    // .then(snapshot => {
+    //   if (snapshot.exists()) {
+    //     console.log('snap', snapshot.val());
+        
+    //     const { email, shoppingList, username } = snapshot.val();
+    //     console.log(shoppingList["-NZUy2Otr3H3ov2xTry5"]);
+        
+    //     console.log(Object.keys(shoppingList));
+    //     if (authStates.status === true) {
+    //       updateSignInButton(username);
+    //     }
+    //   }
+      
+    // })
+    // .catch(error => {
+      
+    //   console.error(error);
+      
+    // });
+}
+
+
+async function updateUserData( data, userId ) {
+  const db = getDatabase();
+  
+        // const newPostKey = push(child(ref(db), 'shoppingList'));
+        const newPostKey = push(child(ref(db), `users/${userId}+/shoppingList/`)).key;
+        
+        const updates = {};
+        updates['users/' + userId + '/shoppingList/'+newPostKey] = data;
+        console.log('updates: ', updates);
+        return update(ref(db), updates);
+      }
+        // const postData = shoppingList.push(data);
+        // const updates = {};
+        // updates['users/' + userId + '/shoppingList/'] = postData;
+        // console.log('updates: ', updates);
+        // return update(ref(db), updates);
+      
+   
+  // if (shoppingList.length===0) {
+  //   shoppingList = '';
+  // }
+  // const postData = shoppingList;
+  // const updates = {};
+  // updates['users/' + userId + '/shoppingList/'] = postData;
+  // console.log('updates: ', updates);
+  // return update(ref(db), updates);
+
+
+
+async function onLogout() {
+
+      const auth = getAuth();
+signOut(auth).then(() => {
+  authStates.status = false;
+  resetSignInButton();
+  // disabledEnabledFormBtn(authStates);
+}).catch((error) => {
+  
+});
+}
+
+async function readShoppingList(userId) {
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, `users/${userId}`+'/shoppingList/'))
     .then(snapshot => {
       if (snapshot.exists()) {
         // console.log(snapshot.val());
-
+        
         const { email, shoppingList, username } = snapshot.val();
-
-        dataUser.email = email;
-        dataUser.username = username;
-        dataUser.shoppingList = shoppingList;
-        if (dataUser.shoppingList === '') {
-          dataUser.shoppingList = [];
-        }
-      } else {
-        console.log('No data available');
+        console.log('Shop',shoppingList);
       }
+      
     })
     .catch(error => {
+      
       console.error(error);
+      
     });
 }
 
-async function updateUserData({ shoppingList, userId }) {
+async function pushShoppingList(userId,data) {
   const db = getDatabase();
-  if (shoppingList.length === 0) {
-    shoppingList = '';
-  }
-  const postData = shoppingList;
-  const updates = {};
-  updates['users/' + userId + '/shoppingList/'] = postData;
-  console.log('updates: ', updates);
-  return update(ref(db), updates);
-}
+    
+  set(ref(db, 'users/' + userId+'/shoppingList/'),data  );
+  
+      }
+       
+    
 
-async function onLogout() {
-  const auth = getAuth();
-  signOut(auth)
-    .then(() => {
-      authStates.status = false;
-      // disabledEnabledFormBtn(authStates);
-    })
-    .catch(error => {});
+
+
+
 
 }
 
-export {
-  onBtnInSelect,
-  onBtnUpSelect,
-  firebaseConfig,
-  dataUser,
-  authStates,
-  writeUserData,
-  readUserData,
-  updateUserData,
-  onLogout,
-};
+
+export { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser,authStates , writeUserData,readUserData,updateUserData,onLogout,pushShoppingList,readShoppingList};
+
+
+
