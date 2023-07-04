@@ -13,6 +13,7 @@ let modalBodyCard = document.querySelector('.modal-body-card');
 const booksCategoryEl = document.querySelector('.books-category');
 booksCategoryEl.addEventListener('click', onSelectBook);
 function onSelectBook(evt) {
+
   let touchTagA = evt.target.closest('a');
   if (!touchTagA) return;
   if (!booksCategoryEl.contains(touchTagA)) return;
@@ -32,6 +33,7 @@ function onSelectBook(evt) {
   //     addToCartBtn.classList.add('non-active-btn');
   //     removeFromCartBtn.classList.add('non-active-btn');
   // }
+
 }
 let book = null;
 async function getBook(id) {

@@ -6,23 +6,31 @@ import {
 import Notiflix from 'notiflix';
 import { showLoader, hideLoader } from './loader';
 
+
 const categoryEl = document.querySelector('.category-list');
 const booksCategoryEl = document.querySelector('.books-category');
 const h1El = document.querySelector('.title-category');
+const categoryLink = document.querySelector('.title-category');
 
 allCategorys();
 
+
 function allCategorys() {
   showLoader();
+  categoryLink.style.display = 'none';
   fetchTopBooks()
     .then(topBooks => {
       topBooks.map(books => {
         renderTopBooks(books);
+        
       });
-      hideLoader();
+      categoryLink.style.display = 'block';
     })
     .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
+      
+    })
+    .finally(() => {
       hideLoader();
     });
 }
@@ -30,15 +38,12 @@ function allCategorys() {
 addCategorys();
 
 function addCategorys() {
- 
   fetchCategoryList()
     .then(categorys => {
       renderCategorys(categorys);
-    
     })
     .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
-     
     });
 }
 
@@ -58,6 +63,7 @@ function renderCategorys(arr) {
 categoryEl.addEventListener('click', onSelectCategory);
 
 function onSelectCategory(evt) {
+  
   if (evt.target.tagName !== 'A' && evt.target.parentNode.tagName !== 'A') {
     return;
   }
@@ -65,13 +71,13 @@ function onSelectCategory(evt) {
   if (category === 'All categories') {
     allCategorys();
   }
-
+  showLoader();
   let AllTitle = category.split(' ');
   let lastWorld = AllTitle.pop();
   h1El.innerHTML = ` <h1 class="title-category"> ${AllTitle.join(
     ' '
   )} <span class="title-acent">${lastWorld}</span></h1>`;
-  showLoader();
+  
   fetchCertainCategory(category)
     .then(books => {
       renderBooks(books);
@@ -84,12 +90,14 @@ function onSelectCategory(evt) {
 }
 
 function renderBooks(arr) {
+  const booksTop = document.createElement('div');
+  booksTop.classList.add('list-top-books')
   const markup = arr
     .map(({ book_image, author, title, _id }) => {
       return `
       <a href="#" class="book-card" id="${_id}">
         <div class="book-carts">
-          <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
+          <div class='img-container-top'><img src="${book_image}" alt="${title}" class="book-img-top" loading="lazy" width=335></div>
             <div class="book-title">
               <p>${title}</p>
               <p class="book-author">${author}</p>
@@ -99,21 +107,28 @@ function renderBooks(arr) {
       `;
     })
     .join('');
-  booksCategoryEl.innerHTML = markup;
+    booksTop.innerHTML = markup;
+    booksCategoryEl.innerHTML = '';
+  booksCategoryEl.appendChild(booksTop);
+
 }
 
 function renderTopBooks(arr) {
-  const markupBook = arr.map(
-    ({ _id, book_image, title, author, list_name }) => {
+  const markupBook = arr.map(({ _id, book_image, title, author, list_name }, index) => {
+      const bookTitleClass = index === 0 ? 'best-sellers-title' : 'visible-hidden-title';
+  
       return `
+      
      <div class="best-sellers-wraper">
     <ul class="best-sellers-all-category-list">
         <li class="best-sellers-own-category-list">
-            <p class="best-sellers-title">${list_name}</p>
+          <p class="${bookTitleClass}">${list_name}</p>
             <ul class="best-sellers-own-category-books">
                 <li class="best-sellers-book">
                     <a href="#" id="${_id}"> 
+                        <div class='img-container'>
                         <img src="${book_image}" alt="${title}" class="book-img">
+                        </div>
                         <div class="book-title"> 
                           <p>${title}</p>
                           <p class="book-author">${author}</p>
@@ -122,10 +137,10 @@ function renderTopBooks(arr) {
             </ul>
         </li>
     </ul>
-</div>
-       
+</div> 
       `;
     }
+    
   );
 
   const markupBtn = `<button class="see-more">see more</button>`;
@@ -136,15 +151,16 @@ function renderTopBooks(arr) {
 
   let markup = '';
   if (screenWidth < 767) {
-    markup = `<ul class="category-item-list">${markupMobile}  ${markupBtn}</ul>`;
+    markup = `<ul class="category-item-list">${markupMobile}</ul> ${markupBtn}`;
   } else if (screenWidth < 1440 && screenWidth >= 768) {
-    markup = `<ul class="category-item-list">${markupLaptop}  ${markupBtn}</ul>`;
+    markup = `<ul class="category-item-list">${markupLaptop}</ul> ${markupBtn}`;
   } else {
-    markup = `<ul class="category-item-list">${markupDesktop}  ${markupBtn}</ul>`;
+    markup = `<ul class="category-item-list">${markupDesktop}</ul> ${markupBtn}`;
   }
   //  markup = markupBook + markupBtn;
-
+  
   return booksCategoryEl.insertAdjacentHTML('beforeend', markup);
+  
 }
 
 // <div class="book-carts">

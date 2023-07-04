@@ -17,6 +17,7 @@ html {
 body {
   background-color: var(--main-bg-color);
   font-family: 'DMSans', sans-serif;
+  
 }
 .container {
   max-width: 375px;
