@@ -77,7 +77,64 @@ p {
   background: lightgray -4.635px -16px / 102.522% 106.839% no-repeat;
 }
 
+.book-img {
+ width: 335px;
+height: 485px; 
+}
 
+.book-over {
+  position: relative;
+  overflow: hidden;
+}
+
+.book-over::before {
+  z-index: 10;
+  position: absolute;
+  display: inline-block;
+  content: "";
+  width: 335px;
+  height: 70px;
+ border-radius: 0px 0px 8px 8px;
+  background: #EAC645;
+  opacity: 0;
+  transform: translateY(300px);
+  bottom: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.book-over-text {
+  z-index: 10;
+    position: absolute;
+    color: #111;
+      font-size: 14px;
+      font-family: DM Sans;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+      letter-spacing: -0.56px;
+      text-transform: uppercase;
+    bottom: 0;
+    padding-top: 20px;
+    padding-left: 120px;
+    padding-bottom: 20px;
+    margin-top: 0;
+    opacity: 0;
+    transform: translateY(300px);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+
+}
+
+.book-card:hover .book-over-text,
+.book-card:focus .book-over-text,
+.book-card:hover .book-over::before,
+.book-card:focus .book-over::before {
+  opacity: 1;
+  transform: translateY(0);
+}
 .title-category {
   color: #111;
   font-size: 32px;
@@ -198,6 +255,10 @@ p {
      flex-direction: row;
  
  }
+
+ .book-over-text {
+  padding-left: 65px;
+ }
   .img-container {
     width: 218px;
     height: 316px;
@@ -262,6 +323,14 @@ p {
     margin-bottom: 40px;
   }
 
+    .book-over-text {
+      padding-left: 50px;
+    }
+
+    .book-img {
+      width: 180px;
+      height: 256px;
+    }
   .img-container {
     width: 180px;
     height: 256px;
