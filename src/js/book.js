@@ -9,6 +9,7 @@ import bookshop from '../img/shopping/bookshop.png';
 const addToCartBtn = document.querySelector('#add-to-cart-btn');
 const removeFromCartBtn = document.querySelector('#remove-from-cart-btn');
 import { authStates } from './firebase-api';
+import { showLoader, hideLoader } from './loader';
 
 
 let modalBodyCard = document.querySelector('.modal-body-card');
@@ -18,6 +19,7 @@ booksCategoryEl.addEventListener('click', onSelectBook);
 
 
 function onSelectBook(evt) {
+    // showLoader();
     let touchTagA = evt.target.closest('a');
 
     if (!touchTagA) return;
@@ -31,17 +33,18 @@ function onSelectBook(evt) {
     getBook(id);
 
 
-    // if (authStates.status === true) {
-    //     addToCartBtn.disabled = false;
-    //     removeFromCartBtn.disabled = false;
-    //     addToCartBtn.classList.remove('non-active-btn');
-    //     removeFromCartBtn.classList.remove('non-active-btn');
-    // } else {
-    //     addToCartBtn.disabled = true;
-    //     removeFromCartBtn.disabled = true;
-    //     addToCartBtn.classList.add('non-active-btn');
-    //     removeFromCartBtn.classList.add('non-active-btn');
-    // }
+    if (authStates.status === true) {
+        addToCartBtn.disabled = false;
+        removeFromCartBtn.disabled = false;
+        addToCartBtn.classList.remove('non-active-btn');
+        removeFromCartBtn.classList.remove('non-active-btn');
+    } else {
+        addToCartBtn.disabled = true;
+        removeFromCartBtn.disabled = true;
+        addToCartBtn.classList.add('non-active-btn');
+        removeFromCartBtn.classList.add('non-active-btn');
+    }
+    // hideLoader();
 }
 
 
