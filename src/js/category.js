@@ -86,24 +86,26 @@ function onSelectCategory(evt) {
 }
 
 function renderBooks(arr) {
+  const booksTop = document.createElement('div');
+  booksTop.classList.add('list-top-books')
   const markup = arr
     .map(({ book_image, author, title, _id }) => {
       return `
-      <div class='category-books'>
-        <a href="#" class="book-card" id="${_id}">
-          <div class="book-carts">
-            <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
-              <div class="book-title">
-                <p>${title}</p>
-                <p class="book-author">${author}</p>
-              </div>
-          </div>
-        </a>
-      </div>
+      <a href="#" class="book-card" id="${_id}">
+        <div class="book-carts">
+          <div class='img-container-top'><img src="${book_image}" alt="${title}" class="book-img-top" loading="lazy" width=335></div>
+            <div class="book-title">
+              <p>${title}</p>
+              <p class="book-author">${author}</p>
+            </div>
+        </div>
+      </a>
       `;
     })
     .join('');
-  booksCategoryEl.innerHTML = markup;
+    booksTop.innerHTML = markup;
+    booksCategoryEl.innerHTML = '';
+  booksCategoryEl.appendChild(booksTop);
 
 }
 

@@ -52,21 +52,35 @@ p {
 }
 
 .book-carts {
-  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   width: 335px;
   height: 535px;
 }
+
 .img-container {
   width: 335px;
   height: 486px;
-
   position: relative;
   overflow: hidden;
 }
-
+.img-container-top {
+  width: 335px;
+  height: 485px;
+  position: relative;
+  overflow: hidden;
+}
+.img-container-top .book-img-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Заповнення площі контейнера, зберігання пропорцій */
+  border-radius: 8px;
+  background: lightgray -4.635px -16px / 102.522% 106.839% no-repeat;
+}
 .img-container .book-img {
   position: absolute;
   top: 0;
@@ -174,6 +188,11 @@ p {
   color: #fff;
   background: #4f2ee8;
 }
+.list-top-books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
 
 /* .best-sellers-own-category-list {
     height: 600px;
@@ -214,6 +233,10 @@ p {
     width: 218px;
     height: 316px;
   }
+  .img-container-top {
+    width: 218px;
+    height: 316px;
+  }
   .category-item-list {
     display: flex;
     flex-direction: row;
@@ -226,10 +249,9 @@ p {
   .best-sellers-wraper {
     width: 218px;
   }
-
-  .book-img {
-    width: 218px;
-    height: 316px;
+  .list-top-books {
+    row-gap: 40px;
+    column-gap: 25px;
   }
 
   .book-carts {
@@ -273,6 +295,7 @@ p {
  }
  .title-category {
   font-size: 48px;
+  width: 996px;
  }
  .category-desktop {
   width: 996px;
@@ -281,19 +304,26 @@ p {
   width: 996px;
  }
  .book-carts {
-  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
   width: 180px;
   height: 306px;
 }
+.list-top-books {
+  row-gap: 40px;
+  column-gap: 24px;
+}
  .img-container {
   width: 180px;
-  height: 306px;
+  height: 256px;
+ }
+ .img-container-top {
+  width: 180px;
+  height: 256px;
  }
  .see-more {
   margin-left: auto;
  }
+
  
 }
