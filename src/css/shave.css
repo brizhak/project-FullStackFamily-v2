@@ -4,11 +4,12 @@
     justify-content: center;
     align-items: center;
     gap: 32px;
+    margin-top: 40px;
 }
 
 @media screen and (min-width: 1440px){
     .sheave {
         flex-direction: column;
         gap: 86px;
-        width: 380px;}
+        }
 }

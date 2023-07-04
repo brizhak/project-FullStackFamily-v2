@@ -1,144 +1,154 @@
 p {
-    padding: 0;
+  padding: 0;
 }
 
 .categorys {
-    display: flex;
-    gap: 20px;
-    overflow-y: scroll;
-    width: 307px;
-    height: 228px;
-    margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  overflow-y: scroll;
+  width: 307px;
+  height: 228px;
+  margin-top: 0;
 }
 
 .categorys::-webkit-scrollbar {
-    width: 8px;
-    height: 114px;
+  width: 8px;
+  height: 114px;
 }
 
 .categorys::-webkit-scrollbar-thumb {
-    background: #000;
-    width: 8px;
-    height: 114px;
-    border-radius: 12px;
-    background: #E0E0E0;
+  background: #000;
+  width: 8px;
+  height: 114px;
+  border-radius: 12px;
+  background: #e0e0e0;
 }
 
 .category-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .category-link {
-    text-decoration: none;
-    color: rgba(17, 17, 17, 0.60);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: -0.32px;
+  text-decoration: none;
+  color: rgba(17, 17, 17, 0.6);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.32px;
 }
 
-.category-link:hover, .category-link:focus {
-color: #4F2EE8;
-text-transform: uppercase;
+.category-link:hover,
+.category-link:focus {
+  color: #4f2ee8;
+  text-transform: uppercase;
 }
-.title-category {
-    margin-bottom: 40px;
-}
-.title-acent {
-    color: #4F2EE8;
-}
-.books-category {
-    margin: 0 auto;
-}
+
 .book-carts {
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-    width: 335px;
-    height: 535px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 335px;
+  height: 535px;
 }
 
 .book-img {
-    width: 335px;
-    height: 485px;
-    border-radius: 8px;
+  width: 335px;
+  height: 485px;
+  border-radius: 8px;
+  background: lightgray -4.635px -16px / 102.522% 106.839% no-repeat;
 }
 
 .title-category {
-    color: #111;
-    font-size: 32px;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 38px;
-    letter-spacing: -1.28px;
-    margin-top: 0;
-    margin-bottom: 40px;
+  color: #111;
+  font-size: 32px;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -1.28px;
+  margin-bottom: 40px;
+}
+
+.title-acent {
+  color: #4f2ee8;
 }
 
 .book-title {
-    color: #111;
-    font-size: 16px;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 18px;
-    letter-spacing: -0.64px;
-    text-transform: uppercase;
-    padding-top: 14px;
-        padding-bottom: 8px;
+  color: #111;
+  font-size: 16px;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+  padding-top: 14px;
+  padding-bottom: 8px;
 }
 
 .book-author {
-    color: #B4AFAF;
-    font-size: 12px;
-    font-family: DM Sans;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 14px;
-    letter-spacing: -0.48px;
-    padding-top: 4px;
+  color: #b4afaf;
+  font-size: 12px;
+  font-family: DM Sans;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: -0.48px;
+  padding-top: 4px;
 }
 
 .best-sellers-title {
-    padding-bottom: 18px;
-    color: #B4AFAF;
-        font-size: 14px;
-        font-family: DM Sans;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 18px;
-        letter-spacing: 0.42px;
-        text-transform: uppercase;
+  padding-bottom: 18px;
+  color: #b4afaf;
+  font-size: 14px;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
+}
+
+.books-category {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 .category-item-list {
-    margin-bottom: 40px;
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 8px;
 }
 .see-more {
-    display: inline-flex;
-        padding: 14px 28px;
-        align-items: flex-start;
-        gap: 10px;
-        border-radius: 40px;
-        border: 2px solid #4F2EE8;
-        margin-left: 200px;
-        color: #111;
-            font-size: 14px;
-            font-family: DM Sans;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 18px;
-            letter-spacing: -0.14px;
-            text-transform: uppercase;
+  display: flex;
+align-self: start;
+  padding: 14px 28px;
+  gap: 10px;
+  background-color: transparent;
+  border-radius: 40px;
+  border: 2px solid #4f2ee8;
+  color: #111;
+  font-size: 14px;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.29;
+  letter-spacing: -0.14px;
+  text-transform: uppercase;
+  margin-left: 200px;
+}
 
+.see-more:hover,
+.see-more:focus {
+  color: #fff;
+  background: #4f2ee8;
 }
 
 /* .best-sellers-own-category-list {
@@ -147,8 +157,7 @@ text-transform: uppercase;
 } */
 /* tablet */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-
-    .categorys {
+.categorys {
         display: flex;
         gap: 20px;
         overflow-y: scroll;
@@ -157,29 +166,50 @@ text-transform: uppercase;
 
     }
 
-    .title-category {
-        font-size: 48px;
-        margin-top: 100px;
-        margin-bottom: 40px;
-    }
+  .category-desktop {
+    margin: 0 auto;
+  }
 
-    .books-category {
-        display: flex;
-        width: 768px;
-        gap: 25px;
-        flex-wrap: wrap;
+ .title-category {
+     font-size: 48px;
+     margin-top: 100px;
+     margin-bottom: 40px;
+ }
 
-    }
+ .books-category {
+     display: flex;
+     width: 768px;
+     gap: 25px;
+     flex-wrap: wrap;
+     flex-direction: row;
 
-    .book-img {
-        width: 218px;
-        height: 316px;
-    }
+ }
 
-    .book-carts {
-        width: 218px;
-        height: 366px;
-    }
+  .category-item-list {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+  }
+
+  .best-sellers-wraper {
+    width: 218px;
+  }
+
+  .book-img {
+    width: 218px;
+    height: 316px;
+  }
+
+  .book-carts {
+    width: 218px;
+    height: 366px;
+  }
+
+  .see-more {
+    display: flex;
+    align-items: center;
+    margin-left: 570px;
+  }
 }
 /* .best-sellers-own-category-list {
     width: 704px;
@@ -188,52 +218,60 @@ text-transform: uppercase;
 } */
 /* desktop */
 @media screen and (min-width: 1200px) {
-    .wraper-category-desktop {
-        display: flex;
-        gap: 40px;
-        margin-top: 40px;
-    }
+  .wraper-category-desktop {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+  }
 
-    .category-desktop {
-        display: flex;
-        flex-direction: column;
-    }
+  .category-desktop {
+    display: flex;
+    flex-direction: column;
+  }
 
-        .categorys {
-        display: flex;
-        gap: 20px;
-        overflow-y: scroll;
-        width: 337px;
-        height: 472px;
+  .categorys {
+    display: flex;
+    gap: 20px;
+    overflow-y: scroll;
+    width: 337px;
+    height: 472px;
+  }
 
-    }
+  .category-list {
+    gap: 32px;
+  }
 
-    .category-list {
-        gap: 32px;
-    }
+  .title-category {
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
 
-    .title-category {
-        font-size: 48px;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
+  .book-img {
+    width: 180px;
+    height: 256px;
+  }
 
-    .book-img {
-        width: 180px;
-        height: 256px;
-    }
+  .book-carts {
+    width: 180px;
+    height: 306px;
+  }
 
-    .book-carts {
-        width: 180px;
-        height: 306px;
-    }
-
-    .books-category {
-        display: flex;
-        flex-wrap: wrap;
-        width: 996px;
+   .books-category {
+      display: flex;
+    width: 996px;
         gap: 24px;
-        margin-top: 40px;
-    }
-}
+      flex-wrap: wrap;
+      flex-direction: row;
 
+  }
+  .category-item-list {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .see-more{
+    margin-left: 860px;
+  }
+}
