@@ -10,17 +10,21 @@ import { showLoader, hideLoader } from './loader';
 const categoryEl = document.querySelector('.category-list');
 const booksCategoryEl = document.querySelector('.books-category');
 const h1El = document.querySelector('.title-category');
+const categoryLink = document.querySelector('.title-category');
 
 allCategorys();
 
 
 function allCategorys() {
   showLoader();
+  categoryLink.style.display = 'none';
   fetchTopBooks()
     .then(topBooks => {
       topBooks.map(books => {
         renderTopBooks(books);
+        
       });
+      categoryLink.style.display = 'block';
     })
     .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
