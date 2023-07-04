@@ -6,6 +6,7 @@ import {
 import Notiflix from 'notiflix';
 import { showLoader, hideLoader } from './loader';
 
+
 const categoryEl = document.querySelector('.category-list');
 const booksCategoryEl = document.querySelector('.books-category');
 const h1El = document.querySelector('.title-category');
@@ -19,12 +20,13 @@ function allCategorys() {
     .then(topBooks => {
       topBooks.map(books => {
         renderTopBooks(books);
-        hideLoader();
       });
-      
     })
     .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
+      
+    })
+    .finally(() => {
       hideLoader();
     });
 }
@@ -87,15 +89,17 @@ function renderBooks(arr) {
   const markup = arr
     .map(({ book_image, author, title, _id }) => {
       return `
-      <a href="#" class="book-card" id="${_id}">
-        <div class="book-carts">
-          <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
-            <div class="book-title">
-              <p>${title}</p>
-              <p class="book-author">${author}</p>
-            </div>
-        </div>
-      </a>
+      <div class='category-books'>
+        <a href="#" class="book-card" id="${_id}">
+          <div class="book-carts">
+            <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
+              <div class="book-title">
+                <p>${title}</p>
+                <p class="book-author">${author}</p>
+              </div>
+          </div>
+        </a>
+      </div>
       `;
     })
     .join('');
@@ -104,14 +108,15 @@ function renderBooks(arr) {
 }
 
 function renderTopBooks(arr) {
-  const markupBook = arr.map(
-    ({ _id, book_image, title, author, list_name }) => {
+  const markupBook = arr.map(({ _id, book_image, title, author, list_name }, index) => {
+      const bookTitleClass = index === 0 ? 'best-sellers-title' : 'visible-hidden-title';
+  
       return `
       
      <div class="best-sellers-wraper">
     <ul class="best-sellers-all-category-list">
         <li class="best-sellers-own-category-list">
-          <p class="best-sellers-title">${list_name}</p>
+          <p class="${bookTitleClass}">${list_name}</p>
             <ul class="best-sellers-own-category-books">
                 <li class="best-sellers-book">
                     <a href="#" id="${_id}"> 
@@ -129,6 +134,7 @@ function renderTopBooks(arr) {
 </div> 
       `;
     }
+    
   );
 
   const markupBtn = `<button class="see-more">see more</button>`;

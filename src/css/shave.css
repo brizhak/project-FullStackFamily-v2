@@ -11,5 +11,6 @@
     .sheave {
         flex-direction: column;
         gap: 86px;
+        margin-top: 0;
         }
 }
