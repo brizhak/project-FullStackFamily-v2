@@ -144,3 +144,9 @@
 .btn-remove {
   margin-bottom: 8px;
 }
+
+.non-active-btn {
+  background-color: #ddd8d8;
+  border: 2px solid #2d2d2e;
+  pointer-events: none;
+}

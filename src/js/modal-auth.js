@@ -1,24 +1,26 @@
 
   
     // openModalBtn: document.querySelector('[data-modal-open]'),
-const closeAuthModBtn = document.querySelector('[data-modal-close]');
+const closeAuthModBtn = document.querySelector('.btn-modal-close');
     // const modal= document.querySelector('[data-modal]'),
   
 
   // refs.openModalBtn.addEventListener('click', openModal);
   closeAuthModBtn.addEventListener('click', closeModalAuth);
-  const overlay = document.querySelector('.overlay');
-  const modal = document.querySelector('[data-modal]');
-  overlay.addEventListener('click', closeModalAuth);
+  const overlayAuth = document.querySelector('.overlay');
+  const modalAuth = document.querySelector('[data-modal]');
+  overlayAuth.addEventListener('click', closeModalAuth);
 
 function openModalAuth() {
-  modal.classList.add('active');
-  overlay.classList.add('active');
+
+  modalAuth.classList.add('active');
+  overlayAuth.classList.add('active');
+ 
   }
   
 function closeModalAuth() {
-  modal.classList.remove('active');
-  overlay.classList.remove('active');
+  modalAuth.classList.remove('active');
+  overlayAuth.classList.remove('active');
   }
   document.body.addEventListener('keyup', function (e) {
     const key = e.keyCode;

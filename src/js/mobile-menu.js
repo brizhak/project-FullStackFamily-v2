@@ -14,7 +14,7 @@ const shoppingListButton = document.querySelector('.nav-link-shopping');
 const logoutButton = document.querySelector('.log-out');
 
 // shopping list
-shoppingListButton.addEventListener('click', shoppingListMarkup);
+ shoppingListButton.addEventListener('click', shoppingListMarkup);
   
 // log out
 logoutButton.addEventListener('click', onLogout);
@@ -48,7 +48,7 @@ onLogout();
 });
 
 // sign-in button update
-export function updateSignInButton({ username }) {
+export function updateSignInButton( username ) {
   const signInButton = document.getElementById('sign-up');
   signInButton.textContent = `${username}`;
 }
