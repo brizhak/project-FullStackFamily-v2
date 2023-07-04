@@ -101,6 +101,7 @@
   z-index: -1;
 }
 
+
 .nav-item a:hover::before {
   border-color: #eac645;
   background-color: #eac645;
@@ -112,6 +113,13 @@
 
 .nav-link-icon {
   margin-left: 4px;
+}
+
+.disabled-link {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  opacity: 0.4;
 }
 
 /* Button hamburger + Toggle */
