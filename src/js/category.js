@@ -6,26 +6,31 @@ import {
 import Notiflix from 'notiflix';
 import { showLoader, hideLoader } from './loader';
 
+
 const categoryEl = document.querySelector('.category-list');
 const booksCategoryEl = document.querySelector('.books-category');
 const h1El = document.querySelector('.title-category');
-
+const categoryLink = document.querySelector('.title-category');
 
 allCategorys();
 
 
 function allCategorys() {
   showLoader();
+  categoryLink.style.display = 'none';
   fetchTopBooks()
     .then(topBooks => {
       topBooks.map(books => {
         renderTopBooks(books);
-        hideLoader();
-      });
 
+      });
+      categoryLink.style.display = 'block';
     })
     .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
+
+    })
+    .finally(() => {
       hideLoader();
     });
 }
@@ -57,9 +62,6 @@ function renderCategorys(arr) {
 
 categoryEl.addEventListener('click', onSelectCategory);
 
-
-
-
 function onSelectCategory(evt) {
 
   if (evt.target.tagName !== 'A' && evt.target.parentNode.tagName !== 'A') {
@@ -85,16 +87,19 @@ function onSelectCategory(evt) {
       Notiflix.Notify.failure('Something went wrong. Please try again');
       hideLoader();
     });
-
 }
 
 function renderBooks(arr) {
+  const booksTop = document.createElement('div');
+  booksTop.classList.add('list-top-books')
   const markup = arr
     .map(({ book_image, author, title, _id }) => {
       return `
       <a href="#" class="book-card" id="${_id}">
         <div class="book-carts">
+        <div class='img-container-top'>
           <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
+        </div>
             <div class="book-title">
               <p>${title}</p>
               <p class="book-author">${author}</p>
@@ -104,7 +109,9 @@ function renderBooks(arr) {
       `;
     })
     .join('');
-  booksCategoryEl.innerHTML = markup;
+  booksTop.innerHTML = markup;
+  booksCategoryEl.innerHTML = '';
+  booksCategoryEl.appendChild(booksTop);
 
 }
 
@@ -113,7 +120,8 @@ let ulListName = ``;
 
 function renderTopBooks(arr) {
   const markupBook = arr.map(
-    ({ _id, book_image, title, author, list_name }) => {
+    ({ _id, book_image, title, author, list_name }, index) => {
+      const bookTitleClass = index === 0 ? 'best-sellers-title' : 'visible-hidden-title';
       markupBtn = `<button button class="see-more" id = "${list_name}" > see more</button >`;
       ulListName = `${list_name}`
       return `
@@ -121,11 +129,13 @@ function renderTopBooks(arr) {
      <div class="best-sellers-wraper">
     <ul class="best-sellers-all-category-list">
         <li class="best-sellers-own-category-list">
-          <p class="best-sellers-title">${list_name}</p>
+          <p class="${bookTitleClass}">${list_name}</p>
             <ul class="best-sellers-own-category-books">
                 <li class="best-sellers-book">
                     <a href="#" id="${_id}"> 
+                      <div class='img-container'>
                         <img src="${book_image}" alt="${title}" class="book-img">
+                      </div>
                         <div class="book-title"> 
                           <p>${title}</p>
                           <p class="book-author">${author}</p>
@@ -135,9 +145,7 @@ function renderTopBooks(arr) {
         </li>
     </ul>
 </div> 
-
       `;
-
     }
   );
 
@@ -157,7 +165,7 @@ function renderTopBooks(arr) {
   }
   //  markup = markupBook + markupBtn;
 
-  booksCategoryEl.insertAdjacentHTML('beforeend', markup);
+  return booksCategoryEl.insertAdjacentHTML('beforeend', markup);
 
 }
 
