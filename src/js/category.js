@@ -107,10 +107,11 @@ function renderTopBooks(arr) {
   const markupBook = arr.map(
     ({ _id, book_image, title, author, list_name }) => {
       return `
+      
      <div class="best-sellers-wraper">
     <ul class="best-sellers-all-category-list">
         <li class="best-sellers-own-category-list">
-            <p class="best-sellers-title">${list_name}</p>
+          <p class="best-sellers-title">${list_name}</p>
             <ul class="best-sellers-own-category-books">
                 <li class="best-sellers-book">
                     <a href="#" id="${_id}"> 
@@ -123,8 +124,7 @@ function renderTopBooks(arr) {
             </ul>
         </li>
     </ul>
-</div>
-       
+</div> 
       `;
     }
   );

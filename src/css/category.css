@@ -8,7 +8,7 @@ p {
   overflow-y: scroll;
   width: 307px;
   height: 228px;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 .categorys::-webkit-scrollbar {
@@ -72,7 +72,7 @@ p {
   font-weight: 700;
   line-height: 38px;
   letter-spacing: -1.28px;
-  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .title-acent {
@@ -128,8 +128,7 @@ p {
 }
 .see-more {
   display: flex;
-  justify-content: right;
-
+align-self: start;
   padding: 14px 28px;
   gap: 10px;
   background-color: transparent;
@@ -143,6 +142,7 @@ p {
   line-height: 1.29;
   letter-spacing: -0.14px;
   text-transform: uppercase;
+  margin-left: 200px;
 }
 
 .see-more:hover,
@@ -157,28 +157,33 @@ p {
 } */
 /* tablet */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-  .categorys {
-    display: flex;
-    gap: 20px;
-    overflow-y: scroll;
-    width: 337px;
-    height: 472px;
-  }
+.categorys {
+        display: flex;
+        gap: 20px;
+        overflow-y: scroll;
+        width: 337px;
+        height: 472px;
+
+    }
 
   .category-desktop {
     margin: 0 auto;
   }
 
-  .title-category {
-    font-size: 48px;
-    margin-top: 100px;
-    margin-bottom: 40px;
-  }
+ .title-category {
+     font-size: 48px;
+     margin-top: 100px;
+     margin-bottom: 40px;
+ }
 
-  .books-category {
-    display: flex;
-    flex-direction: column;
-  }
+ .books-category {
+     display: flex;
+     width: 768px;
+     gap: 25px;
+     flex-wrap: wrap;
+     flex-direction: row;
+
+ }
 
   .category-item-list {
     display: flex;
@@ -203,9 +208,7 @@ p {
   .see-more {
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
-    width: 124px;
-    height: 46px;
+    margin-left: 570px;
   }
 }
 /* .best-sellers-own-category-list {
@@ -241,7 +244,7 @@ p {
   .title-category {
     font-size: 48px;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 40px;
   }
 
   .book-img {
@@ -254,11 +257,21 @@ p {
     height: 306px;
   }
 
-  .books-category {
-    display: flex;
-    flex-wrap: wrap;
+   .books-category {
+      display: flex;
     width: 996px;
+        gap: 24px;
+      flex-wrap: wrap;
+      flex-direction: row;
+
+  }
+  .category-item-list {
+    display: flex;
+    flex-direction: row;
     gap: 24px;
-    margin-top: 40px;
+  }
+
+  .see-more{
+    margin-left: 860px;
   }
 }
