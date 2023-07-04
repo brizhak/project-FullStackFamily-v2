@@ -13,8 +13,10 @@
           class="modal-input"
           type="text"
           name="name"
+          minlength="2"
           maxlength="20"
           placeholder="name"
+          autofocus
         />
         <svg
           class="modal-icon"
@@ -38,7 +40,6 @@
           placeholder="email*"
           pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
           title="Invalid email address"
-          autofocus
         />
         <svg class="modal-icon">
           <use href="./img/icons.svg#icon-mail"></use>
@@ -55,7 +56,6 @@
           minlength="6"
           maxlength="20"
           placeholder="password*"
-          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
           title="Require min 6 sign, which include at least 1 uppercase character, 1 lowercase character, and 1 number."
         />
         <svg class="modal-icon">
