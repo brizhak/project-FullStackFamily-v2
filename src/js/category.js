@@ -21,7 +21,7 @@ function allCategorys() {
         renderTopBooks(books);
         hideLoader();
       });
- 
+      
     })
     .catch(error => {
       Notiflix.Notify.failure('Something went wrong. Please try again');
