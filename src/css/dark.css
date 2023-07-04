@@ -118,9 +118,6 @@ h3.night {
     color: var(--secondary-accent-color);
 }
 
-.night :last-child {
-    color: #cfcbcb;
-}
 
 .night .header_logo-icon,
 .night .modal-close-btn {
@@ -199,4 +196,28 @@ h3.night {
 
 .night p:first-child {
     color: var(--main-bg-color);
+}
+
+.night .title-acent{
+    color: var(--main-accent-color);
+}
+.night .see-more{
+    color: var(--main-bg-color);
+}
+.night .modal-close-icon{
+    fill: var(--main-bg-color);
+}
+.night .modal-icon{
+    stroke: var(--main-bg-color);
+    fill: var(--secondary-color);
+}
+.night .modal-input{
+    color: var(--main-bg-color);
+}
+.night .btn-modal-submit{
+    background-color: var(--main-bg-color) ;
+    color: var(--secondary-color);
+}
+.night .modal-auth{
+    background-color:var(--secondary-color);
 }

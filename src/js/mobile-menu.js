@@ -1,64 +1,64 @@
 import { openModalAuth } from './modal-auth.js';
 import { handleThemeToggle } from './dark.js';
 import { onLogout } from './firebase-api.js';
+import { shoppingListMarkup } from './shopping-list.js';
+import { onLogout } from './firebase-api';
 
-  const mobileMenu = document.querySelector('.js-menu-container');
-  const openMenuBtn = document.querySelector('.js-open-menu');
-  const closeMenuBtn = document.querySelector('.js-close-menu');
-  const mobileMenuLinks = document.querySelectorAll('.mobile-menu_link');
-  const signUpButton = document.getElementById('sign-up');
-  const themeSwitch = document.getElementById('theme-switch');
+const mobileMenu = document.getElementById('modal-mobile');
+const openMenuBtn = document.getElementById('open-modal-mobile');
+const closeMenuBtn = document.getElementById('close-modal-mobile');
+// const mobileMenuLinks = document.querySelectorAll('.mobile-menu_link');
+const signUpButton = document.getElementById('sign-up');
+const themeSwitch = document.getElementById('theme-switch');
+const shoppingListButton = document.querySelector('.nav-link-shopping');
+const logoutButton = document.querySelector('.log-out');
 
-  signUpButton.addEventListener('click', openModalAuth);
-  themeSwitch.addEventListener('change', handleThemeToggle);
 
-  const toggleMenu = () => {
-    const isMenuOpen = openMenuBtn.getAttribute('aria-expanded') === true || false;
-    openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
-    mobileMenu.classList.toggle('is-open');
-  };
+// shopping list
+ shoppingListButton.addEventListener('click', shoppingListMarkup);
+  
+// log out
+logoutButton.addEventListener('click', onLogout);
 
-  const closeMenuOnOrientationChange = () => {
-    if (window.matchMedia('(min-width: 768px)').matches) {
-      mobileMenu.classList.remove('is-open');
-      openMenuBtn.setAttribute('aria-expanded', false);
-    }
-  };
 
-  const addMenuEventListeners = () => {
-    openMenuBtn.addEventListener('click', toggleMenu);
-    if (closeMenuBtn) {
-      closeMenuBtn.addEventListener('click', toggleMenu);
-    }
-    mobileMenuLinks.forEach(link => {
-      link.addEventListener('click', toggleMenu);
-    });
-  };
+// opening mobile menu
+openMenuBtn.addEventListener('click', function () {
+mobileMenu.style.display = 'block';
+});
 
-  addMenuEventListeners();
+// closing mobile menu
+closeMenuBtn.addEventListener('click', function () {
+mobileMenu.style.display = 'none';
+});
 
-  window.matchMedia('(min-width: 768px)').addEventListener('change', closeMenuOnOrientationChange);
+// opening modal authentication
+signUpButton.addEventListener('click', openModalAuth);
 
-  // Оновити розмітку після виходу з системи
-  function updateUIOnLogout() {
-    const logoutButton = document.querySelector('.log-btn');
-    logoutButton.classList.add('hidden');
+// theme switch
+themeSwitch.addEventListener('change', handleThemeToggle);
 
-    const loginButton = document.querySelector('.log-btn.singup');
-    loginButton.classList.remove('hidden');
-    loginButton.addEventListener('click', toggleMenu);
-    onLogout();
-  }
+// logging out
+logoutButton.addEventListener('click', function () {
+const logoutButton = document.querySelector('.log-out');
+logoutButton.classList.add('hidden');
 
-  // Додати слухача для кнопки "Logout"
-  const logoutButton = document.querySelector('.log-btn.hidden');
-  logoutButton.addEventListener('click', updateUIOnLogout);
+const loginButton = document.querySelector('.log-in');
+loginButton.classList.remove('hidden');
+loginButton.addEventListener('click', toggleMenu);
+onLogout();
+});
 
- /*   function openModalAuth() {
-     ModalAuth();
-   }
+// sign-in button update
+export function updateSignInButton( username ) {
+  const signInButton = document.getElementById('sign-up');
+  signInButton.textContent = `${username}`;
+}
 
- 
-   function handleThemeToggle() {
-     handleThemeToggle();
-   } */
+export function resetSignInButton() {
+  const signInButton = document.getElementById('sign-up');
+  signInButton.textContent = 'Sign In';
+}
+
+
+
+

@@ -1,3 +1,5 @@
+@import './dark.css';
+
 /* -- Various -- */
 :root {
     /* common color */
@@ -8,6 +10,7 @@
     --color-modal-input: #000;
     --color-modal-input-focus: #000;
     --color-btn-modal-submit: #F6F6F6;
+    --color-btn-modal-action: rgba(17, 17, 17, 0.5);
 
     /* background-color */
 
@@ -32,13 +35,35 @@
     --transition-property2: 600ms linear;
 }
 
-/* ------------------------------------- Modal windows -- */
+/* --------------------------------Dark theme------------------------- */
+/*========== Variables Dark theme ==========*/
+body.night {
+    /* color-text */
+    --color-modal-icon: #F6F6F6;
+    --color-modal-input: #F6F6F6;
+    --color-modal-input-focus: #F6F6F6;
+    --color-btn-modal-submit: #202024;
+    --color-btn-modal-action: rgba(246, 246, 246, 0.5);
+
+    /* background-color */
+
+    --bg-color-modal: #202024;
+    --bg-color-btn-modal: #F6F6F6;
+    --bg-color-btn-modal-submit: #F6F6F6;
+
+    /* border-color */
+
+    --brd-color-modal-input: #F6F6F6;
+    --brd-color-modal-input-focus: #4f2ee8;
+}
+
+/* -----------------------------MODAL WINDOW--------------------------------------- */
 
 .overlay {
     position: fixed;
     opacity: 0;
     visibility: hidden;
-    z-index: 10;
+    z-index: 100;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -53,7 +78,7 @@
 
     scale: 0.1;
     opacity: 0;
-    z-index: 30;
+    z-index: 300;
 }
 
 .modal.active,
@@ -65,51 +90,33 @@
 
 .modal-auth {
     position: absolute;
-    top: 127px;
+    top: 50%;
     left: 50%;
-    max-width: 579px;
+    max-width: 335px;
     width: 100%;
-    min-height: 516px;
-    padding: 80px 40px 40px 40px;
-    transform: translate(-50%, 0%) scaleY(1) skew(0);
+    min-height: 384px;
+    padding: 40px 20px 40px 20px;
+    transform: translate(-50%, -50%) scaleY(1) skew(0);
 
     background-color: var(--bg-color-modal);
+
     border-radius: 18px;
 }
 
-/* @media screen and (min-width: 768px) and (orientation: portrait) {
+@media screen and (min-width: 768px) {
     .modal-auth {
-        top: 50%;
-        transform: translate(-50%, -50%) scaleY(1) skew(0);
-    }
-} */
+        top: 127px;
+        max-width: 579px;
+        min-height: 516px;
+        padding: 80px 40px 40px 40px;
+        border: 2px solid var(--brd-color-modal-input);
 
-/* @media screen and (min-width: 1200px) {
-    .modal-auth {
-        top: 50%;
-        transform: translate(-50%, -50%) scaleY(1) skew(0);
+        transform: translate(-50%, 0%) scaleY(1) skew(0);
     }
-} */
-
-/* @media screen and (min-width: 768px) {
-    .modal-auth {
-        max-width: 408px;
-        width: calc(100% - 32px);
-        padding: 72px 25px 24px 23px;
-    }
-} */
-
-/* @media screen and (min-width: 1200px) {
-    .modal-auth {
-        max-width: 408px;
-        width: calc(100% - 30px);
-        min-height: 584px;
-        padding: 72px 24px 24px;
-    }
-} */
+}
 
 .btn-modal-close {
-    --size: 28px;
+    --size: 20px;
     width: var(--size);
     height: var(--size);
 
@@ -119,8 +126,8 @@
     padding: 0;
 
     position: absolute;
-    top: 24px;
-    right: 24px;
+    top: 14px;
+    right: 14px;
 
     color: var(--color-modal-icon);
     background-color: transparent;
@@ -135,20 +142,40 @@
 }
 
 .modal-close-icon {
-    --size: 28px;
+    --size: 20px;
     width: var(--size);
     height: var(--size);
     stroke: currentColor;
     fill: var(--bg-color-modal);
 }
 
+@media screen and (min-width: 768px) {
+
+    .btn-modal-close {
+        --size: 28px;
+        width: var(--size);
+        height: var(--size);
+
+        top: 24px;
+        right: 24px;
+    }
+
+    .modal-close-icon {
+        --size: 28px;
+        width: var(--size);
+        height: var(--size);
+    }
+}
+
+/* -------------------------------------FORM------------------------------------- */
+
 .modal-field {
     display: block;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .modal-field:nth-child(3) {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 .modal-field-input {
@@ -158,20 +185,20 @@
 
 .modal-input {
     width: 100%;
-    max-width: 499px;
-    max-height: 64px;
-    padding-left: 40px;
-    padding-right: 173px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    max-width: 295px;
+    max-height: 50px;
+    padding-left: 24px;
+    padding-right: 82px;
+    padding-top: 16px;
+    padding-bottom: 16px;
 
     text-align: left;
     text-transform: uppercase;
     color: var(--color-modal-input);
     font-family: inherit;
     font-weight: 700;
-    font-size: 18px;
-    line-height: calc(24/18);
+    font-size: 16px;
+    line-height: calc(18/16);
     letter-spacing: -0.01em;
 
     outline: transparent;
@@ -180,6 +207,30 @@
     border-radius: 40px;
 
     transition: color var(--transition-property), border-color var(--transition-property), fill var(--transition-property);
+}
+
+@media screen and (min-width: 768px) {
+
+    .modal-field {
+        margin-bottom: 28px;
+    }
+
+    .modal-field:nth-child(3) {
+        margin-bottom: 40px;
+    }
+
+    .modal-input {
+        max-width: 499px;
+        max-height: 64px;
+        padding-left: 40px;
+        padding-right: 173px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        font-size: 18px;
+        line-height: calc(24/18);
+        letter-spacing: -0.01em;
+    }
 }
 
 .modal-input:focus {
@@ -200,13 +251,25 @@
 }
 
 .modal-icon {
+    --size: 18px;
+    width: var(--size);
+    height: var(--size);
     position: absolute;
     top: 50%;
-    right: 32px;
+    right: 16px;
     transform: translateY(-50%);
 
     stroke: var(--color-modal-icon);
     fill: var(--bg-color-modal);
+}
+
+@media screen and (min-width: 768px) {
+    .modal-icon {
+        --size: 28px;
+        width: var(--size);
+        height: var(--size);
+        right: 32px;
+    }
 }
 
 .modal-input-focus:focus+.modal-icon {
@@ -216,19 +279,19 @@
 
 .btn-modal-submit {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 499px;
-    padding: 20px 0px;
+    max-width: 293px;
+    padding: 16px 0px;
 
     text-align: center;
     text-transform: uppercase;
     font-family: inherit;
     font-weight: 700;
-    font-size: 18px;
-    line-height: calc(24/18);
+    font-size: 16px;
+    line-height: calc(18/16);
     letter-spacing: -0.01em;
 
     color: var(--color-btn-modal-submit);
@@ -238,6 +301,18 @@
 
     cursor: pointer;
     transition: background-color var(--transition-property);
+}
+
+@media screen and (min-width: 768px) {
+    .btn-modal-submit {
+        margin-bottom: 20px;
+        max-width: 499px;
+        padding: 20px 0px;
+
+        font-size: 18px;
+        line-height: calc(24/18);
+        letter-spacing: -0.01em;
+    }
 }
 
 .btn-modal-submit:is(:hover, :focus) {
@@ -253,12 +328,22 @@
 .btn-modal-action {
     padding: 0px;
     border: 0px;
+    background-color: inherit;
+    color: var(--color-btn-modal-action);
 
     text-align: center;
     text-transform: uppercase;
     font-family: inherit;
     font-weight: 700;
-    font-size: 18px;
-    line-height: calc(24/18);
+    font-size: 14px;
+    line-height: calc(18/14);
     letter-spacing: -0.01em;
+}
+
+@media screen and (min-width: 768px) {
+    .btn-modal-action {
+        font-size: 18px;
+        line-height: calc(24/18);
+        letter-spacing: -0.01em;
+    }
 }
