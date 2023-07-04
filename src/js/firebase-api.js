@@ -160,7 +160,7 @@ async function pushShoppingList(userId,data) {
 
 
 
-}
+
 
 
 export { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser,authStates , writeUserData,readUserData,updateUserData,onLogout,pushShoppingList,readShoppingList};
