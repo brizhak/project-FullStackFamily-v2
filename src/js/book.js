@@ -28,27 +28,13 @@ function onSelectBook(evt) {
   let id = touchTagA.id;
   getBook(id);
 
-<<<<<<< Updated upstream
-    // if (authStates.status === true) {
-    //     addToCartBtn.disabled = false;
-    //     removeFromCartBtn.disabled = false;
-    // } else {
-    //     addToCartBtn.disabled = true;
-    //     removeFromCartBtn.disabled = true;
-    // }
-=======
   // if (authStates.status === true) {
   //     addToCartBtn.disabled = false;
   //     removeFromCartBtn.disabled = false;
-  //     addToCartBtn.classList.remove('non-active-btn');
-  //     removeFromCartBtn.classList.remove('non-active-btn');
   // } else {
   //     addToCartBtn.disabled = true;
   //     removeFromCartBtn.disabled = true;
-  //     addToCartBtn.classList.add('non-active-btn');
-  //     removeFromCartBtn.classList.add('non-active-btn');
   // }
->>>>>>> Stashed changes
 }
 
 let book = null;
