@@ -15,7 +15,6 @@ async function onOpenCategoryList(evt) {
             return;
         }
         category = evt.target.id;
-        console.log("Id",evt.target.id);
 
         let books = await fetchCertainCategory(category);
         if (!books) {
@@ -25,7 +24,6 @@ async function onOpenCategoryList(evt) {
         return category;
     } catch (error) {
         Notiflix.Notify.failure('Something went wrong. Please try again');
-        console.log(error);
     } finally {
 
     }

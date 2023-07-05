@@ -140,6 +140,7 @@ h3.night {
 
 .night .modal-body-add-btn {
     color: var(--main-bg-color);
+    background-color: transparent;
 }
 
 .night .modal-body-text {
@@ -221,9 +222,7 @@ h3.night {
 .night .modal-auth{
     background-color:var(--secondary-color);
 }
-.night .modal-input{
-    border: var(--main-bg-color);
-}
+
 .night .btn-modal-action{
     background-color: transparent;
 }
@@ -252,12 +251,6 @@ h3.night {
     color: var(--main-bg-color);
 }
 
-.night modal-body-title{
-    color: var(--secondary-color);
-}
-.night .modal-body-container-btn{
-    background-color: var(--secondary-color);
-}
 .night .modal-body-media-icon-amazon {
     filter: invert(98%)sepia()saturate(0%)hue-rotate(105deg)brightness(103%)contrast(102%);
 }

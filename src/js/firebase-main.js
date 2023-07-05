@@ -79,7 +79,6 @@ function onFormSubmit(event) {
             authStates.status = true;
             readUserData(dataUser.userId).then(snapshot => {
       if (snapshot.exists()) {
-        console.log('snap', snapshot.val());
         const { username } = snapshot.val();  
         updateSignInButton(username);
         letDisabledLink();
@@ -105,7 +104,6 @@ function onFormSubmit(event) {
         authStates.status = true;
         readUserData(dataUser.userId).then(snapshot => {
       if (snapshot.exists()) {
-        console.log('snap', snapshot.val());
         const { username } = snapshot.val();  
         updateSignInButton(username);
         letDisabledLink();
