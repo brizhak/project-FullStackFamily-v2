@@ -48,7 +48,7 @@ Notify.init({
         backOverlayColor: 'rgba(238,191,49,0.2)',
     },
 });
-
+    letDisabledLink();
 
 function onFormSubmit(event) {
 
@@ -99,7 +99,7 @@ function onFormSubmit(event) {
         Notify.warning(errorMessage);
          });
   } else if (authStates.type === 'signin') {
-    inputName.setAttribute("disabled", ""); 
+   
     signInWithEmailAndPassword(auth, dataUser.email,password)
       .then(userCredential => {
        

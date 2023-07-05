@@ -1,7 +1,7 @@
 import { openModalAuth } from './modal-auth.js';
 import { handleThemeToggle } from './dark.js';
 import { onLogout } from './firebase-api.js';
-import { shoppingListMarkup } from './shopping-list.js';
+
 import { onLogout } from './firebase-api';
 import { authStates } from './firebase-api.js';
 
@@ -42,7 +42,7 @@ themeSwitchMenu.addEventListener('click', function () {
 });
 
 // shopping list
-shoppingListButton.addEventListener('click', shoppingListMarkup);
+// shoppingListButton.addEventListener('click', shoppingListMarkup);
 
 // log out table, desktop
 export function toggleLogOutButtonIgListener() {

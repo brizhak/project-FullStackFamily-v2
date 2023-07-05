@@ -10,7 +10,7 @@ import { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser, authStates, wri
 const mainList = document.querySelector(".shopping-list-list");
 
 // dataUser.shoppingList = [1];
-
+ setTimeout(shoppingListMarkup, 50);
 function shoppingListMarkup() {
 
   
@@ -175,7 +175,7 @@ function shoppingListMarkup() {
     
   })
 }
-
+// shoppingListMarkup();
   
 function removeCardInShopList(event) {
       
@@ -183,8 +183,10 @@ function removeCardInShopList(event) {
     return;
   }
     const bookItemId = event.target.id;
-  removeElShoppingList(dataUser.userId, bookItemId);  
-  shoppingListMarkup();
-    }
+    removeElShoppingList(dataUser.userId, bookItemId);  
+    shoppingListMarkup();
+}
+    
+
   export {shoppingListMarkup};
 
