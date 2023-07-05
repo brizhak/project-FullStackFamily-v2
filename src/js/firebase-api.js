@@ -4,6 +4,7 @@ import { getDatabase, ref, set, child, get, update,push } from 'firebase/databas
 import { getAuth, signOut } from 'firebase/auth';
 import {resetSignInButton} from './mobile-menu.js'
 import { updateSignInButton } from './mobile-menu.js'
+import { letDisabledLink } from './header.js';
 
 const dataUser = {
   userId: '',
@@ -84,7 +85,9 @@ async function onLogout() {
   const auth = getAuth();
   signOut(auth).then(() => {
   authStates.status = false;
-  resetSignInButton();
+    resetSignInButton();
+    letDisabledLink();
+    shoppingListMarkup();
   
 }).catch((error) => {
   

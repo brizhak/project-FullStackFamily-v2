@@ -15,7 +15,7 @@ async function onOpenCategoryList(evt) {
             return;
         }
         category = evt.target.id;
-        console.log(evt.target);
+        console.log("Id",evt.target.id);
 
         let books = await fetchCertainCategory(category);
         if (!books) {
