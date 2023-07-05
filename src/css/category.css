@@ -70,6 +70,7 @@ p {
   height: 485px;
   position: relative;
   overflow: hidden;
+  border-radius: 8px;
 }
 .img-container-top .book-img-top {
   position: absolute;
@@ -104,7 +105,7 @@ p {
   content: "";
   width: 335px;
   height: 70px;
- border-radius: 0px 0px 8px 8px;
+  border-radius: 0px 0px 8px 8px;
   background: #EAC645;
   opacity: 0;
   transform: translateY(300px);
@@ -119,7 +120,7 @@ p {
     position: absolute;
     color: #111;
       font-size: 14px;
-      font-family: DM Sans;
+      font-family: 'DM Sans Medium';
       font-style: normal;
       font-weight: 500;
       line-height: 18px;
@@ -148,7 +149,7 @@ p {
 .title-category {
   color: #111;
   font-size: 32px;
-  font-family: DM Sans;
+  font-family: 'DM Sans Bold';
   font-style: normal;
   font-weight: 700;
   line-height: 38px;
@@ -163,7 +164,7 @@ p {
 .book-title {
   color: #111;
   font-size: 16px;
-  font-family: DM Sans;
+  font-family: 'DM Sans Bold';
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
@@ -176,7 +177,7 @@ p {
 .book-author {
   color: #b4afaf;
   font-size: 12px;
-  font-family: DM Sans;
+  font-family: 'DM Sans Italic';
   font-style: italic;
   font-weight: 400;
   line-height: 14px;
@@ -184,11 +185,11 @@ p {
   padding-top: 4px;
 }
 
-.best-sellers-title{
+.best-sellers-title {
   padding-bottom: 18px;
   color: #b4afaf;
   font-size: 14px;
-  font-family: DM Sans;
+  font-family: 'DM Sans Regular';
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
@@ -199,7 +200,7 @@ p {
   padding-bottom: 18px;
   opacity: 0;
   font-size: 14px;
-  font-family: DM Sans;
+  font-family: 'DM Sans Regular';
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
@@ -226,19 +227,20 @@ p {
   border: 2px solid #4f2ee8;
   color: #111;
   font-size: 14px;
-  font-family: DM Sans;
+  font-family: 'DM Sans Bold';
   font-style: normal;
   font-weight: 700;
   line-height: 1.29;
   letter-spacing: -0.14px;
   text-transform: uppercase;
   margin-left: 200px;
+  transition: color 0.3s, background-color 0.3s;
 }
 
 .see-more:hover,
 .see-more:focus {
   color: #fff;
-  background: #4f2ee8;
+  background-color: #4f2ee8;
 }
 .list-top-books {
   display: flex;
@@ -270,6 +272,9 @@ p {
  .title-category {
      font-size: 48px;
  }
+.book-over-text {
+  padding-left: 65px;
+}
 
  .books-category {
      display: flex;
@@ -301,6 +306,8 @@ p {
   .best-sellers-wraper {
     width: 218px;
   }
+
+   
   .list-top-books {
     row-gap: 40px;
     column-gap: 25px;
@@ -354,6 +361,11 @@ p {
  }
  .books-category {
   width: 996px;
+ }
+ 
+
+ .book-over-text {
+   padding-left: 50px;
  }
  .book-carts {
   display: flex;
