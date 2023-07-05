@@ -38,7 +38,7 @@ themeSwitchMenu.addEventListener('click', function () {
 })
 
 // shopping list
-shoppingListButton.addEventListener('click', shoppingListMarkup);
+shoppingListButton.addEventListener('click',shoppingListMarkup);
 
 // log out
 logoutButton.addEventListener('click', onLogout);
