@@ -16,12 +16,7 @@ html {
 }
 body {
   background-color: var(--main-bg-color);
-<<<<<<< Updated upstream
-  font-family: 'DMSans', sans-serif;
-  
-=======
   font-family: 'DM Sans Regular', sans-serif;
->>>>>>> Stashed changes
 }
 .container {
   max-width: 375px;
