@@ -48,7 +48,7 @@
 }
 
 .nav-items {
-  font-family: 'DM Sans Medium';
+  font-family: 'DM Sans Medium', sans-serif;
   display: flex;
   align-items: center;
   border-radius: 36px;
@@ -225,7 +225,7 @@ input:checked + .circle::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'DM Sans Medium';
+  font-family: 'DM Sans Medium', sans-serif;
   font-size: 14px;
   width: 184px;
   height: 48px;
@@ -379,7 +379,7 @@ input:checked + .circle-menu::before {
 }
 
 .mobile-menu_item {
-  font-family: 'DM Sans Medium';
+  font-family: 'DM Sans Medium', sans-serif;
   display: flex;
   align-items: center;
   border-radius: 36px;
@@ -468,7 +468,7 @@ input:checked + .circle-menu::before {
   background: #fff;
   color: #111;
   font-size: 14px;
-  font-family: 'DM Sans Medium';
+  font-family: 'DM Sans Medium', sans-serif;
   font-style: normal;
   font-weight: 500;
   line-height: 18px;
