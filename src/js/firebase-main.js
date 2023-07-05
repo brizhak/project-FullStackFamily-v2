@@ -9,7 +9,8 @@ import {
 import { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser, authStates, writeUserData,readUserData,onLogout } from './firebase-api.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { closeModalAuth } from './modal-auth.js';
-import { updateSignInButton } from './mobile-menu.js'
+import { updateSignInButton } from './mobile-menu.js';
+import { letDisabledLink } from './header.js';
 
 const refsBtn = {
      btnUp : document.querySelector('button[data-action=signup]'),
@@ -20,8 +21,7 @@ const refsBtn = {
      formBtn: document.querySelector(".btn-modal-submit"),
      
 }
-
-
+const inputName = document.querySelector("input[name='name']");
  refsBtn.btnUp.style.color = '#4f2ee8';
  refsBtn.btnUp.style.textDecoration = 'underline';
 
@@ -68,6 +68,7 @@ function onFormSubmit(event) {
   const auth = getAuth(app);
   
   if (authStates.type === 'signup') {
+     
     createUserWithEmailAndPassword(auth, dataUser.email, password)
       .then(userCredential => {
         
@@ -81,6 +82,7 @@ function onFormSubmit(event) {
         console.log('snap', snapshot.val());
         const { username } = snapshot.val();  
         updateSignInButton(username);
+        letDisabledLink();
               }
           })     
 
@@ -97,7 +99,7 @@ function onFormSubmit(event) {
         Notify.warning(errorMessage);
          });
   } else if (authStates.type === 'signin') {
-      
+    inputName.setAttribute("disabled", ""); 
     signInWithEmailAndPassword(auth, dataUser.email,password)
       .then(userCredential => {
        
@@ -109,6 +111,7 @@ function onFormSubmit(event) {
         console.log('snap', snapshot.val());
         const { username } = snapshot.val();  
         updateSignInButton(username);
+        letDisabledLink();
               }
           })       
           
@@ -140,6 +143,7 @@ setPersistence(auth, browserSessionPersistence)
         console.log('snap', snapshot.val());
         const { username } = snapshot.val();  
         updateSignInButton(username);
+        letDisabledLink();
               }
           })       
           
@@ -177,6 +181,7 @@ function startLoadingSets() {
         console.log('snap', snapshot.val());
         const { username } = snapshot.val();
         updateSignInButton(username);
+        letDisabledLink();
       }
     })          
       .catch (error => {
