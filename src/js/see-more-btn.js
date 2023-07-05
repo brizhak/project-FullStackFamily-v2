@@ -16,7 +16,7 @@ async function onOpenCategoryList(evt) {
         }
         category = evt.target.id;
         console.log(evt.target);
-        // showLoader();
+
         let books = await fetchCertainCategory(category);
         if (!books) {
             Notiflix.Notify.failure("Ops! We don't have books certain category");
@@ -25,43 +25,52 @@ async function onOpenCategoryList(evt) {
         return category;
     } catch (error) {
         Notiflix.Notify.failure('Something went wrong. Please try again');
+        console.log(error);
     } finally {
-        // hideLoader();
+
     }
 }
 
 
 
 function renderCurrentCategory(arr) {
+    const booksTop = document.createElement('div');
+    booksTop.classList.add('list-top-books')
     let markupCatBook = arr
-        .map(({ book_image, author, title, _id }) => {
+        .map(({ book_image, author, title, _id, list_name }, index) => {
+            const bookTitleClass = index === 0 ? 'best-sellers-title' : 'visible-hidden-title';
+
             return `
-        <a href="#" class="book-card" id="${_id}">
-            <div class="book-carts">
-            <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
-                <div class="book-title">
-                <p>${title}</p>
-                <p class="book-author">${author}</p>
-                </div>
-            </div>
-        </a>
+                    <a href="#" class="book-card" id="${_id}">
+                    <p class="${bookTitleClass}">${list_name}</p>
+                    <div class="book-carts">
+                        <div class='img-container-top'>
+                            <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
+                        </div>
+                        <div class="book-title">
+                            <p>${title}</p>
+                            <p class="book-author">${author}</p>
+                        </div>
+                    </div>
+                    </a>
         `;
-        });
+        }).join('');
 
-    const screenWidth = window.screen.width;
-    const markupMobile = markupCatBook.slice(1).join('');
-    const markupLaptop = markupCatBook.slice(3).join('');
-    const markupDesktop = markupCatBook.slice(5).join('');
 
-    // let markup = '';
-    // if (screenWidth < 767) {
-    //     markup = `<ul class="category-item-list">${markupMobile}</ul>`;
-    // } else if (screenWidth < 1440 && screenWidth >= 768) {
-    //     markup = `<ul class="category-item-list">${markupLaptop}</ul>`;
-    // } else {
-    //     markup = `<ul class="category-item-list">${markupDesktop}</ul>`;
-    // }
 
     let listCategoryBook = document.querySelector('.category-item-list')
-    listCategoryBook.insertAdjacentHTML('beforeend', markup);
+    // listCategoryBook.insertAdjacentHTML('beforeend', markup);
+    // listCategoryBook.innerHTML = markupCatBook;
+    booksTop.innerHTML = markupCatBook;
+    listCategoryBook.id = category;
+
+    if (listCategoryBook.id === category) {
+        listCategoryBook.innerHTML = '';
+
+        listCategoryBook.appendChild(booksTop);
+    }
+
+
+
+
 }
