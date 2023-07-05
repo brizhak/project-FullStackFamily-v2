@@ -96,7 +96,8 @@ function renderBooks(arr) {
       return `
       <a href="#" class="book-card" id="${_id}">
         <div class="book-carts">
-        <div class='img-container-top'>
+        <div class='img-container-top book-over'>
+        <p class="book-over-text">quick view </p>
           <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
         </div>
 
@@ -135,9 +136,10 @@ function renderTopBooks(arr) {
           <p class="${bookTitleClass}">${list_name}</p>
             <ul class="best-sellers-own-category-books">
                 <li class="best-sellers-book">
-                    <a href="#" id="${_id}"> 
+                    <a href="#" id="${_id}" class="book-card" > 
 
-                      <div class='img-container'>
+                      <div class='img-container book-over'>
+                      <p class="book-over-text">quick view </p>
                         <img src="${book_image}" alt="${title}" class="book-img">
                       </div>
 
