@@ -70,6 +70,7 @@ p {
   height: 485px;
   position: relative;
   overflow: hidden;
+  border-radius: 8px;
 }
 .img-container-top .book-img-top {
   position: absolute;
@@ -184,7 +185,7 @@ p {
   padding-top: 4px;
 }
 
-.best-sellers-title{
+.best-sellers-title {
   padding-bottom: 18px;
   color: #b4afaf;
   font-size: 14px;
@@ -271,6 +272,9 @@ p {
  .title-category {
      font-size: 48px;
  }
+.book-over-text {
+  padding-left: 65px;
+}
 
  .books-category {
      display: flex;
@@ -302,6 +306,8 @@ p {
   .best-sellers-wraper {
     width: 218px;
   }
+
+   
   .list-top-books {
     row-gap: 40px;
     column-gap: 25px;
@@ -355,6 +361,11 @@ p {
  }
  .books-category {
   width: 996px;
+ }
+ 
+
+ .book-over-text {
+   padding-left: 50px;
  }
  .book-carts {
   display: flex;
