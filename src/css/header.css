@@ -385,7 +385,6 @@ input:checked + .circle-menu::before {
   border-radius: 36px;
   color: #111;
   font-size: 14px;
-  font-family: DM Sans;
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
@@ -469,7 +468,7 @@ input:checked + .circle-menu::before {
   background: #fff;
   color: #111;
   font-size: 14px;
-  font-family: DM Sans;
+  font-family: 'DM Sans Medium';
   font-style: normal;
   font-weight: 500;
   line-height: 18px;
