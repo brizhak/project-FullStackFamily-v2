@@ -26,7 +26,7 @@ function onSelectBook(evt) {
 
     if (!booksCategoryEl.contains(touchTagA)) return;
 
-    console.log(touchTagA.id);
+   
     openModal();
     modalBodyCard.innerHTML = "";
     let id = touchTagA.id;
