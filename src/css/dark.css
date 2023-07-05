@@ -61,9 +61,10 @@ h3.night {
     color: var(--main-bg-color);
 }
 
-.night .header .night .container {
+.night .header .header-container {
     background-color: var(--header--);
     border: 1.5px solid var(--main-bg-color);
+    border-radius: 0 0 8px 8px;
 }
 
 .night .category-link:hover,
