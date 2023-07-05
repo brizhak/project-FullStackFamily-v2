@@ -2,7 +2,8 @@ import { dataUser } from './firebase-api.js';
 import amazon from '../img/shopping/amazon.png';
 import apple from '../img/shopping/apple.png';
 import bookshop from '../img/shopping/bookshop.png';
-import { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser, authStates, writeUserData,readUserData,onLogout,readShoppingList } from './firebase-api.js';
+import trash  from '../img/icons.svg#icon-trash';
+import { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser, authStates, writeUserData,readUserData,onLogout,readShoppingList, removeElShoppingList } from './firebase-api.js';
 
 // const shopListEl = document.querySelector('.shopping-list-list');
 // dataUser.shoppingList.length === 4;
@@ -15,22 +16,22 @@ function shoppingListMarkup() {
   mainSection.innerHTML = '';
   readShoppingList(dataUser.userId).then(snapshot => {
     if (snapshot.exists()) {
-      // console.log('snap', snapshot.val());
+     
         
       const shoppingList = snapshot.val();
-      console.log("SSS", shoppingList);
+  
           
-      // console.log(shoppingList["-NZUy2Otr3H3ov2xTry5"]);
+      
             
-      console.log(Object.keys(shoppingList));
+     
       const keys = Object.keys(shoppingList);
-      console.log(keys);
+      
       const books = [];
             
       if (keys.length !== 0) {
         for (let key of keys) {
           const book = shoppingList[`${key}`];
-          console.log('book', book);
+        
           const bookMarkup = `<li class="shop-cart-container">
         <div class="shop-cart-wrap">
           <div class="shop-image-wrapper">
@@ -115,11 +116,12 @@ function shoppingListMarkup() {
             <button
               class="shop-cart-btn"
               type="button"
+              id="${key}"
               data-title="title"
               aria-label="Remove button"
             >
               <svg class="shop-cart-btn-trash">
-                <use href="../img/icons.svg#icon-trash"></use>
+                <use href="${trash}"></use>
               </svg>
             </button>
           </div>
@@ -131,7 +133,7 @@ function shoppingListMarkup() {
         
         markupList = books.join('');
         const titleMarkup = `<section class="shopping-list-section">
-        <div class="container shopping-list-container">
+        <div class=" shopping-list-container">
           <h1 class="shopping-list-title">
             Shopping <span class="title-blue">List</span>
           </h1>
@@ -140,6 +142,10 @@ function shoppingListMarkup() {
           
       </section>`;
         mainSection.innerHTML = titleMarkup;
+         const shopList = document.querySelector('.shopping-list-list');
+   
+    shopList.addEventListener('click', removeCardInShopList);
+   
       }
     }
     else {
@@ -172,9 +178,31 @@ function shoppingListMarkup() {
       mainSection.innerHTML = titleNoneMarkup;
             
     }
-  })    
+    
+   
+    
+  })
+    
+
+  // const shopList = document.querySelectorAll('.shop-cart-btn');
+  // console.log(shopList);
+  // shopList.addEventListener('click', removeCardInShopList);
+  // function removeCardInShopList(event) {
+  //   console.log(event);
   }
-        
-  
+
+
+// function removeCardInShopList(event) {
+//     console.log(event);
+//   }
+function removeCardInShopList(event) {
+      
+     if (event.target.nodeName !== "BUTTON") {
+    return;
+  }
+    const bookItemId = event.target.id;
+  removeElShoppingList(dataUser.userId, bookItemId);  
+  shoppingListMarkup();
+    }
   export {shoppingListMarkup};
 

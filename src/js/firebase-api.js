@@ -65,113 +65,56 @@ async function readUserData(userId) {
   const dbRef = ref(getDatabase());
 
   return get(child(dbRef, `users/${userId}`));
-    // .then(snapshot => {
-    //   if (snapshot.exists()) {
-    //     console.log('snap', snapshot.val());
-        
-    //     const { email, shoppingList, username } = snapshot.val();
-    //     console.log(shoppingList["-NZUy2Otr3H3ov2xTry5"]);
-        
-    //     console.log(Object.keys(shoppingList));
-    //     if (authStates.status === true) {
-    //       updateSignInButton(username);
-    //     }
-    //   }
-      
-    // })
-    // .catch(error => {
-      
-    //   console.error(error);
-      
-    // });
+    
 }
 
 
 async function updateUserData( data, userId ) {
   const db = getDatabase();
   
-        // const newPostKey = push(child(ref(db), 'shoppingList'));
         const newPostKey = push(child(ref(db), `users/${userId}+/shoppingList/`)).key;
-        
         const updates = {};
         updates['users/' + userId + '/shoppingList/'+newPostKey] = data;
         console.log('updates: ', updates);
         return update(ref(db), updates);
-      }
-        // const postData = shoppingList.push(data);
-        // const updates = {};
-        // updates['users/' + userId + '/shoppingList/'] = postData;
-        // console.log('updates: ', updates);
-        // return update(ref(db), updates);
-      
-   
-  // if (shoppingList.length===0) {
-  //   shoppingList = '';
-  // }
-  // const postData = shoppingList;
-  // const updates = {};
-  // updates['users/' + userId + '/shoppingList/'] = postData;
-  // console.log('updates: ', updates);
-  // return update(ref(db), updates);
-
-
+      }   
 
 async function onLogout() {
 
-      const auth = getAuth();
-signOut(auth).then(() => {
+  const auth = getAuth();
+  signOut(auth).then(() => {
   authStates.status = false;
   resetSignInButton();
-  // disabledEnabledFormBtn(authStates);
+  
 }).catch((error) => {
   
 });
 }
 
 async function readShoppingList(userId) {
-  const dbRef = ref(getDatabase());
+ const dbRef = ref(getDatabase());
  return  get(child(dbRef, `users/${userId}/shoppingList`));
-    // .then(snapshot => {
-    //   if (snapshot.exists()) {
-    //     // console.log(snapshot.val());
-        
-    //     const { email, shoppingList, username } = snapshot.val();
-    //     console.log('Shop',shoppingList);
-    //   }
-      
-    // })
-    // .catch(error => {
-      
-    //   console.error(error);
-      
-    // });
+    
 }
 
 async function pushShoppingList(userId,data) {
-  const db = getDatabase();
-    
+  const db = getDatabase();    
   set(ref(db, 'users/' + userId+'/shoppingList/'),data  );
   
       }
        
     
-// function shopListStatus({ status }) {
-//   const shopList = document.querySelector(".nav-list");
-//   console.log(shopList.lastElementChild);
-//   if (status === false) {
-//     shopList.lastElementChild.classList.add('visually-hidden');
-//   } else {
-//    shopList.lastElementChild.classList.remove('visually-hidden');
-//   }
-// }
+
+async function removeElShoppingList(userId, elemId) {
+  const db = getDatabase();
+  const updates = {};
+  updates['users/' + userId + '/shoppingList/'+elemId] = null;
+  console.log('updates: ', updates);
+  return update(ref(db), updates);
+}
 
 
-
-
-
-
-
-export { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser,authStates , writeUserData,readUserData,updateUserData,onLogout,pushShoppingList,readShoppingList};
+export { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser,authStates , writeUserData,readUserData,updateUserData,onLogout,pushShoppingList,readShoppingList,removeElShoppingList};
 
 
 

@@ -145,8 +145,9 @@
 .shop-cart-btn-trash {
   stroke: var(--main-bg-color);
   fill: transparent;
+  width: 28px;
+  height: 28px;
 }
-
 .shop-cart-btn:hover {
   background-color: var(--secondary-color);
 }

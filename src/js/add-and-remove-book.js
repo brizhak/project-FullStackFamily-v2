@@ -1,5 +1,5 @@
 import { fetchSelectedBook } from './api_request';
-import { dataUser, pushShoppingList, readShoppingList, readUserData, updateUserData } from './firebase-api';
+import { dataUser, pushShoppingList, readShoppingList, readUserData, updateUserData,removeElShoppingList } from './firebase-api';
 import Notiflix from 'notiflix';
 import { book } from './book';
 
@@ -39,12 +39,29 @@ function addingBook(evt) {
 function removeBook(evt) {
     removeFromCartBtn.classList.add('visually-hidden');
     textRemove.classList.add('visually-hidden');
+     addToCartBtn.classList.remove('visually-hidden');
+     readShoppingList(dataUser.userId).then(snapshot => {
+        if (snapshot.exists()) {
+            const shoppingList = snapshot.val();             
+            const keys = Object.keys(shoppingList);            
+            const books = [];
+            if (keys.length !== 0) {
+                for (let key of keys) {
+                    const oneBook = shoppingList[`${key}`];
+                    books.push(oneBook);
+                }
+                
+            }
+            const indexBook = books.findIndex((onebook, index) => 
+                onebook._id === book._id)
+            const removeId = keys[indexBook];            
+            removeElShoppingList(dataUser.userId, removeId).then(() => {
+                
+            })
 
-    // const bookIndex = shoppingCart.indexOf(book);
-    // shoppingCart.splice(bookIndex, 1);
+        }
+    })
 
-    addToCartBtn.classList.remove('visually-hidden');
-    // console.log(shoppingCart);
 }
 
 
