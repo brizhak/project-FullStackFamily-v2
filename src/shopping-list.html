@@ -28,28 +28,19 @@
   <body>
     <include src="./partials/header.html"></include>
     <main>
-      <include src="./partials/support.html"></include>
-      <section class="shopping-list-section">
-        <div class="shopping-list-container">
-          <h1 class="shopping-list-title">
-            Shopping <span class="title-blue">List</span>
-          </h1>
-
-          <ul class="shopping-list-list"></ul>
+      <section class="desktop-container container">
+        <div class="sheave">
+          <include src="./partials/support.html"></include>
         </div>
+        <include src="./partials/shop-list-section.html"></include>
       </section>
-      <include src="./partials/modal-auth.html"></include>
-      <include src="./partials/loader.html"></include>
     </main>
     <footer>
       <include src="./partials/footer.html"></include>
     </footer>
+    <include src="./partials/modal-auth.html"></include>
+    <include src="./partials/loader.html"></include>
 
-    <!-- <script type="module" src="./js/header.js"></script> -->
-    <!-- <script type="module" src="./js/firebase-main.js"></script> -->
-    <!-- <script type="module" src="./js/modal-auth.js"></script> -->
-
-    <!-- <script type="module" src="./js/shopping-list.js"></script> -->
-    <script defer type="module" src="./shoplist.js"></script>
+    <script type="module" src="./shoplist.js"></script>
   </body>
 </html>
