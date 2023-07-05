@@ -16,8 +16,12 @@ html {
 }
 body {
   background-color: var(--main-bg-color);
+<<<<<<< Updated upstream
   font-family: 'DMSans', sans-serif;
   
+=======
+  font-family: 'DM Sans Regular', sans-serif;
+>>>>>>> Stashed changes
 }
 .container {
   max-width: 375px;
@@ -95,6 +99,7 @@ body {
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
   transition: opacity 1000ms linear;
+  overflow: auto;
 }
 
 .modal {

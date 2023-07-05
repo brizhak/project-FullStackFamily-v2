@@ -1,33 +1,34 @@
 <section class="modal-section" id="modalId">
-  <div class="overlay"></div>
-  <div class="modal modal-contariner-fix">
-    <div class="modal-body">
-      <div class="modal-body-btn">
-        <button type="button" class="modal-close-btn">
-          <svg class="icon-close" width="24" height="24">
-            <use href="./img/icons.svg#icon-x-close"></use>
-          </svg>
-        </button>
-      </div>
-      <div class="modal-body-card" value=""></div>
-      <div class="modal-body-container-btn">
-        <button class="modal-body-add-btn" type="submit" id="add-to-cart-btn">
-          add to shopping list
-        </button>
-      </div>
-      <div class="js-success">
-        <button
-          class="modal-body-add-btn btn-remove visually-hidden"
-          data-action="remove"
-          type="button"
-          id="remove-from-cart-btn"
-        >
-          remove from the shopping list
-        </button>
-        <p class="modal-congrats-text visually-hidden">
-          Congratulations! You have added the book to the shopping list. To
-          delete, press the button "Remove from the shopping list".
-        </p>
+  <div class="overlay modal-window-overlay">
+    <div class="modal modal-contariner-fix">
+      <div class="modal-body">
+        <div class="modal-body-btn">
+          <button type="button" class="modal-close-btn">
+            <svg class="icon-close" width="24" height="24">
+              <use href="./img/icons.svg#icon-x-close"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body-card" value=""></div>
+        <div class="modal-body-container-btn">
+          <button class="modal-body-add-btn" type="submit" id="add-to-cart-btn">
+            add to shopping list
+          </button>
+        </div>
+        <div class="js-success">
+          <button
+            class="modal-body-add-btn btn-remove visually-hidden"
+            data-action="remove"
+            type="button"
+            id="remove-from-cart-btn"
+          >
+            remove from the shopping list
+          </button>
+          <p class="modal-congrats-text visually-hidden">
+            Congratulations! You have added the book to the shopping list. To
+            delete, press the button "Remove from the shopping list".
+          </p>
+        </div>
       </div>
     </div>
   </div>

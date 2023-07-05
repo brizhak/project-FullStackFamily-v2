@@ -23,6 +23,10 @@
   z-index: 1000;
 }
 
+.modal-section {
+  overflow: auto;
+}
+
 .modal-close-btn {
   position: absolute;
   top: 12;
@@ -188,6 +192,25 @@
   pointer-events: none;
 }
 
+.modal-section .modal-window-overlay {
+  background-color: rgba(1, 1, 1, 0.4);
+}
+
+.modal-section {
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 767px) {
+  .modal {
+    position: fixed;
+    top: 380px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 60;
+    transition: var(--transition-speed);
+    overflow: auto;
+  }
+}
 
 @media screen and (min-width: 768px) {
   .modal-body {
@@ -258,4 +281,3 @@
     align-items: center;
   }
 }
-
