@@ -20,8 +20,10 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 // nav link active header
 navLinks.forEach(link => {
+
   link.addEventListener('click', function(event) {
     // event.preventDefault();
+
 
     navLinks.forEach(link => link.classList.remove('active-page-menu'));
 
@@ -31,13 +33,13 @@ navLinks.forEach(link => {
 
 // theme switch on mobile menu open
 themeSwitchMenu.addEventListener('click', function () {
-    darkMode.classList.toggle('active');
-    content.classList.toggle('night');
+  darkMode.classList.toggle('active');
+  content.classList.toggle('night');
 })
 
 // shopping list
 shoppingListButton.addEventListener('click', shoppingListMarkup);
-  
+
 // log out
 logoutButton.addEventListener('click', onLogout);
 
@@ -90,18 +92,18 @@ themeSwitch.addEventListener('change', handleThemeToggle);
 
 // logging in mobile menu
 logoutButton.addEventListener('click', function () {
-const logoutButton = document.querySelector('.log-out');
-logoutButton.classList.add('hidden');
+  const logoutButton = document.querySelector('.log-out');
+  logoutButton.classList.add('hidden');
 
-const loginButton = document.querySelector('.log-in');
-loginButton.classList.remove('hidden');
-loginButton.addEventListener('click', toggleMenu);
-onLogout();
+  const loginButton = document.querySelector('.log-in');
+  loginButton.classList.remove('hidden');
+  loginButton.addEventListener('click', toggleMenu);
+  onLogout();
 });
 
 
 // sign-in button update
-export function updateSignInButton( username ) {
+export function updateSignInButton(username) {
   const signInButton = document.getElementById('sign-up');
   signInButton.textContent = `${username}`;
 }
