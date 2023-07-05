@@ -70,14 +70,17 @@ function renderSelectedBook(book) {
                 class="modal-body-image-poster"
             />
         </div>
-        <div class="modal-body-about-book">
-            <h2 class="modal-body-title">${book.title}</h2>
-            <h3 class="modal-body-autor">${book.author}</h3>
-            <p class="modal-body-text">
-                ${book.description}
-            </p>
-        </div>
-        <div class="modal-body-logo">
+
+        <div class="modal-body-tablet">
+            <div class="modal-body-about-book">
+                <h2 class="modal-body-title">${book.title}</h2>
+                <h3 class="modal-body-autor">${book.author}</h3>
+                <p class="modal-body-text">
+                    ${book.description}
+                </p>
+            </div>
+            <div class="modal-body-logo">
+
             <ul class="modal-body-logo-list">
                 <li class="modal-body-logo-item">
                 <a
@@ -128,6 +131,9 @@ function renderSelectedBook(book) {
                 </a>
                 </li>
             </ul>
+
+        </div>
+
         </div>`;
 
 
