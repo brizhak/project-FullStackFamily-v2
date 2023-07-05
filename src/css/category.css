@@ -233,12 +233,13 @@ p {
   letter-spacing: -0.14px;
   text-transform: uppercase;
   margin-left: 200px;
+  transition: color 0.3s, background-color 0.3s;
 }
 
 .see-more:hover,
 .see-more:focus {
   color: #fff;
-  background: #4f2ee8;
+  background-color: #4f2ee8;
 }
 .list-top-books {
   display: flex;
