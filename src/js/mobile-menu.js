@@ -23,8 +23,10 @@ export const logOutButtonIg = document.querySelector('[name="logout"]');
 
 // nav link active header
 navLinks.forEach(link => {
+
   link.addEventListener('click', function (event) {
     // event.preventDefault();
+
 
     navLinks.forEach(link => link.classList.remove('active-page-menu'));
 
@@ -36,6 +38,7 @@ navLinks.forEach(link => {
 themeSwitchMenu.addEventListener('click', function () {
   darkMode.classList.toggle('active');
   content.classList.toggle('night');
+
 });
 
 // shopping list
@@ -61,6 +64,7 @@ function logOutEvent() {
   logOutButtonIg.removeEventListener('click', logOutEvent);
   logOutButtonIg.classList.add('hidden-ig');
 }
+
 
 // opening mobile menu
 openMenuBtn.addEventListener('click', function () {

@@ -7,13 +7,13 @@ import { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser, authStates, wri
 
 // const shopListEl = document.querySelector('.shopping-list-list');
 // dataUser.shoppingList.length === 4;
-const mainSection = document.querySelector(".category-desktop");
-const categoryList = document.querySelector(".categorys");
+const mainList = document.querySelector(".shopping-list-list");
+
 // dataUser.shoppingList = [1];
 
 function shoppingListMarkup() {
-  categoryList.classList.add("visually-hidden");
-  mainSection.innerHTML = '';
+
+  
   readShoppingList(dataUser.userId).then(snapshot => {
     if (snapshot.exists()) {
      
@@ -132,25 +132,17 @@ function shoppingListMarkup() {
         }
         
         markupList = books.join('');
-        const titleMarkup = `<section class="shopping-list-section">
-        <div class=" shopping-list-container">
-          <h1 class="shopping-list-title">
-            Shopping <span class="title-blue">List</span>
-          </h1>
-
-          <ul class="shopping-list-list">${markupList}</ul>
-          
-      </section>`;
-        mainSection.innerHTML = titleMarkup;
-         const shopList = document.querySelector('.shopping-list-list');
+        
+        mainList.innerHTML = markupList;
+        const shopList = document.querySelector('.shopping-list-list');
    
-    shopList.addEventListener('click', removeCardInShopList);
+        shopList.addEventListener('click', removeCardInShopList);
    
       }
     }
     else {
             
-      const titleNoneMarkup = `<li><p class="empty-shopping-list-text">
+      const titleNoneMarkup = `<li></li><p class="empty-shopping-list-text">
       This page is empty, add some books and proceed to order.
     </p>
     <div>
@@ -175,26 +167,16 @@ function shoppingListMarkup() {
         />
       </picture>
     </div></li>`;
-      mainSection.innerHTML = titleNoneMarkup;
+      mainList.innerHTML = titleNoneMarkup;
             
     }
     
    
     
   })
-    
+}
 
-  // const shopList = document.querySelectorAll('.shop-cart-btn');
-  // console.log(shopList);
-  // shopList.addEventListener('click', removeCardInShopList);
-  // function removeCardInShopList(event) {
-  //   console.log(event);
-  }
-
-
-// function removeCardInShopList(event) {
-//     console.log(event);
-//   }
+  
 function removeCardInShopList(event) {
       
      if (event.target.nodeName !== "BUTTON") {
