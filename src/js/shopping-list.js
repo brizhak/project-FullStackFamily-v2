@@ -124,7 +124,7 @@ function shoppingListMarkup() {
                              
         }
         
-        markupList = books.join('');
+       const markupList = books.join('');
         
         mainList.innerHTML = markupList;
         const shopList = document.querySelector('.shopping-list-list');
