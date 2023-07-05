@@ -20,8 +20,10 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 // nav link active header
 navLinks.forEach(link => {
-  link.addEventListener('click', function (event) {
-    event.preventDefault();
+
+  link.addEventListener('click', function(event) {
+    // event.preventDefault();
+
 
     navLinks.forEach(link => link.classList.remove('active-page-menu'));
 

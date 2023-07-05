@@ -76,12 +76,8 @@
   z-index: -1;
 }
 
-
 .nav-item a:hover::before,
 .nav-item a.active-page::before {
-
-
-
   border-color: #eac645;
   background-color: #eac645;
 }
