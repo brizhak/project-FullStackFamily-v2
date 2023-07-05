@@ -1,8 +1,9 @@
 import { openModalAuth } from './modal-auth.js';
 import { handleThemeToggle } from './dark.js';
 import { onLogout } from './firebase-api.js';
-import { shoppingListMarkup } from './shopping-list.js';
+
 import { onLogout } from './firebase-api';
+import { authStates } from './firebase-api.js';
 
 const mobileMenu = document.getElementById('modal-mobile');
 const openMenuBtn = document.getElementById('open-modal-mobile');
@@ -17,11 +18,13 @@ const shoppingListButton = document.querySelector('.nav-link-shopping');
 const logoutButton = document.querySelector('.log-out');
 const themeSwitchMenu = document.getElementById('theme-switch-menu');
 const navLinks = document.querySelectorAll('.nav-link');
+//  Igor
+export const logOutButtonIg = document.querySelector('[name="logout"]');
 
 // nav link active header
 navLinks.forEach(link => {
 
-  link.addEventListener('click', function(event) {
+  link.addEventListener('click', function (event) {
     // event.preventDefault();
 
 
@@ -35,13 +38,33 @@ navLinks.forEach(link => {
 themeSwitchMenu.addEventListener('click', function () {
   darkMode.classList.toggle('active');
   content.classList.toggle('night');
-})
+
+});
 
 // shopping list
-shoppingListButton.addEventListener('click',shoppingListMarkup);
+// shoppingListButton.addEventListener('click', shoppingListMarkup);
 
-// log out
-logoutButton.addEventListener('click', onLogout);
+// log out table, desktop
+export function toggleLogOutButtonIgListener() {
+  const logOutButtonIg = document.querySelector('[name="logout"]');
+  if (logOutButtonIg.classList.contains('hidden-ig')) {
+    logOutButtonIg.classList.remove('hidden-ig');
+    logOutButtonIg.addEventListener('click', logOutEvent);
+    return;
+  }
+  logOutButtonIg.classList.add('hidden-ig');
+  logOutButtonIg.removeEventListener('click', logOutEvent);
+  return;
+}
+
+function logOutEvent() {
+  const logOutButtonIg = document.querySelector('[name="logout"]');
+  onLogout();
+  resetSignInButton();
+  logOutButtonIg.removeEventListener('click', logOutEvent);
+  logOutButtonIg.classList.add('hidden-ig');
+}
+
 
 // opening mobile menu
 openMenuBtn.addEventListener('click', function () {
@@ -101,11 +124,11 @@ logoutButton.addEventListener('click', function () {
   onLogout();
 });
 
-
 // sign-in button update
 export function updateSignInButton(username) {
   const signInButton = document.getElementById('sign-up');
   signInButton.textContent = `${username}`;
+  //Igor
 }
 
 export function resetSignInButton() {
@@ -113,7 +136,10 @@ export function resetSignInButton() {
   signInButton.textContent = 'Sign In';
 }
 
-
-
-
-
+//Igor
+function logOutIgor() {
+  if (authStates.status === true) {
+    linkShop.classList.remove('disabled-link');
+    return;
+  }
+}

@@ -20,9 +20,8 @@ function addingBook(evt) {
     addToCartBtn.classList.add('visually-hidden');
 
 
-    console.log("Додавання книги", book);
+   
     // shoppingCart.push(book);
-    // console.log(shoppingCart);
     // dataUser.shoppingList.push(book);
     // pushShoppingList(dataUser.userId,book);
 

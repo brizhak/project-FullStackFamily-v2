@@ -75,7 +75,6 @@ async function updateUserData( data, userId ) {
         const newPostKey = push(child(ref(db), `users/${userId}+/shoppingList/`)).key;
         const updates = {};
         updates['users/' + userId + '/shoppingList/'+newPostKey] = data;
-        console.log('updates: ', updates);
         return update(ref(db), updates);
       }   
 
@@ -109,7 +108,6 @@ async function removeElShoppingList(userId, elemId) {
   const db = getDatabase();
   const updates = {};
   updates['users/' + userId + '/shoppingList/'+elemId] = null;
-  console.log('updates: ', updates);
   return update(ref(db), updates);
 }
 
