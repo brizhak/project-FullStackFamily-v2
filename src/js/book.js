@@ -129,7 +129,9 @@ function renderSelectedBook(book) {
                 </a>
                 </li>
             </ul>
+
             </div>
+
         </div>`;
 
 
