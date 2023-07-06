@@ -140,21 +140,21 @@ function shoppingListMarkup() {
     <div>
       <picture>
         <source
-          srcset="./img/books_desk_tab_1x.png 1x,
-                .img/books_desk_tab_2x.png 2x"
+          srcset="src/img/books_desk_tab_1x.png 1x,
+                src/img/books_desk_tab_2x.png 2x"
            type="image/png"
           media="(min-width: 768px)"
         />
         <source
           srcset="
-            ./img/shopping/books_mob_1x.png 1x,
-            ./img/shopping/books_mob_2x.png 2x
+            src/img/shopping/books_mob_1x.png 1x,
+            src/img/shopping/books_mob_2x.png 2x
           "
           media="(max-width: 767px)"
         />
         <img
           class="empty-shopping-list-img"
-          src="./img/shopping/books_mob_1x.png"
+          src="src/img/shopping/books_mob_1x.png"
           alt="empty shopping list img"
         />
       </picture>
