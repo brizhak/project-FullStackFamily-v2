@@ -9,8 +9,9 @@ import {
   push,
 } from 'firebase/database';
 import { getAuth, signOut } from 'firebase/auth';
-import { resetSignInButton } from './mobile-menu.js';
-import { updateSignInButton } from './mobile-menu.js';
+
+import {resetSignInButton} from './mobile-menu.js'
+import { letDisabledLink } from './header.js';
 
 
 const dataUser = {
