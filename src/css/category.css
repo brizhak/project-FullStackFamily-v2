@@ -4,6 +4,9 @@ p {
 .category-desktop {
   max-width: 704px;
 }
+.desktop-container {
+  margin-top: 104px;
+}
 .categorys {
   display: flex;
   gap: 20px;
@@ -267,6 +270,9 @@ p {
     margin: 100px auto 0 auto;
     max-width: 704px;
     
+  }
+  .desktop-container {
+    margin-top: 112px;
   }
 
  .title-category {
