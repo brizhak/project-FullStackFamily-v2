@@ -35,7 +35,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 20px;
+  /* padding: 18px 20px; */
   /* Igor */
   margin: 0 auto;
   /* justify-content: center; */
@@ -616,7 +616,7 @@ input:checked+.circle-menu::before {
   .header-container {
     max-width: 768px;
     height: 72px;
-    padding: 14px 32px;
+    /* padding: 14px 32px; */
   }
 
   .nav {
@@ -656,7 +656,7 @@ input:checked+.circle-menu::before {
   .header-container {
     max-width: 1440px;
     height: 72px;
-    padding: 14px 24px;
+    /* padding: 14px 24px; */
   }
 
   .nav-list {
