@@ -11,11 +11,12 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { closeModalAuth } from './modal-auth.js';
 import { updateSignInButton } from './mobile-menu.js';
 import { letDisabledLink } from './header.js';
+import { loader, showLoader, hideLoader } from '../js/loader.js';
 
 const refsBtn = {
      btnUp : document.querySelector('button[data-action=signup]'),
      btnIn : document.querySelector('button[data-action=signin]'),
-    //  btnLogout : document.querySelector('button[data-action=logout]'),
+    
      form : document.querySelector('.modal-form'),
      
      formBtn: document.querySelector(".btn-modal-submit"),
@@ -28,7 +29,7 @@ const refsBtn = {
 refsBtn.form.addEventListener('submit', onFormSubmit);
 refsBtn.btnUp.addEventListener('click', onBtnUpSelect);
 refsBtn.btnIn.addEventListener('click', onBtnInSelect);
-// refsBtn.btnLogout.addEventListener('click', onLogout);
+
 
 Notify.init({
     width: '300px',
@@ -74,6 +75,7 @@ function onFormSubmit(event) {
         
         const user = userCredential.user;
         dataUser.userId = user.uid;
+      
         writeUserData(dataUser)
           .then(() => {
             authStates.status = true;
@@ -87,6 +89,7 @@ function onFormSubmit(event) {
 
             
           });
+    
       
       })      
       .catch(error => {
@@ -102,6 +105,7 @@ function onFormSubmit(event) {
         const user = userCredential.user;
         dataUser.userId = user.uid;
         authStates.status = true;
+       
         readUserData(dataUser.userId).then(snapshot => {
       if (snapshot.exists()) {
         const { username } = snapshot.val();  
@@ -109,7 +113,7 @@ function onFormSubmit(event) {
         letDisabledLink();
               }
           })       
-          
+        
       })
       .catch(error => {
         const errorCode = error.code;
@@ -161,8 +165,7 @@ function startLoadingSets() {
 
   if (storageData === null) {
     authStates.status = false;
-    console.log("states false");
-       
+          
   }
   else {
     const parsedDataSS = JSON.parse(storageData);
@@ -179,38 +182,10 @@ function startLoadingSets() {
     const errorCode = error.code;
     const errorMessage = error.message;
     Notify.warning(errorMessage);
-  });
-
-        
+  });   
        
+   }
      
-      
-    }
-    
-  // catch (e) {
-  //   console.log(e.message);
-  //   console.log('тут ошибка');
-  //   return;
-  // }
-    // try {                                             
-  //   const localStorageData = localStorage.getItem('firebase:authUser:AIzaSyAWL009d3fIg7FDNeFa1MpQ8vcCju1UWEQ:[DEFAULT]');
-    
-  //   if (localStorageData === null) {
-  //     authStates.status = false;
-  //     // disabledEnabledFormBtn(authStates);
-  //     return;
-  //   }
-  //   else {
-  //     const parsedDataLS = JSON.parse(storageData);
-  //     dataUser.userId = parsedDataLS.uid;
-  //     authStates.status = true;
-  //     readUserData(dataUser.userId);
-  //     // disabledEnabledFormBtn(authStates);
-  //   }
-  // }
-  // catch (e) {
-  //   return;
-  // }
 }
 
 startLoadingSets();

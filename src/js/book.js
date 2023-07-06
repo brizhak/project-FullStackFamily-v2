@@ -27,7 +27,7 @@ function onSelectBook(evt) {
     if (!booksCategoryEl.contains(touchTagA)) return;
 
    
-    openModal();
+
     modalBodyCard.innerHTML = "";
     let id = touchTagA.id;
     getBook(id);
@@ -44,6 +44,7 @@ function onSelectBook(evt) {
         addToCartBtn.classList.add('non-active-btn');
         removeFromCartBtn.classList.add('non-active-btn');
     }
+        openModal();
     // hideLoader();
 }
 

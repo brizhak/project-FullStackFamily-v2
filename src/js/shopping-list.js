@@ -3,14 +3,13 @@ import amazon from '../img/shopping/amazon.png';
 import apple from '../img/shopping/apple.png';
 import bookshop from '../img/shopping/bookshop.png';
 import trash  from '../img/icons.svg#icon-trash';
-import { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser, authStates, writeUserData,readUserData,onLogout,readShoppingList, removeElShoppingList } from './firebase-api.js';
+import {  dataUser, authStates,readShoppingList, removeElShoppingList } from './firebase-api.js';
  
-// const shopListEl = document.querySelector('.shopping-list-list');
-// dataUser.shoppingList.length === 4;
+
 const mainList = document.querySelector(".shopping-list-list");
 
-// dataUser.shoppingList = [1];
- setTimeout(shoppingListMarkup, 50);
+
+shoppingListMarkup();
 function shoppingListMarkup() {
   if (authStates.status === false) {
     mainList.innerHTML = "";
@@ -168,7 +167,7 @@ function shoppingListMarkup() {
     
   })
 }
-// shoppingListMarkup();
+
   
 function removeCardInShopList(event) {
       

@@ -3,7 +3,6 @@ import {  refsBtn} from "./firebase-main";
 import { getDatabase, ref, set, child, get, update,push } from 'firebase/database'; 
 import { getAuth, signOut } from 'firebase/auth';
 import {resetSignInButton} from './mobile-menu.js'
-import { updateSignInButton } from './mobile-menu.js'
 import { letDisabledLink } from './header.js';
 
 const dataUser = {

@@ -17,7 +17,6 @@ html {
 body {
   background-color: var(--main-bg-color);
   font-family: 'DM Sans Regular', sans-serif;
-  
 }
 .container {
   max-width: 375px;
@@ -105,6 +104,7 @@ body {
   z-index: 60;
   transition: var(--transition-speed);
 }
+.overlay-modal-book.active,
 .modal.active,
 .overlay.active {
   opacity: 1;
