@@ -25,7 +25,7 @@
 }
 
 .funds-title {
-  color: #fff;
+  color: var(--main-bg-color);
   font-size: 28px;
   line-height: 1.14;
   letter-spacing: -1.12px;
@@ -34,7 +34,7 @@
 .swiper-slide::before {
   counter-increment: section;
   content: '0' counter(section) ' ';
-  color: #fff;
+  color: var(--main-bg-color);
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.56px;
@@ -70,8 +70,8 @@
   justify-content: center;
   border: none;
   outline: none;
-  border-radius: 38px;
-  background-color: #fff;
+  border-radius: 50%;
+  background-color: var(--main-bg-color);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -80,16 +80,16 @@
 
 .swiper-button-next-icon,
 .swiper-button-up-icon {
-  fill: #4f2ee8;
+  fill: var(--main-accent-color);
 }
 
 .swiper-button-next-icon {
-  transform: rotate(180deg) translateY(-105%) translateX(-105%);
+  transform: rotate(180deg) translateY(-100%) translateX(-100%);
 }
 
 .swiper-button-up.is-hidden {
   display: none;
-  transform: rotate(180deg) translateY(-105%) translateX(-105%);
+  transform: rotate(180deg) translateY(-100%) translateX(-100%);
 }
 
 .charity-img {
@@ -97,7 +97,7 @@
 }
 
 .funds-icon {
-  fill: #fff;
+  fill: var(--main-bg-color);
 }
 
 @media screen and (min-width: 375px) {
