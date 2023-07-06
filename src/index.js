@@ -13,3 +13,4 @@ import './js/add-and-remove-book.js'
 import './js/modal-auth.js';
 import './js/see-more-btn.js';
 import './js/header.js';
+import './js/loader.js';
