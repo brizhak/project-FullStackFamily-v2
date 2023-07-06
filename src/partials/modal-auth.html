@@ -1,6 +1,6 @@
 <!-- Modal Window -->
-<div class="overlay"></div>
-<div class="modal modal-auth" data-modal>
+<div class="modal-auth-overlay"></div>
+<div class="modal-main modal-auth" data-modal>
   <button class="btn-modal-close" data-modal-close type="button">
     <svg class="modal-close-icon">
       <use href="./img/icons.svg#icon-x-close"></use>
@@ -9,13 +9,13 @@
   <form class="modal-form">
     <label class="modal-field">
       <span class="modal-field-input">
+
         <input
           class="modal-input"
           type="text"
           name="name"
           minlength="2"
           maxlength="20"
-          autocomplete="username"
           placeholder="name"
           autofocus
         />
@@ -25,12 +25,14 @@
           height="28"
           style="stroke-width: 2px"
         >
+
           <use href="./img/icons.svg#icon-user"></use>
         </svg>
       </span>
     </label>
     <label class="modal-field">
       <span class="modal-field-input">
+
         <input
           class="modal-input"
           type="email"
@@ -38,11 +40,12 @@
           required
           minlength="6"
           maxlength="20"
-          autocomplete="email"
+          autocomplete="username"
           placeholder="email*"
           pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
           title="Invalid email address"
         />
+
         <svg class="modal-icon">
           <use href="./img/icons.svg#icon-mail"></use>
         </svg>
@@ -50,6 +53,7 @@
     </label>
     <label class="modal-field">
       <span class="modal-field-input">
+
         <input
           class="modal-input"
           type="password"
@@ -61,7 +65,23 @@
           placeholder="password*"
           title="Require min 6 sign, which include at least 1 uppercase character, 1 lowercase character, and 1 number."
         />
-        <svg class="modal-icon">
+        <!-- Eye -->
+        <button
+          class="toggle-password"
+          id="toggle-password"
+          type="button"
+          aria-label="Show password as plain text. Warning: this will display your password on the screen."
+        >
+          <svg class="modal-password-eye" width="20" height="20">
+            <use href="./img/icons-auth.svg#icon-eye-off"></use>
+          </svg>
+          <svg class="modal-password-eye off" width="20" height="20">
+            <use href="./img/icons-auth.svg#icon-eye"></use>
+          </svg>
+        </button>
+        <!-- Eye -->
+        <svg class="modal-icon modal-icon-lock">
+
           <use href="./img/icons.svg#icon-lock"></use>
         </svg>
       </span>

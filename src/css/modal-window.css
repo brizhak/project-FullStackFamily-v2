@@ -21,6 +21,7 @@
   border: 2px solid black;
   background-color: white;
   z-index: 1000;
+      overflow-y: hidden;
 }
 
 .modal-close-btn {
