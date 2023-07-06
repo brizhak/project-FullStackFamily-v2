@@ -17,7 +17,7 @@ function openModalAuth() {
     toggleLogOutButtonIgListener();
     return;
   }
-
+  invisiblePasswordInput();
   modalAuth.classList.add('active');
   overlayAuth.classList.add('active');
 }
@@ -33,7 +33,9 @@ function closeModalEscape(e) {
   if (e.code === 'Escape') {
     if (modalAuth.classList.contains('active')) {
       document.querySelector('.modal-main.active').classList.remove('active');
-      document.querySelector('.modal-auth-overlay.active').classList.remove('active');
+      document
+        .querySelector('.modal-auth-overlay.active')
+        .classList.remove('active');
       return;
     }
     if (!logOutButtonIg.classList.contains('hidden-ig')) {
@@ -46,25 +48,45 @@ function closeModalEscape(e) {
 export { openModalAuth, closeModalAuth };
 
 // Eye
-const passwordInput = document.querySelector("input[name='password']");
-const togglePasswordButton = document.querySelector('.toggle-password');
-const togglePasswordSvgS = document.querySelectorAll('.modal-password-eye');
+const refsTogglePassword = {
+  passwordInput: document.querySelector("input[name='password']"),
+  togglePasswordButton: document.querySelector('.toggle-password'),
+  togglePasswordSvgS: document.querySelectorAll('.modal-password-eye'),
+};
 
-togglePasswordButton.addEventListener('click', togglePassword);
+refsTogglePassword.togglePasswordButton.addEventListener(
+  'click',
+  togglePassword
+);
 
 function togglePassword() {
-  if (passwordInput.type === 'password') {
-    passwordInput.type = 'text';
-    togglePasswordButton.setAttribute(
+  if (refsTogglePassword.passwordInput.type === 'password') {
+    refsTogglePassword.passwordInput.type = 'text';
+    refsTogglePassword.togglePasswordButton.setAttribute(
       'aria-label',
       'Show password as plain text. ' +
         'Warning: this will display your password on the screen.'
     );
   } else {
-    passwordInput.type = 'password';
-    togglePasswordButton.setAttribute('aria-label', 'Hide password.');
+    refsTogglePassword.passwordInput.type = 'password';
+    refsTogglePassword.togglePasswordButton.setAttribute(
+      'aria-label',
+      'Hide password.'
+    );
   }
-  togglePasswordSvgS.forEach(togglePasswordSvg =>
+  refsTogglePassword.togglePasswordSvgS.forEach(togglePasswordSvg =>
     togglePasswordSvg.classList.toggle('off')
   );
 }
+
+function invisiblePasswordInput() {
+  refsTogglePassword.passwordInput.type = 'password';
+  refsTogglePassword.togglePasswordButton.setAttribute(
+    'aria-label',
+    'Hide password.'
+  );
+  refsTogglePassword.togglePasswordSvgS[0].classList.remove('off');
+  refsTogglePassword.togglePasswordSvgS[1].classList.add('off');
+}
+
+export { refsTogglePassword, togglePassword, invisiblePasswordInput };
