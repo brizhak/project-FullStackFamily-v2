@@ -2,12 +2,16 @@ import { dataUser,authStates } from './firebase-api.js';
 import amazon from '../img/shopping/amazon.png';
 import apple from '../img/shopping/apple.png';
 import bookshop from '../img/shopping/bookshop.png';
-import trash  from '../img/icons.svg#icon-trash';
+import trash from '../img/icons.svg#icon-trash';
+import defaultBook from '../img/shopping/books_mob_1x.png';
 import {  dataUser, authStates,readShoppingList, removeElShoppingList } from './firebase-api.js';
  
-
+const foundsList = document.querySelector(".funds");
 const mainList = document.querySelector(".shopping-list-list");
-
+const screenWidth = window.screen.width;
+if (screenWidth<1440) {
+  foundsList.classList.add("visually-hidden");
+}
 
 shoppingListMarkup();
 function shoppingListMarkup() {
@@ -112,11 +116,9 @@ function shoppingListMarkup() {
               data-title="title"
               aria-label="Remove button"
             >
-              <div class='trash-container'>
-                <span class="shop-cart-btn-trash">
-                  Х
-                </span>
-              </div>
+           
+                
+              
             </button>
           </div>
         </div>
@@ -136,9 +138,33 @@ function shoppingListMarkup() {
     }
     else {
             
-      const titleNoneMarkup = `<li></li><p class="empty-shopping-list-text">
+      const titleNoneMarkup = `<li><p class="empty-shopping-list-text">
       This page is empty, add some books and proceed to order.
-    </p>`
+    </p>
+     <div>
+      <picture>
+        <source
+          srcset="
+            ./img/shopping/books_desk_tab_1x.png 1x,
+            ./img/shopping/books_desk_tab_2x.png 2x
+          "
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="
+            ./img/shopping/books_mob_1x.png 1x,
+            ./img/shopping/books_mob_2x.png 2x
+          "
+          media="(max-width: 767px)"
+        />
+        <img
+          class="empty-shopping-list-img"
+          src="${defaultBook}"
+          alt="empty shopping list img"
+        />
+      </picture>
+    </div>
+    </li>`
       mainList.innerHTML = titleNoneMarkup;
             
     }
