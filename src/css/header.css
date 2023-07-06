@@ -23,7 +23,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #f6f6f6;
+  background-color: inherit;
   /* height: 64px; */
   /* border: 1.5px solid #111; */
   /* border-radius: 0 0 8px 8px; */
