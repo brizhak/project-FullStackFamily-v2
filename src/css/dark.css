@@ -136,6 +136,7 @@ h3.night {
     color: var(--secondary-color);
     background-color: var(--secondary-color);
     border: 2px solid var(--secondary-color);
+    border: 2px solid #FFF;
 }
 
 .night .modal-body-add-btn {
