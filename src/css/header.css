@@ -73,7 +73,6 @@
   gap: 8px;
 }
 
-/* igor */
 .nav-items a {
   font-family: 'DM Sans Medium', sans-serif;
   display: flex;
@@ -97,8 +96,6 @@
   border-radius: 36px;
   transition: border-color 0.3s, background-color 0.3s, font-weight 0.3s;
 }
-
-/* igor */
 
 .nav-link-icon {
   margin-left: 8px;
@@ -447,7 +444,18 @@ input:checked+.circle-menu::before {
   fill: #fff;
 }
 
-.mobile-menu_link a::before {
+.mobile-menu_link:hover,
+.mobile-menu_link:focus,
+.mobile-menu_link.active-page {
+  border-color: #eac645;
+  background-color: #eac645;
+  font-weight: 700;
+  border: 1.5px solid transparent;
+  border-radius: 36px;
+  transition: border-color 0.3s, background-color 0.3s, font-weight 0.3s;
+}
+
+/* .mobile-menu_link a::before {
   content: '';
   position: absolute;
   top: 0;
@@ -458,20 +466,20 @@ input:checked+.circle-menu::before {
   border-radius: 36px;
   transition: border-color 0.3s, background-color 0.3s, font-weight 0.3s;
   z-index: -1;
-}
+} */
 
-.mobile-menu_link a:hover::before,
+/* .mobile-menu_link a:hover::before,
 .mobile-menu_link a:focus::before {
   border-color: #eac645;
   background-color: #eac645;
-}
+} */
 
-.mobile-menu_link a:hover,
+/* .mobile-menu_link a:hover,
 .mobile-menu_link a:focus {
   font-weight: 700;
   border-color: #eac645;
   background-color: #eac645;
-}
+} */
 
 .menu-close {
   stroke: #111;
