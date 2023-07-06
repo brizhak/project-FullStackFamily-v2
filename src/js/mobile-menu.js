@@ -4,6 +4,7 @@ import { onLogout } from './firebase-api.js';
 
 import { onLogout } from './firebase-api';
 import { authStates } from './firebase-api.js';
+import { letDisabledLink } from './header.js';
 
 const mobileMenu = document.getElementById('modal-mobile');
 const openMenuBtn = document.getElementById('open-modal-mobile');
@@ -18,15 +19,15 @@ const shoppingListButton = document.querySelector('.nav-link-shopping');
 const logoutButton = document.querySelector('.log-out');
 const themeSwitchMenu = document.getElementById('theme-switch-menu');
 const navLinks = document.querySelectorAll('.nav-link');
+const linkShop = document.querySelector('#nav-item-shopping-list');
+const mobileLinkShop = document.querySelector('#mobile-item-shopping-list');
 //  Igor
 export const logOutButtonIg = document.querySelector('[name="logout"]');
 
 // nav link active header
 navLinks.forEach(link => {
-
   link.addEventListener('click', function (event) {
     // event.preventDefault();
-
 
     navLinks.forEach(link => link.classList.remove('active-page-menu'));
 
@@ -38,7 +39,6 @@ navLinks.forEach(link => {
 themeSwitchMenu.addEventListener('click', function () {
   darkMode.classList.toggle('active');
   content.classList.toggle('night');
-
 });
 
 // shopping list
@@ -61,10 +61,11 @@ function logOutEvent() {
   const logOutButtonIg = document.querySelector('[name="logout"]');
   onLogout();
   resetSignInButton();
+  linkShop.classList.add('disabled-link');
+  mobileLinkShop.classList.add('disabled-link');
   logOutButtonIg.removeEventListener('click', logOutEvent);
   logOutButtonIg.classList.add('hidden-ig');
 }
-
 
 // opening mobile menu
 openMenuBtn.addEventListener('click', function () {
@@ -122,6 +123,15 @@ logoutButton.addEventListener('click', function () {
   loginButton.classList.remove('hidden');
   loginButton.addEventListener('click', toggleMenu);
   onLogout();
+});
+
+const loginButton = document.querySelector('.log-in');
+loginButton.addEventListener('click', function () {
+  const logoutButton = document.querySelector('.log-out');
+  logoutButton.classList.remove('hidden');
+
+  loginButton.classList.add('hidden');
+  loginButton.addEventListener('click', toggleMenu);
 });
 
 // sign-in button update
