@@ -154,10 +154,10 @@ function renderTopBooks(arr) {
 </div> 
       `;
     }
-    
+
   );
 
-  // const markupBtn = `<button class="see-more" id="">see more</button>`;
+
   const screenWidth = window.screen.width;
   const markupMobile = markupBook.slice(0, 1).join('');
   const markupLaptop = markupBook.slice(0, 3).join('');
@@ -182,20 +182,4 @@ function renderTopBooks(arr) {
 
 
 
-// <div class="book-carts">
-//       <p>${list_name}</p>
-//       <img src="${book_image}" alt="${title}" class="book-img">
-//       <div class="book-title">
-//       <p>${title}</p>
-//         <p>${author}</p>
-//         </div>
-//         </div>
 
-// {/* <li class="book-carts">
-//       <p>${list_name}</p>
-//       <img src="${book_image}" alt="${title}" class="book-img">
-//       <div class="book-title">
-//       <p>${title}</p>
-//         <p>${author}</p>
-//         </div>
-//         </li> */}

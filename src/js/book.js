@@ -19,15 +19,15 @@ booksCategoryEl.addEventListener('click', onSelectBook);
 
 
 function onSelectBook(evt) {
-    // showLoader();
+   
     let touchTagA = evt.target.closest('a');
 
     if (!touchTagA) return;
 
     if (!booksCategoryEl.contains(touchTagA)) return;
 
-    console.log(touchTagA.id);
-    openModal();
+   
+
     modalBodyCard.innerHTML = "";
     let id = touchTagA.id;
     getBook(id);
@@ -44,7 +44,8 @@ function onSelectBook(evt) {
         addToCartBtn.classList.add('non-active-btn');
         removeFromCartBtn.classList.add('non-active-btn');
     }
-    // hideLoader();
+        openModal();
+    
 }
 
 

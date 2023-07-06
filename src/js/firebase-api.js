@@ -9,8 +9,10 @@ import {
   push,
 } from 'firebase/database';
 import { getAuth, signOut } from 'firebase/auth';
-import { resetSignInButton } from './mobile-menu.js';
-import { updateSignInButton } from './mobile-menu.js';
+
+import {resetSignInButton} from './mobile-menu.js'
+import { letDisabledLink } from './header.js';
+
 
 const dataUser = {
   userId: '',
@@ -80,6 +82,7 @@ async function readUserData(userId) {
 async function updateUserData(data, userId) {
   const db = getDatabase();
 
+
   const newPostKey = push(child(ref(db), `users/${userId}+/shoppingList/`)).key;
   const updates = {};
   updates['users/' + userId + '/shoppingList/' + newPostKey] = data;
@@ -89,12 +92,14 @@ async function updateUserData(data, userId) {
 
 async function onLogout() {
   const auth = getAuth();
+
   signOut(auth)
     .then(() => {
       authStates.status = false;
       resetSignInButton();
     })
     .catch(error => {});
+
 }
 
 async function readShoppingList(userId) {
@@ -110,8 +115,10 @@ async function pushShoppingList(userId, data) {
 async function removeElShoppingList(userId, elemId) {
   const db = getDatabase();
   const updates = {};
+
   updates['users/' + userId + '/shoppingList/' + elemId] = null;
-  console.log('updates: ', updates);
+
+
   return update(ref(db), updates);
 }
 

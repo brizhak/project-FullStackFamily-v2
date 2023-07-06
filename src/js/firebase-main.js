@@ -21,23 +21,30 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { closeModalAuth } from './modal-auth.js';
 import { updateSignInButton } from './mobile-menu.js';
 import { letDisabledLink } from './header.js';
+import { loader, showLoader, hideLoader } from '../js/loader.js';
 
 const refsBtn = {
-  btnUp: document.querySelector('button[data-action=signup]'),
-  btnIn: document.querySelector('button[data-action=signin]'),
-  //  btnLogout : document.querySelector('button[data-action=logout]'),
-  form: document.querySelector('.modal-form'),
 
-  formBtn: document.querySelector('.btn-modal-submit'),
-};
+     btnUp : document.querySelector('button[data-action=signup]'),
+     btnIn : document.querySelector('button[data-action=signin]'),
+    
+     form : document.querySelector('.modal-form'),
+     
+     formBtn: document.querySelector(".btn-modal-submit"),
+     
+}
+
+
+ 
 const inputName = document.querySelector("input[name='name']");
 refsBtn.btnUp.style.color = '#4f2ee8';
 refsBtn.btnUp.style.textDecoration = 'underline';
 
+
 refsBtn.form.addEventListener('submit', onFormSubmit);
 refsBtn.btnUp.addEventListener('click', onBtnUpSelect);
 refsBtn.btnIn.addEventListener('click', onBtnInSelect);
-// refsBtn.btnLogout.addEventListener('click', onLogout);
+
 
 Notify.init({
   width: '300px',
@@ -79,20 +86,24 @@ function onFormSubmit(event) {
       .then(userCredential => {
         const user = userCredential.user;
         dataUser.userId = user.uid;
-        writeUserData(dataUser).then(() => {
-          authStates.status = true;
-          readUserData(dataUser.userId).then(snapshot => {
-            if (snapshot.exists()) {
-              console.log('snap', snapshot.val());
-              const { username } = snapshot.val();
-              updateSignInButton(username);
-              letDisabledLink();
-            }
-          });
-        });
-      })
 
-      // disabledEnabledFormBtn(authStates);
+      
+        writeUserData(dataUser)
+          .then(() => {
+            authStates.status = true;
+            readUserData(dataUser.userId).then(snapshot => {
+      if (snapshot.exists()) {
+        const { username } = snapshot.val();  
+        updateSignInButton(username);
+        letDisabledLink();
+              }
+          })     
+
+            
+          });
+    
+      
+      })      
 
       .catch(error => {
         const errorCode = error.code;
@@ -105,14 +116,17 @@ function onFormSubmit(event) {
         const user = userCredential.user;
         dataUser.userId = user.uid;
         authStates.status = true;
+       
         readUserData(dataUser.userId).then(snapshot => {
-          if (snapshot.exists()) {
-            console.log('snap', snapshot.val());
-            const { username } = snapshot.val();
-            updateSignInButton(username);
-            letDisabledLink();
-          }
-        });
+
+      if (snapshot.exists()) {
+        const { username } = snapshot.val();  
+        updateSignInButton(username);
+        letDisabledLink();
+              }
+          })       
+        
+
       })
       .catch(error => {
         const errorCode = error.code;
@@ -127,14 +141,17 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 setPersistence(auth, browserSessionPersistence)
+
   .then(() => {
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
         console.log('start');
+
         const user = userCredential.user;
         dataUser.userId = user.uid;
         authStates.status = true;
         readUserData(dataUser.userId).then(snapshot => {
+
           if (snapshot.exists()) {
             console.log('snap', snapshot.val());
             const { username } = snapshot.val();
@@ -142,6 +159,7 @@ setPersistence(auth, browserSessionPersistence)
             letDisabledLink();
           }
         });
+
       })
       .catch(error => {
         const errorCode = error.code;
@@ -161,51 +179,28 @@ function startLoadingSets() {
 
   if (storageData === null) {
     authStates.status = false;
-
-    // disabledEnabledFormBtn(authStates);
-  } else {
+          
+  }
+  else {
     const parsedDataSS = JSON.parse(storageData);
     dataUser.userId = parsedDataSS.uid;
     authStates.status = true;
-    readUserData(dataUser.userId)
-      .then(snapshot => {
-        if (snapshot.exists()) {
-          const { username } = snapshot.val();
-          updateSignInButton(username);
-          letDisabledLink();
-        }
-      })
-      .catch(error => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        Notify.warning(errorMessage);
-      });
-  }
+    readUserData(dataUser.userId).then(snapshot => {
+      if (snapshot.exists()) {
+        const { username } = snapshot.val();
+        updateSignInButton(username);
+        letDisabledLink();
+      }
+    })          
+      .catch (error => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    Notify.warning(errorMessage);
+  });   
+       
+   }
+     
 
-  // catch (e) {
-  //   console.log(e.message);
-  //   console.log('тут ошибка');
-  //   return;
-  // }
-  // try {
-  //   const localStorageData = localStorage.getItem('firebase:authUser:AIzaSyAWL009d3fIg7FDNeFa1MpQ8vcCju1UWEQ:[DEFAULT]');
-
-  //   if (localStorageData === null) {
-  //     authStates.status = false;
-  //     // disabledEnabledFormBtn(authStates);
-  //     return;
-  //   }
-  //   else {
-  //     const parsedDataLS = JSON.parse(storageData);
-  //     dataUser.userId = parsedDataLS.uid;
-  //     authStates.status = true;
-  //     readUserData(dataUser.userId);
-  //     // disabledEnabledFormBtn(authStates);
-  //   }
-  // }
-  // catch (e) {
-  //   return;
-  // }
 }
 
 startLoadingSets();

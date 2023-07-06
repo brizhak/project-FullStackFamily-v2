@@ -222,9 +222,7 @@ h3.night {
 .night .modal-auth{
     background-color:var(--secondary-color);
 }
-.night .modal-input{
-    border: var(--main-bg-color);
-}
+
 .night .btn-modal-action{
     background-color: transparent;
 }

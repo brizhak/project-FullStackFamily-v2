@@ -1,33 +1,25 @@
-import { dataUser } from './firebase-api.js';
+import { dataUser,authStates } from './firebase-api.js';
 import amazon from '../img/shopping/amazon.png';
 import apple from '../img/shopping/apple.png';
 import bookshop from '../img/shopping/bookshop.png';
 import trash  from '../img/icons.svg#icon-trash';
-import { onBtnInSelect, onBtnUpSelect, firebaseConfig, dataUser, authStates, writeUserData,readUserData,onLogout,readShoppingList, removeElShoppingList } from './firebase-api.js';
+import {  dataUser, authStates,readShoppingList, removeElShoppingList } from './firebase-api.js';
+ 
 
-// const shopListEl = document.querySelector('.shopping-list-list');
-// dataUser.shoppingList.length === 4;
 const mainList = document.querySelector(".shopping-list-list");
 
-// dataUser.shoppingList = [1];
- setTimeout(shoppingListMarkup, 50);
-function shoppingListMarkup() {
 
+shoppingListMarkup();
+function shoppingListMarkup() {
+  if (authStates.status === false) {
+    mainList.innerHTML = "";
+   }
   
   readShoppingList(dataUser.userId).then(snapshot => {
-    if (snapshot.exists()) {
-     
-        
-      const shoppingList = snapshot.val();
-  
-          
-      
-            
-     
-      const keys = Object.keys(shoppingList);
-      
-      const books = [];
-            
+    if (snapshot.exists()) {             
+      const shoppingList = snapshot.val();                 
+      const keys = Object.keys(shoppingList);      
+      const books = [];            
       if (keys.length !== 0) {
         for (let key of keys) {
           const book = shoppingList[`${key}`];
@@ -131,7 +123,7 @@ function shoppingListMarkup() {
                              
         }
         
-        markupList = books.join('');
+       const markupList = books.join('');
         
         mainList.innerHTML = markupList;
         const shopList = document.querySelector('.shopping-list-list');
@@ -148,21 +140,21 @@ function shoppingListMarkup() {
     <div>
       <picture>
         <source
-          srcset="./img/books_desk_tab_1x.png 1x,
-                .img/books_desk_tab_2x.png 2x"
+          srcset="src/img/books_desk_tab_1x.png 1x,
+                src/img/books_desk_tab_2x.png 2x"
            type="image/png"
           media="(min-width: 768px)"
         />
         <source
           srcset="
-            ./img/shopping/books_mob_1x.png 1x,
-            ./img/shopping/books_mob_2x.png 2x
+            src/img/shopping/books_mob_1x.png 1x,
+            src/img/shopping/books_mob_2x.png 2x
           "
           media="(max-width: 767px)"
         />
         <img
           class="empty-shopping-list-img"
-          src="./img/shopping/books_mob_1x.png"
+          src="src/img/shopping/books_mob_1x.png"
           alt="empty shopping list img"
         />
       </picture>
@@ -175,7 +167,7 @@ function shoppingListMarkup() {
     
   })
 }
-// shoppingListMarkup();
+
   
 function removeCardInShopList(event) {
       
