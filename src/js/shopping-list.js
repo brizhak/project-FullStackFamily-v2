@@ -112,9 +112,11 @@ function shoppingListMarkup() {
               data-title="title"
               aria-label="Remove button"
             >
-              <svg class="shop-cart-btn-trash">
-                <use href="${trash}"></use>
-              </svg>
+              <div class='trash-container'>
+                <span class="shop-cart-btn-trash">
+                  Х
+                </span>
+              </div>
             </button>
           </div>
         </div>
@@ -136,35 +138,10 @@ function shoppingListMarkup() {
             
       const titleNoneMarkup = `<li></li><p class="empty-shopping-list-text">
       This page is empty, add some books and proceed to order.
-    </p>
-    <div>
-      <picture>
-        <source
-          srcset="src/img/books_desk_tab_1x.png 1x,
-                src/img/books_desk_tab_2x.png 2x"
-           type="image/png"
-          media="(min-width: 768px)"
-        />
-        <source
-          srcset="
-            src/img/shopping/books_mob_1x.png 1x,
-            src/img/shopping/books_mob_2x.png 2x
-          "
-          media="(max-width: 767px)"
-        />
-        <img
-          class="empty-shopping-list-img"
-          src="src/img/shopping/books_mob_1x.png"
-          alt="empty shopping list img"
-        />
-      </picture>
-    </div></li>`;
+    </p>`
       mainList.innerHTML = titleNoneMarkup;
             
     }
-    
-   
-    
   })
 }
 

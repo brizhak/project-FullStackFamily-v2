@@ -147,8 +147,8 @@
   border: none;
 }
 .shop-cart-btn-trash {
-  stroke: var(--main-bg-color);
-  fill: transparent;
+  color: #fff;
+  font-weight: 700;
   width: 28px;
   height: 28px;
 }
