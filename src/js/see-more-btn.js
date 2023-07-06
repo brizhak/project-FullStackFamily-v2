@@ -54,9 +54,8 @@ function renderCurrentCategory(arr) {
     })
     .join('');
 
-  let listCategoryBook = document.querySelector('.category-item-list');
-  // listCategoryBook.insertAdjacentHTML('beforeend', markup);
-  // listCategoryBook.innerHTML = markupCatBook;
+  let listCategoryBook = document.getElementById(`${category}`);
+
   booksTop.innerHTML = markupCatBook;
   listCategoryBook.id = category;
 
