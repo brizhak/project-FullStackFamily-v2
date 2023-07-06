@@ -35,13 +35,7 @@ const refsBtn = {
 }
 
 
-  btnUp: document.querySelector('button[data-action=signup]'),
-  btnIn: document.querySelector('button[data-action=signin]'),
-  //  btnLogout : document.querySelector('button[data-action=logout]'),
-  form: document.querySelector('.modal-form'),
-
-  formBtn: document.querySelector('.btn-modal-submit'),
-};
+ 
 const inputName = document.querySelector("input[name='name']");
 refsBtn.btnUp.style.color = '#4f2ee8';
 refsBtn.btnUp.style.textDecoration = 'underline';
