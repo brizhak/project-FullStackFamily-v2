@@ -223,7 +223,7 @@ input:disabled+svg {
         margin-bottom: 28px;
     }
 
-    .modal-field:nth-child(3) {
+    .modal-field-input.modal-field {
         margin-bottom: 40px;
     }
 
