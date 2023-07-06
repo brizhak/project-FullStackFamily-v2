@@ -4,6 +4,9 @@ p {
 .category-desktop {
   max-width: 704px;
 }
+.desktop-container {
+  margin-top: 104px;
+}
 .categorys {
   display: flex;
   gap: 20px;
@@ -268,6 +271,9 @@ p {
     max-width: 704px;
     
   }
+  .desktop-container {
+    margin-top: 112px;
+  }
 
  .title-category {
      font-size: 48px;
@@ -341,6 +347,7 @@ p {
   display: flex;
   align-items: flex-start;
   gap: 40px;
+  margin-top: 72px;
  }
 
  .category-item-list {

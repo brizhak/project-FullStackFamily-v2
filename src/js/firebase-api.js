@@ -86,7 +86,6 @@ async function updateUserData(data, userId) {
   const newPostKey = push(child(ref(db), `users/${userId}+/shoppingList/`)).key;
   const updates = {};
   updates['users/' + userId + '/shoppingList/' + newPostKey] = data;
-
   return update(ref(db), updates);
 }
 
