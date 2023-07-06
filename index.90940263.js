@@ -123,5 +123,5 @@ function t(t){return t&&t.__esModule?t.default:t}var e,i,n,o,r,a="undefined"!=ty
                         </div>
                     </div>
                     </a>
-        `).join(""),n=document.querySelector(".category-item-list");e.innerHTML=i,n.id=iu,n.id===iu&&(n.innerHTML="",n.appendChild(e))}(i),iu}catch(e){t(p).Notify.failure("Something went wrong. Please try again")}finally{}}c("bUb57");
-//# sourceMappingURL=index.cc7edd1a.js.map
+        `).join(""),n=document.getElementById(`${iu}`);e.innerHTML=i,n.id=iu,n.id===iu&&(n.innerHTML="",n.appendChild(e))}(i),iu}catch(e){t(p).Notify.failure("Something went wrong. Please try again")}finally{}}c("bUb57");
+//# sourceMappingURL=index.90940263.js.map
