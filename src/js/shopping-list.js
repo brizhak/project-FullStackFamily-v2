@@ -1,33 +1,38 @@
-import { dataUser,authStates } from './firebase-api.js';
+import { dataUser, authStates } from './firebase-api.js';
 import amazon from '../img/shopping/amazon.png';
 import apple from '../img/shopping/apple.png';
 import bookshop from '../img/shopping/bookshop.png';
 import trash from '../img/icons.svg#icon-trash';
 import defaultBook from '../img/shopping/books_mob_1x.png';
-import {  dataUser, authStates,readShoppingList, removeElShoppingList } from './firebase-api.js';
- 
-const foundsList = document.querySelector(".funds");
-const mainList = document.querySelector(".shopping-list-list");
+import {
+  dataUser,
+  authStates,
+  readShoppingList,
+  removeElShoppingList,
+} from './firebase-api.js';
+
+const foundsList = document.querySelector('.funds');
+const mainList = document.querySelector('.shopping-list-list');
 const screenWidth = window.screen.width;
-if (screenWidth<1440) {
-  foundsList.classList.add("visually-hidden");
+if (screenWidth < 1440) {
+  foundsList.classList.add('visually-hidden');
 }
 
 shoppingListMarkup();
 function shoppingListMarkup() {
   if (authStates.status === false) {
-    mainList.innerHTML = "";
-   }
-  
+    mainList.innerHTML = '';
+  }
+
   readShoppingList(dataUser.userId).then(snapshot => {
-    if (snapshot.exists()) {             
-      const shoppingList = snapshot.val();                 
-      const keys = Object.keys(shoppingList);      
-      const books = [];            
+    if (snapshot.exists()) {
+      const shoppingList = snapshot.val();
+      const keys = Object.keys(shoppingList);
+      const books = [];
       if (keys.length !== 0) {
         for (let key of keys) {
           const book = shoppingList[`${key}`];
-        
+
           const bookMarkup = `<li class="shop-cart-container">
         <div class="shop-cart-wrap">
           <div class="shop-image-wrapper">
@@ -117,27 +122,22 @@ function shoppingListMarkup() {
               aria-label="Remove button"
             >
            
-                
-              
+                        
             </button>
           </div>
         </div>
-      </li>`
+      </li>`;
           books.push(bookMarkup);
-                             
         }
-        
-       const markupList = books.join('');
-        
+
+        const markupList = books.join('');
+
         mainList.innerHTML = markupList;
         const shopList = document.querySelector('.shopping-list-list');
-   
+
         shopList.addEventListener('click', removeCardInShopList);
-   
       }
-    }
-    else {
-            
+    } else {
       const titleNoneMarkup = `<li><p class="empty-shopping-list-text">
       This page is empty, add some books and proceed to order.
     </p>
@@ -164,25 +164,19 @@ function shoppingListMarkup() {
         />
       </picture>
     </div>
-    </li>`
+    </li>`;
       mainList.innerHTML = titleNoneMarkup;
-            
     }
-  })
+  });
 }
 
-  
 function removeCardInShopList(event) {
-      
-     if (event.target.nodeName !== "BUTTON") {
+  if (event.target.nodeName !== 'BUTTON') {
     return;
   }
-    const bookItemId = event.target.id;
-    removeElShoppingList(dataUser.userId, bookItemId);  
-    shoppingListMarkup();
+  const bookItemId = event.target.id;
+  removeElShoppingList(dataUser.userId, bookItemId);
+  shoppingListMarkup();
 }
-    
 
-  export {shoppingListMarkup};
-
-
+export { shoppingListMarkup };
