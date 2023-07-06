@@ -107,7 +107,7 @@ input:disabled+svg {
     transform: translate(-50%, -50%) scaleY(1) skew(0);
 
     background-color: var(--bg-color-modal);
-
+    margin: auto;
     border-radius: 18px;
 }
 
