@@ -51,43 +51,42 @@
         </svg>
       </span>
     </label>
-    <label class="modal-field">
-      <span class="modal-field-input">
+    <label class="visually-hidden">password</label>
+    <div class="modal-field-input modal-field">
+      <input
+        class="modal-input"
+        type="password"
+        name="password"
+        required
+        minlength="6"
+        maxlength="20"
+        autocomplete="current-password"
+        placeholder="password*"
+        title="Require min 6 sign, which include at least 1 uppercase character, 1 lowercase character, and 1 number."
+      />
+      <!-- Eye -->
+      <!-- <label> -->
+      <button
+        class="toggle-password"
+        id="toggle-password"
+        type="button"
+        aria-label="Show password as plain text. Warning: this will display your password on the screen."
+      >
+        <svg class="modal-password-eye" width="20" height="20">
+          <use href="./img/icons-auth.svg#icon-eye-off"></use>
 
-        <input
-          class="modal-input"
-          type="password"
-          name="password"
-          required
-          minlength="6"
-          maxlength="20"
-          autocomplete="current-password"
-          placeholder="password*"
-          title="Require min 6 sign, which include at least 1 uppercase character, 1 lowercase character, and 1 number."
-        />
-        <!-- Eye -->
-        <label>
-          <button
-            class="toggle-password"
-            id="toggle-password"
-            type="button"
-            aria-label="Show password as plain text. Warning: this will display your password on the screen."
-          >
-            <svg class="modal-password-eye" width="20" height="20">
-              <use href="./img/icons-auth.svg#icon-eye-off"></use>
-            </svg>
-            <svg class="modal-password-eye off" width="20" height="20">
-              <use href="./img/icons-auth.svg#icon-eye"></use>
-            </svg>
-          </button>
-        </label>
-        <!-- Eye -->
-        <svg class="modal-icon modal-icon-lock">
-
-          <use href="./img/icons.svg#icon-lock"></use>
         </svg>
-      </span>
-    </label>
+        <svg class="modal-password-eye off" width="20" height="20">
+          <use href="./img/icons-auth.svg#icon-eye"></use>
+        </svg>
+      </button>
+      <!-- </label> -->
+      <!-- Eye -->
+      <svg class="modal-icon modal-icon-lock">
+        <use href="./img/icons.svg#icon-lock"></use>
+      </svg>
+    </div>
+    <!-- </label> -->
     <button class="btn-modal-submit" type="submit">sign up</button>
     <div class="box-btn-modal-action">
       <button class="btn-modal-action" type="button" data-action="signup">
