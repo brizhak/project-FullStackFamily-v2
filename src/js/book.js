@@ -19,7 +19,7 @@ booksCategoryEl.addEventListener('click', onSelectBook);
 
 
 function onSelectBook(evt) {
-    // showLoader();
+   
     let touchTagA = evt.target.closest('a');
 
     if (!touchTagA) return;
@@ -45,7 +45,7 @@ function onSelectBook(evt) {
         removeFromCartBtn.classList.add('non-active-btn');
     }
         openModal();
-    // hideLoader();
+    
 }
 
 
