@@ -58,6 +58,10 @@ body.night {
 }
 
 /* -----------------------------MODAL WINDOW--------------------------------------- */
+input::-ms-reveal {
+    display: none;
+}
+
 input:disabled,
 input:disabled+svg {
     opacity: 0.2;
