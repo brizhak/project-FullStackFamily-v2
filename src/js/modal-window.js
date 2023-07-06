@@ -28,6 +28,7 @@ export function openModal() {
           for (let key of keys) {
             const onebook = shoppingList[`${key}`];
             books.push(onebook);
+            console.log('onebook',onebook);
           }
         
           const result = books.find(elem =>

@@ -4,7 +4,7 @@
   bottom: 145px;
   cursor: pointer;
   display: none;
-  /* transform: rotate(180deg); */
+  transform: rotate(180deg);
   width: 54px;
   height: 54px;
   padding: 0;
