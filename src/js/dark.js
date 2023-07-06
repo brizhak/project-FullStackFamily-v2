@@ -7,7 +7,7 @@ var darkMode = document.getElementById('theme-switch');
 // });
 
 darkMode.addEventListener('change', function () {
-  console.log(this.checked);
+  // console.log(this.checked);
   if (this.checked) {
     localStorage.setItem('darkMode', 'dark');
     darkMode.classList.add('active');
