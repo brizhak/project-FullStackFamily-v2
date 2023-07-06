@@ -142,7 +142,7 @@ function shoppingListMarkup() {
       }
     }
     else {
-      shopList.removeEventListener('click', removeCardInShopList);
+      
       const titleNoneMarkup = `<li></li><p class="empty-shopping-list-text">
       This page is empty, add some books and proceed to order.
     </p>`
