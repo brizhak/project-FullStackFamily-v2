@@ -63,7 +63,7 @@ input:disabled+svg {
     opacity: 0.2;
 }
 
-.overlay {
+.modal-auth-overlay {
     position: fixed;
     opacity: 0;
     visibility: hidden;
@@ -77,7 +77,7 @@ input:disabled+svg {
     transition: opacity var(--transition-property2), visibility var(--transition-property2);
 }
 
-.modal {
+.modal-main {
     transition: scale 400ms linear, opacity 500ms linear;
 
     scale: 0.1;
@@ -85,8 +85,8 @@ input:disabled+svg {
     z-index: 300;
 }
 
-.modal.active,
-.overlay.active {
+.modal-main.active,
+.modal-auth-overlay.active {
     opacity: 1;
     scale: 1;
     visibility: visible;

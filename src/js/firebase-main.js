@@ -23,6 +23,7 @@ import { updateSignInButton } from './mobile-menu.js';
 import { letDisabledLink } from './header.js';
 
 const refsBtn = {
+
   btnUp: document.querySelector('button[data-action=signup]'),
   btnIn: document.querySelector('button[data-action=signin]'),
   //  btnLogout : document.querySelector('button[data-action=logout]'),
@@ -33,6 +34,7 @@ const refsBtn = {
 const inputName = document.querySelector("input[name='name']");
 refsBtn.btnUp.style.color = '#4f2ee8';
 refsBtn.btnUp.style.textDecoration = 'underline';
+
 
 refsBtn.form.addEventListener('submit', onFormSubmit);
 refsBtn.btnUp.addEventListener('click', onBtnUpSelect);
@@ -79,6 +81,7 @@ function onFormSubmit(event) {
       .then(userCredential => {
         const user = userCredential.user;
         dataUser.userId = user.uid;
+
         writeUserData(dataUser).then(() => {
           authStates.status = true;
           readUserData(dataUser.userId).then(snapshot => {
@@ -94,6 +97,7 @@ function onFormSubmit(event) {
 
       // disabledEnabledFormBtn(authStates);
 
+
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -106,6 +110,7 @@ function onFormSubmit(event) {
         dataUser.userId = user.uid;
         authStates.status = true;
         readUserData(dataUser.userId).then(snapshot => {
+
           if (snapshot.exists()) {
             console.log('snap', snapshot.val());
             const { username } = snapshot.val();
@@ -113,6 +118,7 @@ function onFormSubmit(event) {
             letDisabledLink();
           }
         });
+
       })
       .catch(error => {
         const errorCode = error.code;
@@ -127,14 +133,17 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 setPersistence(auth, browserSessionPersistence)
+
   .then(() => {
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
         console.log('start');
+
         const user = userCredential.user;
         dataUser.userId = user.uid;
         authStates.status = true;
         readUserData(dataUser.userId).then(snapshot => {
+
           if (snapshot.exists()) {
             console.log('snap', snapshot.val());
             const { username } = snapshot.val();
@@ -142,6 +151,7 @@ setPersistence(auth, browserSessionPersistence)
             letDisabledLink();
           }
         });
+
       })
       .catch(error => {
         const errorCode = error.code;
@@ -162,8 +172,10 @@ function startLoadingSets() {
   if (storageData === null) {
     authStates.status = false;
 
+
     // disabledEnabledFormBtn(authStates);
   } else {
+
     const parsedDataSS = JSON.parse(storageData);
     dataUser.userId = parsedDataSS.uid;
     authStates.status = true;

@@ -1,4 +1,5 @@
 //Якщо потрібні дії з Локал Сторідж - імпортуйте собі у файл.
+import Notiflix from "notiflix";
 export default {
     saveInLocal,
     getFromLocal,
@@ -10,7 +11,7 @@ function saveInLocal(key, value) {
         const changingValue = JSON.stringify(value);
         localStorage.setItem(key, changingValue);
     } catch (error) {
-        console.log("Seve book error: ", error);
+        Notiflix.Notify.failure('Something went wrong. Please try again');
     }
 };
 
@@ -19,7 +20,7 @@ function getFromLocal(key) {
         const changingKey = localStorage.getItem(key);
         return changingKey === null ? undefined : JSON.parse(changingKey);
     } catch (error) {
-        console.log("Get book error: ", error);
+        Notiflix.Notify.failure('Something went wrong. Please try again');
     }
 };
 
@@ -30,6 +31,6 @@ function removeFromLocal(key) {
         }
         localStorage.removeItem(key);
     } catch (error) {
-        console.log("Remove book error: ", error);
+        Notiflix.Notify.failure('Something went wrong. Please try again');
     }
 }
