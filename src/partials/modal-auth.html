@@ -1,6 +1,6 @@
 <!-- Modal Window -->
-<div class="overlay"></div>
-<div class="modal modal-auth" data-modal>
+<div class="modal-auth-overlay"></div>
+<div class="modal-main modal-auth" data-modal>
   <button class="btn-modal-close" data-modal-close type="button">
     <svg class="modal-close-icon">
       <use href="./img/icons.svg#icon-x-close"></use>
@@ -9,40 +9,17 @@
   <form class="modal-form">
     <label class="modal-field">
       <span class="modal-field-input">
-        <input
-          class="modal-input"
-          type="text"
-          name="name"
-          minlength="2"
-          maxlength="20"
-          autocomplete="username"
-          placeholder="name"
-          autofocus
-        />
-        <svg
-          class="modal-icon"
-          width="28"
-          height="28"
-          style="stroke-width: 2px"
-        >
+        <input class="modal-input" type="text" name="name" minlength="2" maxlength="20" autocomplete="username"
+          placeholder="name" autofocus />
+        <svg class="modal-icon" width="28" height="28" style="stroke-width: 2px">
           <use href="./img/icons.svg#icon-user"></use>
         </svg>
       </span>
     </label>
     <label class="modal-field">
       <span class="modal-field-input">
-        <input
-          class="modal-input"
-          type="email"
-          name="email"
-          required
-          minlength="6"
-          maxlength="20"
-          autocomplete="email"
-          placeholder="email*"
-          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-          title="Invalid email address"
-        />
+        <input class="modal-input" type="email" name="email" required minlength="6" maxlength="20" autocomplete="email"
+          placeholder="email*" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" />
         <svg class="modal-icon">
           <use href="./img/icons.svg#icon-mail"></use>
         </svg>
@@ -50,17 +27,9 @@
     </label>
     <label class="modal-field">
       <span class="modal-field-input">
-        <input
-          class="modal-input"
-          type="password"
-          name="password"
-          required
-          minlength="6"
-          maxlength="20"
-          autocomplete="current-password"
-          placeholder="password*"
-          title="Require min 6 sign, which include at least 1 uppercase character, 1 lowercase character, and 1 number."
-        />
+        <input class="modal-input" type="password" name="password" required minlength="6" maxlength="20"
+          autocomplete="current-password" placeholder="password*"
+          title="Require min 6 sign, which include at least 1 uppercase character, 1 lowercase character, and 1 number." />
         <svg class="modal-icon">
           <use href="./img/icons.svg#icon-lock"></use>
         </svg>

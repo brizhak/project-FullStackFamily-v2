@@ -8,7 +8,7 @@ const closeAuthModBtn = document.querySelector('.btn-modal-close');
 
 // refs.openModalBtn.addEventListener('click', openModal);
 closeAuthModBtn.addEventListener('click', closeModalAuth);
-const overlayAuth = document.querySelector('.overlay');
+const overlayAuth = document.querySelector('.modal-auth-overlay');
 const modalAuth = document.querySelector('[data-modal]');
 overlayAuth.addEventListener('click', closeModalAuth);
 
@@ -32,8 +32,8 @@ document.body.addEventListener('keyup', closeModalEscape);
 function closeModalEscape(e) {
   if (e.code === 'Escape') {
     if (modalAuth.classList.contains('active')) {
-      document.querySelector('.modal.active').classList.remove('active');
-      document.querySelector('.overlay.active').classList.remove('active');
+      document.querySelector('.modal-main.active').classList.remove('active');
+      document.querySelector('.modal-auth-overlay.active').classList.remove('active');
       return;
     }
     if (!logOutButtonIg.classList.contains('hidden-ig')) {

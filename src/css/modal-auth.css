@@ -59,7 +59,7 @@ body.night {
 
 /* -----------------------------MODAL WINDOW--------------------------------------- */
 
-.overlay {
+.modal-auth-overlay {
     position: fixed;
     opacity: 0;
     visibility: hidden;
@@ -73,7 +73,7 @@ body.night {
     transition: opacity var(--transition-property2), visibility var(--transition-property2);
 }
 
-.modal {
+.modal-main {
     transition: scale 400ms linear, opacity 500ms linear;
 
     scale: 0.1;
@@ -81,8 +81,8 @@ body.night {
     z-index: 300;
 }
 
-.modal.active,
-.overlay.active {
+.modal-main.active,
+.modal-auth-overlay.active {
     opacity: 1;
     scale: 1;
     visibility: visible;
