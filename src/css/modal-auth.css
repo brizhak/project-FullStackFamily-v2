@@ -58,6 +58,10 @@ body.night {
 }
 
 /* -----------------------------MODAL WINDOW--------------------------------------- */
+input:disabled,
+input:disabled+svg {
+    opacity: 0.2;
+}
 
 .modal-auth-overlay {
     position: fixed;
@@ -250,6 +254,44 @@ body.night {
     border-color: var(--brd-color-modal-input-valid);
 }
 
+/* Eye */
+.toggle-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    top: 52%;
+    right: 20%;
+}
+
+.modal-password-eye {
+    --size: 16px;
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transform: translateY(-50%);
+    opacity: 0.6;
+
+    stroke: var(--color-modal-icon);
+}
+
+.modal-password-eye.off {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .modal-password-eye {
+        --size: 20px;
+        width: var(--size);
+        height: var(--size);
+    }
+}
+
+/* Eye */
+
 .modal-icon {
     --size: 18px;
     width: var(--size);
@@ -261,6 +303,11 @@ body.night {
 
     stroke: var(--color-modal-icon);
     fill: var(--bg-color-modal);
+}
+
+.modal-icon.modal-icon-lock {
+    fill: inherit;
+    fill-opacity: 0.5;
 }
 
 @media screen and (min-width: 768px) {
@@ -328,5 +375,22 @@ body.night {
 .btn-modal-action {
     padding: 0px;
     border: 0px;
+    background-color: inherit;
+    color: var(--color-btn-modal-action);
+
+    text-align: center;
+    text-transform: uppercase;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: calc(18/14);
+    letter-spacing: -0.01em;
 }
 
+@media screen and (min-width: 768px) {
+    .btn-modal-action {
+        font-size: 18px;
+        line-height: calc(24/18);
+        letter-spacing: -0.01em;
+    }
+}

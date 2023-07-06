@@ -44,3 +44,27 @@ function closeModalEscape(e) {
 }
 
 export { openModalAuth, closeModalAuth };
+
+// Eye
+const passwordInput = document.querySelector("input[name='password']");
+const togglePasswordButton = document.querySelector('.toggle-password');
+const togglePasswordSvgS = document.querySelectorAll('.modal-password-eye');
+
+togglePasswordButton.addEventListener('click', togglePassword);
+
+function togglePassword() {
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    togglePasswordButton.setAttribute(
+      'aria-label',
+      'Show password as plain text. ' +
+        'Warning: this will display your password on the screen.'
+    );
+  } else {
+    passwordInput.type = 'password';
+    togglePasswordButton.setAttribute('aria-label', 'Hide password.');
+  }
+  togglePasswordSvgS.forEach(togglePasswordSvg =>
+    togglePasswordSvg.classList.toggle('off')
+  );
+}
