@@ -18,7 +18,7 @@ export function openModal() {
   if (authStates.status === false) {
     return;
   }
-   document.body.addEventListener('keyup', esapeListener);
+   document.body.addEventListener('keyup', escapeListener);
   readShoppingList(dataUser.userId).then(snapshot => {
     if (snapshot.exists()) {
       const shoppingList = snapshot.val();
@@ -32,7 +32,7 @@ export function openModal() {
         
           const result = books.find(elem =>
             
-             elem._id === book['_id']
+            elem._id === book._id
           );
           
           if (result === undefined) {
@@ -63,7 +63,7 @@ modalOverlay.addEventListener('click', closeModal);
 //     closeModal();
 //   }
 // });
-function esapeListener(e) {
+function escapeListener(e) {
   const key = e.code;
 
   if (key === "Escape") {

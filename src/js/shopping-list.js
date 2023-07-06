@@ -2,12 +2,19 @@ import { dataUser,authStates } from './firebase-api.js';
 import amazon from '../img/shopping/amazon.png';
 import apple from '../img/shopping/apple.png';
 import bookshop from '../img/shopping/bookshop.png';
-import trash  from '../img/icons.svg#icon-trash';
+import trash  from '../img/icon-trash.svg';
 import {  dataUser, authStates,readShoppingList, removeElShoppingList } from './firebase-api.js';
  
 
 const mainList = document.querySelector(".shopping-list-list");
+const foundsSection = document.querySelector(".sheave");
+const screenWidth = window.screen.width;
 
+
+if (screenWidth < 1440) {
+  foundsSection.classList.add("visually-hidden");
+} 
+  
 
 shoppingListMarkup();
 function shoppingListMarkup() {
@@ -112,11 +119,11 @@ function shoppingListMarkup() {
               data-title="title"
               aria-label="Remove button"
             >
-              <div class='trash-container'>
-                <span class="shop-cart-btn-trash">
-                  Х
-                </span>
-              </div>
+
+              <svg class="shop-cart-btn-trash"  width="24" height="24">
+                <use href="./img/icons.svg#icon-x-close" ></use>
+              </svg>
+
             </button>
           </div>
         </div>
@@ -135,7 +142,7 @@ function shoppingListMarkup() {
       }
     }
     else {
-            
+      shopList.removeEventListener('click', removeCardInShopList);
       const titleNoneMarkup = `<li></li><p class="empty-shopping-list-text">
       This page is empty, add some books and proceed to order.
     </p>`
