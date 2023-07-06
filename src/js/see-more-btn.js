@@ -14,17 +14,17 @@ async function onOpenCategoryList(evt) {
       return;
     }
     category = evt.target.id;
-    console.log(evt.target);
-
+  
     let books = await fetchCertainCategory(category);
     if (!books) {
       Notiflix.Notify.failure("Ops! We don't have books certain category");
+
     }
     renderCurrentCategory(books);
     return category;
   } catch (error) {
     Notiflix.Notify.failure('Something went wrong. Please try again');
-    console.log(error);
+   
   } finally {
   }
 }

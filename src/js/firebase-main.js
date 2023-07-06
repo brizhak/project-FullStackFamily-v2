@@ -21,7 +21,7 @@ const refsBtn = {
      formBtn: document.querySelector(".btn-modal-submit"),
      
 }
-const inputName = document.querySelector("input[name='name']");
+
  refsBtn.btnUp.style.color = '#4f2ee8';
  refsBtn.btnUp.style.textDecoration = 'underline';
 
@@ -88,10 +88,7 @@ function onFormSubmit(event) {
             
           });
       
-      })
-  
-    // disabledEnabledFormBtn(authStates);
-  
+      })      
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -164,9 +161,8 @@ function startLoadingSets() {
 
   if (storageData === null) {
     authStates.status = false;
-    
-    // disabledEnabledFormBtn(authStates);
-    
+    console.log("states false");
+       
   }
   else {
     const parsedDataSS = JSON.parse(storageData);
