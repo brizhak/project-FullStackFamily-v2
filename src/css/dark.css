@@ -254,3 +254,13 @@ h3.night {
 .night .modal-body-media-icon-amazon {
     filter: invert(98%)sepia()saturate(0%)hue-rotate(105deg)brightness(103%)contrast(102%);
 }
+.night.container-header {
+    background-color: var(--header--);
+}
+.night .menu-close-icon{
+    stroke: var(--main-bg-color);
+}
+
+.night .mobile-menu_link{
+    color: var(--main-bg-color);
+}
