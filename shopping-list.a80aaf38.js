@@ -1,4 +1,4 @@
-function e(e,t,r,i){Object.defineProperty(e,t,{get:r,set:i,enumerable:!0,configurable:!0})}function t(e){return e&&e.__esModule?e.default:e}var r="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},i={},o={},s=r.parcelRequired7c6;null==s&&((s=function(e){if(e in i)return i[e].exports;if(e in o){var t=o[e];delete o[e];var r={id:e,exports:{}};return i[e]=r,t.call(r.exports,r,r.exports),r.exports}var s=Error("Cannot find module '"+e+"'");throw s.code="MODULE_NOT_FOUND",s}).register=function(e,t){o[e]=t},r.parcelRequired7c6=s),s.register("kyEFX",function(t,r){"use strict";e(t.exports,"register",function(){return i},function(e){return i=e}),e(t.exports,"resolve",function(){return o},function(e){return o=e});var i,o,s={};i=function(e){for(var t=Object.keys(e),r=0;r<t.length;r++)s[t[r]]=e[t[r]]},o=function(e){var t=s[e];if(null==t)throw Error("Could not resolve bundle with id "+e);return t}}),s("kyEFX").register(JSON.parse('{"fT3mu":"shopping-list.06b99aff.js","cagbC":"amazon.14359d3c.png","hJuzG":"apple.9c33fe27.png","hDM3Y":"bookshop.8a4b449f.png","hm5VY":"icons.bc01a40e.svg","drU6R":"index.750d9422.js","8ZGWj":"index.8bcba879.js"}')),s("5xxQm"),s("8FnLx"),s("ciJSj"),s("dTazW");var a=s("9bk7d"),n={};n=new URL(s("kyEFX").resolve("cagbC"),import.meta.url).toString();var l={};l=new URL(s("kyEFX").resolve("hJuzG"),import.meta.url).toString();var c={};c=new URL(s("kyEFX").resolve("hDM3Y"),import.meta.url).toString();var p={};p=new URL(s("kyEFX").resolve("hm5VY"),import.meta.url).toString();const u=document.querySelector(".shopping-list-list");function d(){!1===a.authStates.status&&(u.innerHTML=""),(0,a.readShoppingList)(a.dataUser.userId).then(e=>{if(e.exists()){let r=e.val(),i=Object.keys(r),o=[];if(0!==i.length){for(let e of i){let i=r[`${e}`],s=`<li class="shop-cart-container">
+function e(e,t,r,i){Object.defineProperty(e,t,{get:r,set:i,enumerable:!0,configurable:!0})}function t(e){return e&&e.__esModule?e.default:e}var r="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},i={},o={},a=r.parcelRequired7c6;null==a&&((a=function(e){if(e in i)return i[e].exports;if(e in o){var t=o[e];delete o[e];var r={id:e,exports:{}};return i[e]=r,t.call(r.exports,r,r.exports),r.exports}var a=Error("Cannot find module '"+e+"'");throw a.code="MODULE_NOT_FOUND",a}).register=function(e,t){o[e]=t},r.parcelRequired7c6=a),a.register("kyEFX",function(t,r){"use strict";e(t.exports,"register",function(){return i},function(e){return i=e}),e(t.exports,"resolve",function(){return o},function(e){return o=e});var i,o,a={};i=function(e){for(var t=Object.keys(e),r=0;r<t.length;r++)a[t[r]]=e[t[r]]},o=function(e){var t=a[e];if(null==t)throw Error("Could not resolve bundle with id "+e);return t}}),a("kyEFX").register(JSON.parse('{"fT3mu":"shopping-list.a80aaf38.js","cagbC":"amazon.14359d3c.png","hJuzG":"apple.9c33fe27.png","hDM3Y":"bookshop.8a4b449f.png","hm5VY":"icons.bc01a40e.svg","drU6R":"index.750d9422.js","8ZGWj":"index.8bcba879.js"}')),a("5xxQm"),a("8FnLx"),a("ciJSj"),a("dTazW");var s=a("9bk7d"),n={};n=new URL(a("kyEFX").resolve("cagbC"),import.meta.url).toString();var l={};l=new URL(a("kyEFX").resolve("hJuzG"),import.meta.url).toString();var c={};c=new URL(a("kyEFX").resolve("hDM3Y"),import.meta.url).toString(),new URL(a("kyEFX").resolve("hm5VY"),import.meta.url).toString();const p=document.querySelector(".shopping-list-list");function u(){!1===s.authStates.status&&(p.innerHTML=""),(0,s.readShoppingList)(s.dataUser.userId).then(e=>{if(e.exists()){let r=e.val(),i=Object.keys(r),o=[];if(0!==i.length){for(let e of i){let i=r[`${e}`],a=`<li class="shop-cart-container">
         <div class="shop-cart-wrap">
           <div class="shop-image-wrapper">
             <img class="shop-image" src="${i.book_image}" alt="${i.title}" width="100" height="142" />
@@ -86,35 +86,15 @@ function e(e,t,r,i){Object.defineProperty(e,t,{get:r,set:i,enumerable:!0,configu
               data-title="title"
               aria-label="Remove button"
             >
-              <svg class="shop-cart-btn-trash">
-                <use href="${t(p)}"></use>
-              </svg>
+              <div class='trash-container'>
+                <span class="shop-cart-btn-trash">
+                  Х
+                </span>
+              </div>
             </button>
           </div>
         </div>
-      </li>`;o.push(s)}let e=o.join("");u.innerHTML=e;let s=document.querySelector(".shopping-list-list");s.addEventListener("click",g)}}else{let e=`<li></li><p class="empty-shopping-list-text">
+      </li>`;o.push(a)}let e=o.join("");p.innerHTML=e;let a=document.querySelector(".shopping-list-list");a.addEventListener("click",d)}}else{let e=`<li></li><p class="empty-shopping-list-text">
       This page is empty, add some books and proceed to order.
-    </p>
-    <div>
-      <picture>
-        <source
-          srcset="src/img/books_desk_tab_1x.png 1x,
-                src/img/books_desk_tab_2x.png 2x"
-           type="image/png"
-          media="(min-width: 768px)"
-        />
-        <source
-          srcset="
-            src/img/shopping/books_mob_1x.png 1x,
-            src/img/shopping/books_mob_2x.png 2x
-          "
-          media="(max-width: 767px)"
-        />
-        <img
-          class="empty-shopping-list-img"
-          src="src/img/shopping/books_mob_1x.png"
-          alt="empty shopping list img"
-        />
-      </picture>
-    </div></li>`;u.innerHTML=e}})}function g(e){if("BUTTON"!==e.target.nodeName)return;let t=e.target.id;(0,a.removeElShoppingList)(a.dataUser.userId,t),d()}d(),s("6zeq2"),s("bUb57"),s("gjiCh");
-//# sourceMappingURL=shopping-list.06b99aff.js.map
+    </p>`;p.innerHTML=e}})}function d(e){if("BUTTON"!==e.target.nodeName)return;let t=e.target.id;(0,s.removeElShoppingList)(s.dataUser.userId,t),u()}u(),a("6zeq2"),a("bUb57"),a("gjiCh");
+//# sourceMappingURL=shopping-list.a80aaf38.js.map
