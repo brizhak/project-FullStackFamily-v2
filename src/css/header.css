@@ -86,9 +86,9 @@
   padding: 8px 16px;
 }
 
-.nav-item a:hover,
-.nav-item a:focus,
-.nav-item a.active-page {
+.nav-item .nav-items:not(.disabled-link) a:hover,
+.nav-item .nav-items:not(.disabled-link) a:focus,
+.nav-item .nav-items:not(.disabled-link) a.active-page {
   border-color: #eac645;
   background-color: #eac645;
   font-weight: 700;
