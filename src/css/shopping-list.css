@@ -1,4 +1,4 @@
-@import './common.css';
+/* @import './common.css';
 @import './reset.css';
 @import './fonts.css';
 @import './base.css';
@@ -7,7 +7,7 @@
 @import './shopping-list.css';
 @import './modal-window.css';
 @import './footer.css';
-@import './dark.css';
+@import './dark.css'; */
 
 .shopping-list-title {
   color: var(--secondary-color);
@@ -147,9 +147,9 @@
   border: none;
 }
 .shop-cart-btn-trash {
-  /* display: inline-block; */
-  color: #fff;
-  font-weight: 700;
+  display: inline-block;
+  /* color: #fff; */
+  /* font-weight: 700; */
   width: 28px;
   height: 28px;
 }

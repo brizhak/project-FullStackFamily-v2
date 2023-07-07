@@ -82,6 +82,7 @@ function onFormSubmit(event) {
   const auth = getAuth(app);
 
   if (authStates.type === 'signup') {
+    showLoader();
     createUserWithEmailAndPassword(auth, dataUser.email, password)
       .then(userCredential => {
         const user = userCredential.user;
@@ -92,7 +93,8 @@ function onFormSubmit(event) {
           .then(() => {
             authStates.status = true;
             readUserData(dataUser.userId).then(snapshot => {
-      if (snapshot.exists()) {
+              if (snapshot.exists()) {
+         hideLoader();
         const { username } = snapshot.val();  
         updateSignInButton(username);
         letDisabledLink();
@@ -111,6 +113,7 @@ function onFormSubmit(event) {
         Notify.warning(errorMessage);
       });
   } else if (authStates.type === 'signin') {
+    showLoader();
     signInWithEmailAndPassword(auth, dataUser.email, password)
       .then(userCredential => {
         const user = userCredential.user;
@@ -119,7 +122,8 @@ function onFormSubmit(event) {
        
         readUserData(dataUser.userId).then(snapshot => {
 
-      if (snapshot.exists()) {
+          if (snapshot.exists()) {
+        hideLoader();
         const { username } = snapshot.val();  
         updateSignInButton(username);
         letDisabledLink();
@@ -143,16 +147,17 @@ const auth = getAuth(app);
 setPersistence(auth, browserSessionPersistence)
 
   .then(() => {
+    showLoader();
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
-
+       hideLoader();
         const user = userCredential.user;
         dataUser.userId = user.uid;
         authStates.status = true;
         readUserData(dataUser.userId).then(snapshot => {
 
           if (snapshot.exists()) {
-
+ 
             const { username } = snapshot.val();
             updateSignInButton(username);
             letDisabledLink();
