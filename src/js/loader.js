@@ -5,10 +5,10 @@ const categoryEl = document.querySelector('.category-desktop');
 
 export function showLoader() {
   loader.classList.remove('visually-hidden');
-  categoryEl.style.display = 'none';
+  // categoryEl.style.display = 'none';
 }
 
 export function hideLoader() {
   loader.classList.add('visually-hidden');
-  categoryEl.style.display = 'block';
+  // categoryEl.style.display = 'block';
 }
