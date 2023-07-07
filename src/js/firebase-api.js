@@ -10,9 +10,9 @@ import {
 } from 'firebase/database';
 import { getAuth, signOut } from 'firebase/auth';
 
-import {resetSignInButton} from './mobile-menu.js'
+import { resetSignInButton } from './mobile-menu.js';
 import { letDisabledLink } from './header.js';
-
+import { invisiblePasswordInput } from './modal-auth.js';
 
 const dataUser = {
   userId: '',
@@ -39,7 +39,7 @@ function onBtnInSelect() {
   if (authStates.type === 'signin') {
     return;
   }
-
+  invisiblePasswordInput();
   authStates.type = 'signin';
   refsBtn.formBtn.textContent = 'sign in';
   refsBtn.btnIn.style.color = 'blue';
@@ -54,7 +54,7 @@ function onBtnUpSelect() {
   if (authStates.type === 'signup') {
     return;
   }
-
+  invisiblePasswordInput();
   authStates.type = 'signup';
   refsBtn.formBtn.textContent = 'sign up';
   refsBtn.btnUp.style.color = 'blue';
@@ -82,7 +82,6 @@ async function readUserData(userId) {
 async function updateUserData(data, userId) {
   const db = getDatabase();
 
-
   const newPostKey = push(child(ref(db), `users/${userId}+/shoppingList/`)).key;
   const updates = {};
   updates['users/' + userId + '/shoppingList/' + newPostKey] = data;
@@ -98,7 +97,6 @@ async function onLogout() {
       resetSignInButton();
     })
     .catch(error => {});
-
 }
 
 async function readShoppingList(userId) {
@@ -116,7 +114,6 @@ async function removeElShoppingList(userId, elemId) {
   const updates = {};
 
   updates['users/' + userId + '/shoppingList/' + elemId] = null;
-
 
   return update(ref(db), updates);
 }
