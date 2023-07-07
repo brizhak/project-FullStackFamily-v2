@@ -5,6 +5,9 @@
   padding: 20px;
   width: 100%;
   height: 200px;
+  position: fixed;
+  top: calc(50% - 100px);
+  /* left: 50%; */
 }
 
 .loader {
