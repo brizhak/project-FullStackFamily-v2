@@ -25,6 +25,7 @@
     "swiper": "^9.4.1"
   },
   "devDependencies": {
+    "@parcel/transformer-inline-string": "^2.9.3",
     "@parcel/transformer-sass": "^2.6.0",
     "buffer": "^6.0.3",
     "parcel": "^2.6.0",

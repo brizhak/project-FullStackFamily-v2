@@ -2,15 +2,34 @@ import { dataUser, authStates } from './firebase-api.js';
 import amazon from '../img/shopping/amazon.png';
 import apple from '../img/shopping/apple.png';
 import bookshop from '../img/shopping/bookshop.png';
-import trash from '../img/icon-trash-2.svg';
-import defaultBook from '../img/shopping/books_mob_1x.png';
+
+import trash from 'bundle-text:../img/icon-trash.svg';
+shopListClearMob1x = new URL(
+  '../img/shopping/books_mob_1x.png',
+  import.meta.url
+);
+shopListClearMob2x = new URL(
+  '../img/shopping/books_mob_2x.png',
+  import.meta.url
+);
+shopListClearDeskTab1x = new URL(
+  '../img/shopping/books_desk_tab_1x.png',
+  import.meta.url
+);
+shopListClearDeskTab2x = new URL(
+  '../img/shopping/books_desk_tab_2x.png',
+  import.meta.url
+);
+
 import {
   dataUser,
   authStates,
   readShoppingList,
   removeElShoppingList,
 } from './firebase-api.js';
- import {  showLoader, hideLoader } from './loader.js';
+import { showLoader, hideLoader } from './loader.js';
+
+// const svg = new URL('');
 
 const foundsList = document.querySelector('.sheave');
 const mainList = document.querySelector('.shopping-list-list');
@@ -27,14 +46,13 @@ function shoppingListMarkup() {
   showLoader();
   readShoppingList(dataUser.userId).then(snapshot => {
     if (snapshot.exists()) {
-     
       const shoppingList = snapshot.val();
       const keys = Object.keys(shoppingList);
       const books = [];
       if (keys.length !== 0) {
         for (let key of keys) {
           const book = shoppingList[`${key}`];
-          
+
           const bookMarkup = `<li class="shop-cart-container">
         <div class="shop-cart-wrap">
           <div class="shop-image-wrapper">
@@ -123,10 +141,9 @@ function shoppingListMarkup() {
               data-title="title"
               aria-label="Remove button"
             >
-           <svg class="shop-cart-btn-trash" width="24" height="20" >
-           <use href="${trash}" ></use>
+           <svg class="shop-cart-btn-trash" width="18" height="18"">
+           ${trash}
            </svg>
-                        
             </button>
           </div>
         </div>
@@ -149,21 +166,23 @@ function shoppingListMarkup() {
       <picture>
         <source
           srcset="
-            ./img/shopping/books_desk_tab_1x.png 1x,
-            ./img/shopping/books_desk_tab_2x.png 2x
+            ${shopListClearDeskTab1x} 1x,
+            ${shopListClearDeskTab2x} 2x
           "
           media="(min-width: 768px)"
+            type="image/png"
         />
-        <source
-          srcset="
-            ./img/shopping/books_mob_1x.png 1x,
-            ./img/shopping/books_mob_2x.png 2x
+        <sorce
+          srset=" 
+           ${shopListClearMob1x} 1x,
+            ${shopListClearMob2x} 2x
           "
           media="(max-width: 767px)"
+            type="image/png"
         />
         <img
           class="empty-shopping-list-img"
-          src="./img/shopping/books_mob_1x.png"
+          src="${shopListClearMob1x}"
           alt="empty shopping list img"
         />
       </picture>
@@ -172,7 +191,6 @@ function shoppingListMarkup() {
     }
     hideLoader();
   });
-    
 }
 
 function removeCardInShopList(event) {
