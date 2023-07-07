@@ -200,55 +200,65 @@ h3.night {
     color: var(--main-bg-color);
 }
 
-.night .title-acent{
+.night .title-acent {
     color: var(--main-accent-color);
 }
-.night .see-more{
+
+.night .see-more {
     color: var(--main-bg-color);
     background-color: var(--secondary-color);
 }
-.night .modal-close-icon{
+
+.night .modal-close-icon {
     fill: var(--main-bg-color);
 }
-.night .modal-icon{
+
+.night .modal-icon {
     stroke: var(--main-bg-color);
 }
-.night .modal-input{
+
+.night .modal-input {
     color: var(--main-bg-color);
 }
-.night .btn-modal-submit{
-    background-color: var(--main-bg-color) ;
+
+.night .btn-modal-submit {
+    background-color: var(--main-bg-color);
     color: var(--secondary-color);
 }
-.night .modal-auth{
-    background-color:var(--secondary-color);
+
+.night .modal-auth {
+    background-color: var(--secondary-color);
 }
 
-.night .btn-modal-action{
+.night .btn-modal-action {
     background-color: transparent;
 }
-.night .btn-modal-action{
+
+.night .btn-modal-action {
     color: var(--main-color);
 }
-.night .modal-icon:last-child{
+
+.night .modal-icon:last-child {
     fill: var(--main-bg-color);
 }
-.night .nav-items:focus,
-.night .nav-item:hover{
+
+.night .nav-items:focus:not(.disabled-link),
+.night .nav-item:hover .nav-items:not(.disabled-link) {
     background-color: var(--secondary-accent-color);
     border-radius: 36px;
 }
 
-.night .nav-items:focus,
-.night .nav-item:focus{
+.night .nav-items:focus:not(.disabled-link),
+.night .nav-item:focus .nav-items:not(.disabled-link) {
     background-color: var(--secondary-accent-color);
     border-radius: 36px;
 }
 
-::placeholder{
+::placeholder {
     color: var(--main-bg-color);
 }
-.night .modal-body-title{
+
+.night .modal-body-title {
     color: var(--main-bg-color);
 }
 
