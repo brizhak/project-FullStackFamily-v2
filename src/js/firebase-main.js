@@ -108,6 +108,7 @@ function onFormSubmit(event) {
       })      
 
       .catch(error => {
+        hideLoader();
         const errorCode = error.code;
         const errorMessage = error.message;
         Notify.warning(errorMessage);
@@ -133,6 +134,7 @@ function onFormSubmit(event) {
 
       })
       .catch(error => {
+        hideLoader();
         const errorCode = error.code;
         const errorMessage = error.message;
         Notify.warning(errorMessage);
@@ -147,10 +149,10 @@ const auth = getAuth(app);
 setPersistence(auth, browserSessionPersistence)
 
   .then(() => {
-    showLoader();
+  
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
-       hideLoader();
+     
         const user = userCredential.user;
         dataUser.userId = user.uid;
         authStates.status = true;
