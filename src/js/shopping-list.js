@@ -4,22 +4,7 @@ import apple from '../img/shopping/apple.png';
 import bookshop from '../img/shopping/bookshop.png';
 
 import trash from 'bundle-text:../img/icon-trash.svg';
-shopListClearMob1x = new URL(
-  '../img/shopping/books_mob_1x.png',
-  import.meta.url
-);
-shopListClearMob2x = new URL(
-  '../img/shopping/books_mob_2x.png',
-  import.meta.url
-);
-shopListClearDeskTab1x = new URL(
-  '../img/shopping/books_desk_tab_1x.png',
-  import.meta.url
-);
-shopListClearDeskTab2x = new URL(
-  '../img/shopping/books_desk_tab_2x.png',
-  import.meta.url
-);
+import shopListClearMob1x from '../img/shopping/books_mob_1x.png';
 
 import {
   dataUser,
@@ -28,8 +13,6 @@ import {
   removeElShoppingList,
 } from './firebase-api.js';
 import { showLoader, hideLoader } from './loader.js';
-
-// const svg = new URL('');
 
 const foundsList = document.querySelector('.sheave');
 const mainList = document.querySelector('.shopping-list-list');
@@ -141,7 +124,7 @@ function shoppingListMarkup() {
               data-title="title"
               aria-label="Remove button"
             >
-           <svg class="shop-cart-btn-trash" width="18" height="18"">
+           <svg class="shop-cart-btn-trash" width="18" height="18" id="${key}">
            ${trash}
            </svg>
             </button>
@@ -164,21 +147,9 @@ function shoppingListMarkup() {
     </p>
      
       <picture>
-        <source
-          srcset="
-            ${shopListClearDeskTab1x} 1x,
-            ${shopListClearDeskTab2x} 2x
-          "
-          media="(min-width: 768px)"
-            type="image/png"
-        />
         <sorce
-          srset=" 
-           ${shopListClearMob1x} 1x,
-            ${shopListClearMob2x} 2x
-          "
-          media="(max-width: 767px)"
-            type="image/png"
+          srset="${shopListClearMob1x}"
+          type="image/png"
         />
         <img
           class="empty-shopping-list-img"
@@ -194,7 +165,8 @@ function shoppingListMarkup() {
 }
 
 function removeCardInShopList(event) {
-  if (event.target.nodeName !== 'BUTTON') {
+  // if (event.target.nodeName !== 'BUTTON') {
+  if (event.target.nodeName !== 'BUTTON' && event.target.nodeName !== 'svg') {
     return;
   }
   const bookItemId = event.target.id;
