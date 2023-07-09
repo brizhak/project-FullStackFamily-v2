@@ -83,13 +83,12 @@
   fill: var(--main-accent-color);
 }
 
-.swiper-button-next-icon {
-  transform: rotate(180deg) translateY(-100%) translateX(-100%);
+.swiper-button-up {
+  transform: rotate(180deg) translateY(2%) translateX(50%);
 }
 
 .swiper-button-up.is-hidden {
   display: none;
-  transform: rotate(180deg) translateY(-100%) translateX(-100%);
 }
 
 .charity-img {
