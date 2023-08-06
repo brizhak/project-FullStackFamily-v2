@@ -14,7 +14,7 @@ async function onOpenCategoryList(evt) {
       return;
     }
     category = evt.target.id;
-  
+   
     let books = await fetchCertainCategory(category);
     if (!books) {
       Notiflix.Notify.failure("Ops! We don't have books certain category");
@@ -26,6 +26,7 @@ async function onOpenCategoryList(evt) {
     Notiflix.Notify.failure('Something went wrong. Please try again');
    
   } finally {
+    
   }
 }
 

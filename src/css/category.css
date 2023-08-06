@@ -190,6 +190,7 @@ p {
 
 .best-sellers-title {
   padding-bottom: 18px;
+  width: 100%;
   color: #b4afaf;
   font-size: 14px;
   font-family: 'DM Sans Regular';
@@ -201,6 +202,8 @@ p {
 }
 .visible-hidden-title {
   padding-bottom: 18px;
+  height: 0;
+  width: 0;
   opacity: 0;
   font-size: 14px;
   font-family: 'DM Sans Regular';
@@ -213,6 +216,8 @@ p {
 .books-category {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
 }
 
