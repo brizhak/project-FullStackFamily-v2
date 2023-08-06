@@ -38,19 +38,21 @@ function renderCurrentCategory(arr) {
       const bookTitleClass =
         index === 0 ? 'best-sellers-title' : 'visible-hidden-title';
 
-      return `
-                    <a href="#" class="book-card" id="${_id}">
-                    <p class="${bookTitleClass}">${list_name}</p>
-                    <div class="book-carts">
-                        <div class='img-container-top'>
-                            <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
-                        </div>
-                        <div class="book-title">
-                            <p>${title}</p>
-                            <p class="book-author">${author}</p>
-                        </div>
-                    </div>
-                    </a>
+      return `      
+                    <a href="#" class="book-card" id="${_id}">     
+        <div class="book-carts">
+        
+        <div class='img-container-top book-over'>
+        <p class="book-over-text">quick view </p>
+          <img src="${book_image}" alt="${title}" class="book-img" loading="lazy" width=335>
+        </div>
+
+            <div class="book-title">
+              <p>${title}</p>
+              <p class="book-author">${author}</p>
+            </div>
+        </div>
+      </a>
         `;
     })
     .join('');
