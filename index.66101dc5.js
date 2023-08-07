@@ -110,18 +110,20 @@ function t(t){return t&&t.__esModule?t.default:t}var e,i,n,o,r,a="undefined"!=ty
 
             </div>
 
-        </div>`;e3.insertAdjacentHTML("afterbegin",i)}(e8)}catch(e){t(p).Notify.failure("Something went wrong. Please try again")}}var e2=c("9bk7d");let e7=document.querySelector(".modal"),it=document.querySelector(".overlay-modal-book"),ie=document.querySelector(".modal-close-btn");const ii=document.querySelector("#add-to-cart-btn"),io=document.querySelector("#remove-from-cart-btn");function ir(){let t=document.body,e=t.style.top;t.style.position="",t.style.top="",window.scrollTo(0,-1*parseInt(e||"0")),e7.classList.remove("active"),it.classList.remove("active")}function ia(t){let e=t.code;"Escape"===e&&(ir(),document.body.removeEventListener("keyup",esapeListener))}ie.addEventListener("click",ir),it.addEventListener("click",ir),window.addEventListener("scroll",()=>{document.documentElement.style.setProperty("--scroll-y",`${window.scrollY}px`)}),c("gjiCh");var e2=c("9bk7d");const is=document.querySelector("#add-to-cart-btn"),il=document.querySelector("#remove-from-cart-btn"),ic=document.querySelector(".modal-congrats-text");is.addEventListener("click",function(t){(0,e2.updateUserData)(e8,e2.dataUser.userId).then(()=>{is.classList.add("visually-hidden"),il.classList.remove("visually-hidden")}),ic.classList.remove("visually-hidden")}),il.addEventListener("click",function(t){il.classList.add("visually-hidden"),ic.classList.add("visually-hidden"),is.classList.remove("visually-hidden"),(0,e2.readShoppingList)(e2.dataUser.userId).then(t=>{if(t.exists()){let e=t.val(),i=Object.keys(e),n=[];if(0!==i.length)for(let t of i){let i=e[`${t}`];n.push(i)}let o=n.findIndex((t,e)=>t._id===e8._id),r=i[o];(0,e2.removeElShoppingList)(e2.dataUser.userId,r).then(()=>{})}})}),c("9tydV"),c("6zeq2"),c("gjiCh"),document.querySelector(".see-more");const ip=document.querySelector(".books-category");ip.addEventListener("click",im);let iu="";async function im(e){try{if("BUTTON"!==e.target.nodeName)return;iu=e.target.id;let i=await eX(iu);return i||t(p).Notify.failure("Ops! We don't have books certain category"),function(t){let e=document.createElement("div");e.classList.add("list-top-books");let i=t.map(({book_image:t,author:e,title:i,_id:n,list_name:o},r)=>`
-                    <a href="#" class="book-card" id="${n}">
-                    <p class="${0===r?"best-sellers-title":"visible-hidden-title"}">${o}</p>
-                    <div class="book-carts">
-                        <div class='img-container-top'>
-                            <img src="${t}" alt="${i}" class="book-img" loading="lazy" width=335>
-                        </div>
-                        <div class="book-title">
-                            <p>${i}</p>
-                            <p class="book-author">${e}</p>
-                        </div>
-                    </div>
-                    </a>
+        </div>`;e3.insertAdjacentHTML("afterbegin",i)}(e8)}catch(e){t(p).Notify.failure("Something went wrong. Please try again")}}var e2=c("9bk7d");let e7=document.querySelector(".modal"),it=document.querySelector(".overlay-modal-book"),ie=document.querySelector(".modal-close-btn");const ii=document.querySelector("#add-to-cart-btn"),io=document.querySelector("#remove-from-cart-btn");function ir(){let t=document.body,e=t.style.top;t.style.position="",t.style.top="",window.scrollTo(0,-1*parseInt(e||"0")),e7.classList.remove("active"),it.classList.remove("active")}function ia(t){let e=t.code;"Escape"===e&&(ir(),document.body.removeEventListener("keyup",esapeListener))}ie.addEventListener("click",ir),it.addEventListener("click",ir),window.addEventListener("scroll",()=>{document.documentElement.style.setProperty("--scroll-y",`${window.scrollY}px`)}),c("gjiCh");var e2=c("9bk7d");const is=document.querySelector("#add-to-cart-btn"),il=document.querySelector("#remove-from-cart-btn"),ic=document.querySelector(".modal-congrats-text");is.addEventListener("click",function(t){(0,e2.updateUserData)(e8,e2.dataUser.userId).then(()=>{is.classList.add("visually-hidden"),il.classList.remove("visually-hidden")}),ic.classList.remove("visually-hidden")}),il.addEventListener("click",function(t){il.classList.add("visually-hidden"),ic.classList.add("visually-hidden"),is.classList.remove("visually-hidden"),(0,e2.readShoppingList)(e2.dataUser.userId).then(t=>{if(t.exists()){let e=t.val(),i=Object.keys(e),n=[];if(0!==i.length)for(let t of i){let i=e[`${t}`];n.push(i)}let o=n.findIndex((t,e)=>t._id===e8._id),r=i[o];(0,e2.removeElShoppingList)(e2.dataUser.userId,r).then(()=>{})}})}),c("9tydV"),c("6zeq2"),c("gjiCh"),document.querySelector(".see-more");const ip=document.querySelector(".books-category");ip.addEventListener("click",im);let iu="";async function im(e){try{if("BUTTON"!==e.target.nodeName)return;iu=e.target.id;let i=await eX(iu);return i||t(p).Notify.failure("Ops! We don't have books certain category"),function(t){let e=document.createElement("div");e.classList.add("list-top-books");let i=t.map(({book_image:t,author:e,title:i,_id:n,list_name:o},r)=>`      
+                    <a href="#" class="book-card" id="${n}">     
+        <div class="book-carts">
+        
+        <div class='img-container-top book-over'>
+        <p class="book-over-text">quick view </p>
+          <img src="${t}" alt="${i}" class="book-img" loading="lazy" width=335>
+        </div>
+
+            <div class="book-title">
+              <p>${i}</p>
+              <p class="book-author">${e}</p>
+            </div>
+        </div>
+      </a>
         `).join(""),n=document.getElementById(`${iu}`);e.innerHTML=i,n.id=iu,n.id===iu&&(n.innerHTML="",n.appendChild(e))}(i),iu}catch(e){t(p).Notify.failure("Something went wrong. Please try again")}finally{}}c("bUb57"),c("gjiCh");
-//# sourceMappingURL=index.8c7e7c56.js.map
+//# sourceMappingURL=index.66101dc5.js.map
